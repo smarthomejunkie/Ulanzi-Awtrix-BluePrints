@@ -28,7 +28,8 @@ Click the image to watch the video. (It will open in this browser window)
 2. After uploading the Blueprints, go to Developer Tools > YAML tab and click AUTOMATIONS
 
 # How to use
-There are 7 Blueprints to control your Ulanzi Desktop Clock using Awtrix.
+There are 7 Blueprints to control your Ulanzi Desktop Clock using Awtrix. Each automation that you create with a Blueprint needs a toggle helper to turn the notification or app on or off. Don't forget to create a toggle (or number) helper for each automation that you create with these Blueprints!
+
 
 ## 1. Awtrix Create Notification
 With this Blueprint, you can send a notification to the clock.
