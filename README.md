@@ -22,7 +22,9 @@ Click the image to watch the video. (It will open in this browser window)
 
 # Where to get?
 **1. You can download the Home Assistant Blueprints by sponsoring me on [this Ko-Fi page](https://ko-fi.com/s/0d1e4419bd)**
+
 **2. You can get the Awtrix Light firmware [on this site](https://blueforcer.github.io/awtrix-light/#/README)**
+
 **3. You can [find the Awtrix Light Repository here](https://github.com/Blueforcer/awtrix-light)**
 
 # How to install
