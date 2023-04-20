@@ -167,7 +167,7 @@ A. You can run up to 20 custom apps simultaneously.
 # Updates
 
 V1.5:
-* Added the possibility to select media players in the Awtrix Crteate Sensor App. It's now possible to show the artist and song on the clock when a new song starts playing on the selected media player.
+* Added the possibility to select media players in the Awtrix Create Sensor App. It's now possible to show the artist and song on the clock when a new song starts playing on the selected media player.
 * Added a Template field. You can now format your sensors so that they look exactly like you want them to look!
 
 V1.43:
