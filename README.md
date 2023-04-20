@@ -168,6 +168,10 @@ A: Set the toggle helper for your Awtrix notification to "on" in the automation 
 Q. How many custom apps can I run simultaneously on this clock?
 A. You can run up to 20 custom apps simultaneously. 
 
+5.
+Q. How can I show the Artist and Song for 10 seconds every time when a new song starts playing?
+A. Create an automation with the Awtrix Create Sensor App Blueprint. Select a toiggle helper that you've created for the Awtrix media player app. Select the Media Player as the Sensor. Set Lifetime to 10 seconds. Make sure the toggle helper is set to on.
+
 # Updates
 
 V1.5:
