@@ -154,23 +154,28 @@ With this Blueprint, you can set up the weather app
 
 1. 
 Q: What's the password for the Access Point when the clock is in AP Mode?
+
 A: It's: 12345678
 
 2.
 Q: Will the display update as soon as a sensor value updates?
+
 A: Yes, it will update immediately.
 
 3. 
 Q: How can I toggle a notification when a sensor value changes. For instance when a door sensor gets opened?
+
 A: Set the toggle helper for your Awtrix notification to "on" in the automation that detects if the door gets opened. This way, the Awtrix notification automation that you've created will also be triggered. I call this technique "daisy-chaining" of automations and explain this in this video: https://youtu.be/sNmonuw4EHo
 
 4.
 Q. How many custom apps can I run simultaneously on this clock?
+
 A. You can run up to 20 custom apps simultaneously. 
 
 5.
 Q. How can I show the Artist and Song for 10 seconds every time when a new song starts playing?
-A. 
+
+A. Follow these steps:
   1. Create an automation with the Awtrix Create Sensor App Blueprint.
   2. Select a toiggle helper that you've created for the Awtrix media player app.
   3. Select the Media Player as the Sensor.
