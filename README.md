@@ -1,6 +1,22 @@
 # Ulanzi-Awtrix-BluePrints
 Manual for the Ulanzi Clock - Awtrix Firmware BluePrints
 
+# Table of Contents:
+- [Ulanzi-Awtrix-BluePrints](#ulanzi-awtrix-blueprints)
+- [Contents:](#contents-)
+- [Where to get?](#where-to-get-)
+- [How to install](#how-to-install)
+- [How to use](#how-to-use)
+  * [1. Awtrix Create Notification](#1-awtrix-create-notification)
+  * [2. Awtrix Create Sensor App](#2-awtrix-create-sensor-app)
+  * [3. Awtrix Rain Forecast](#3-awtrix-rain-forecast)
+  * [4. Awtrix Set Transition Time](#4-awtrix-set-transition-time)
+  * [5. Awtrix Toggle Stock App](#5-awtrix-toggle-stock-app)
+  * [6. Toggle Indicators](#6-toggle-indicators)
+  * [7. Awtrix Weather App](#7-awtrix-weather-app)
+- [Q&A](#q-a)
+- [Updates](#updates)
+
 [![This is the BEST MATRIX DISPLAY CLOCK for Home Assistant!](https://img.youtube.com/vi/N0NKPJzGHuA/maxresdefault.jpg)](https://www.youtube.com/watch?v=N0NKPJzGHuA)
 Click the image to watch the video. (It will open in this browser window)
 
@@ -128,6 +144,24 @@ With this Blueprint, you can set up the weather app
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
 |Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime|
+
+# Q&A
+
+1. 
+Q: What's the password for the Access Point when the clock is in AP Mode?
+A: It's: 12345678
+
+2.
+Q: Will the display update as soon as a sensor value updates?
+A: Yes, it will update immediately.
+
+3. 
+Q: How can I toggle a notification when a sensor value changes. For instance when a door sensor gets opened?
+A: Set the toggle helper for your Awtrix notification to "on" in the automation that detects if the door gets opened. This way, the Awtrix notification automation that you've created will also be triggered. I call this technique "daisy-chaining" of automations and explain this in this video: https://youtu.be/sNmonuw4EHo
+
+4.
+Q. How many custom apps can I run simultaneously on this clock?
+A. You can run up to 20 custom apps simultaneously. 
 
 # Updates
 
