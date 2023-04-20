@@ -18,7 +18,9 @@ There are 7 Blueprints to control your Ulanzi Desktop Clock using Awtrix.
 With this Blueprint, you can send a notification to the clock.
 
 Fields:
+
 |Name|Type|Default|Example|Decription|
+|---|---|---|---|---|
 |Awtrix Display|dropdown||awtrix_d6b0f1|Select the target Awtrix display|
 
 
