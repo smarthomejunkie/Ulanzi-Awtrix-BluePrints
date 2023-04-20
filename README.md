@@ -1,6 +1,9 @@
 # Ulanzi-Awtrix-BluePrints
 Manual for the Ulanzi Clock - Awtrix Firmware BluePrints
 
+[![This is the BEST MATRIX DISPLAY CLOCK for Home Assistant!](https://img.youtube.com/vi/N0NKPJzGHuA/maxresdefault.jpg)](https://www.youtube.com/watch?v=N0NKPJzGHuA)
+Click the image to watch the video. (It will open in this browser window)
+
 # Table of Contents:
 - [Ulanzi-Awtrix-BluePrints](#ulanzi-awtrix-blueprints)
 - [Contents:](#contents-)
@@ -16,9 +19,6 @@ Manual for the Ulanzi Clock - Awtrix Firmware BluePrints
   * [7. Awtrix Weather App](#7-awtrix-weather-app)
 - [Q&A](#q-a)
 - [Updates](#updates)
-
-[![This is the BEST MATRIX DISPLAY CLOCK for Home Assistant!](https://img.youtube.com/vi/N0NKPJzGHuA/maxresdefault.jpg)](https://www.youtube.com/watch?v=N0NKPJzGHuA)
-Click the image to watch the video. (It will open in this browser window)
 
 # Where to get?
 **You can download the Home Assistant Blueprints by sponsoring me on [this Ko-Fi page](https://ko-fi.com/s/0d1e4419bd)**
