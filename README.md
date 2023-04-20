@@ -14,7 +14,9 @@ You can download the Home Assistant Blueprints by sponsoring me on [this Ko-Fi p
 ## How to use
 There are 7 Blueprints to control your Ulanzi Desktop Clock using Awtrix.
 
-### 
+### Create Notification
+With this Blueprint, you can send a notification to the clock.
+
 
 
 ## Updates
