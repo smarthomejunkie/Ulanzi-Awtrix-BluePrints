@@ -173,10 +173,11 @@ A. You can run up to 20 custom apps simultaneously.
 
 A. Follow these steps:
   1. Create an automation with the Awtrix Create Sensor App Blueprint.
-  2. Select a toiggle helper that you've created for the Awtrix media player app.
+  2. Select a toggle helper that you've created for the Awtrix media player app.
   3. Select the Media Player as the Sensor.
-  4. Set Lifetime to 10 seconds.
-  5. Make sure the toggle helper is set to on.
+  4. Add code to the template field to show the artist and title. For example: {{ state_attr('media_player.chromecast_audio','media_artist') }} - {{ state_attr('media_player.chromecast_audio','media_title') }}
+  5. Set Lifetime to 10 seconds.
+  6. Make sure the toggle helper is set to on.
 
 # Updates
 
