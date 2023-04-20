@@ -170,7 +170,12 @@ A. You can run up to 20 custom apps simultaneously.
 
 5.
 Q. How can I show the Artist and Song for 10 seconds every time when a new song starts playing?
-A. Create an automation with the Awtrix Create Sensor App Blueprint. Select a toiggle helper that you've created for the Awtrix media player app. Select the Media Player as the Sensor. Set Lifetime to 10 seconds. Make sure the toggle helper is set to on.
+A. 
+  1. Create an automation with the Awtrix Create Sensor App Blueprint.
+  2. Select a toiggle helper that you've created for the Awtrix media player app.
+  3. Select the Media Player as the Sensor.
+  4. Set Lifetime to 10 seconds.
+  5. Make sure the toggle helper is set to on.
 
 # Updates
 
