@@ -1,12 +1,17 @@
 # Ulanzi-Awtrix-BluePrints
 Manual for the Ulanzi Clock - Awtrix Firmware BluePrints
 
+<lite-youtube videoid="N0NKPJzGHuA" videotitle="This is the BEST MATRIX DISPLAY CLOCK for Home Assistant!" posterquality="maxresdefault"></lite-youtube>
+
 ## Where to get?
 You can download the Home Assistant Blueprints by sponsoring me on [this Ko-Fi page](https://ko-fi.com/s/0d1e4419bd)
 
 ## How to install
 1. Upload the smarthomejunkie folder into the /config/blueprints/automations folder in Home Assistant
 2. After uploading the Blueprints, go to Developer Tools > YAML tab and click AUTOMATIONS
+
+## How to use
+There are 7 Blueprints to control your Ulanzi Desktop Clock using Awtrix
 
 ## Updates
 V1.1: 
