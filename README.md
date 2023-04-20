@@ -3,6 +3,10 @@ Manual for the Ulanzi Clock - Awtrix Firmware BluePrints
 
 <lite-youtube videoid="N0NKPJzGHuA" videotitle="This is the BEST MATRIX DISPLAY CLOCK for Home Assistant!" posterquality="maxresdefault"></lite-youtube>
 
+[![Final video of fixing issues in your code in VS Code]
+(https://img.youtube.com/vi/JLMbpiywVxQ/maxresdefault.jpg)]
+(https://www.youtube.com/watch?v=JLMbpiywVxQ)
+
 ## Where to get?
 You can download the Home Assistant Blueprints by sponsoring me on [this Ko-Fi page](https://ko-fi.com/s/0d1e4419bd)
 
