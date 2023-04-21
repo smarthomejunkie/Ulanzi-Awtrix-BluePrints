@@ -155,7 +155,7 @@ With this Blueprint, you can set up the weather app
 
 **Q: What's the password for the Access Point when the clock is in AP Mode?**
 
-A: It's: 12345678
+A: The AP Mode password is: 12345678
 
 **Q: My display does not show notifications or apps as soon as I trigger them.**
 
