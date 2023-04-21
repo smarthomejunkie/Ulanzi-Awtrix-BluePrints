@@ -157,6 +157,10 @@ With this Blueprint, you can set up the weather app
 
 A: It's: 12345678
 
+**Q: My display does not show notifications or apps as soon as I trigger them.**
+
+A: Make sure the MQTT prefix in Awtrix Light is exactly the same as the name of the device in Home Assistant. Don't use spaces in the name. 
+
 **Q: Will the display update as soon as a sensor value updates?**
 
 A: Yes, it will update immediately.
