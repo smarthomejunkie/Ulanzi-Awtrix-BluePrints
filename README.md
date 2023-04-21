@@ -162,6 +162,7 @@ A: It's: 12345678
 A: Make sure the MQTT prefix in Awtrix Light is exactly the same as the name of the device in Home Assistant. Don't use spaces in the name. 
 
 **Q: Will my existing automations still work after I'be updated the Blueprints to a new version?**
+
 A: Yes
 
 **Q: Will the display update as soon as a sensor value updates?**
