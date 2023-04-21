@@ -17,7 +17,7 @@ Click the image to watch the video. (It will open in this browser window)
   * [5. Awtrix Toggle Stock App](#5-awtrix-toggle-stock-app)
   * [6. Toggle Indicators](#6-toggle-indicators)
   * [7. Awtrix Weather App](#7-awtrix-weather-app)
-- [Q&A](#q&a)
+- [FAQ](#faq)
 - [Updates](#updates)
 
 # Where to get?
@@ -151,7 +151,7 @@ With this Blueprint, you can set up the weather app
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
 |Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime|
 
-# Q&A
+# FAQ
 
 **Q: What's the password for the Access Point when the clock is in AP Mode?**
 
