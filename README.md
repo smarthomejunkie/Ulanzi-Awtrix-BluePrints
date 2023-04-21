@@ -30,7 +30,7 @@ You will get lifetime updates, and you can download new versions by logging in t
 
 # How to install
 1. Upload the smarthomejunkie folder into the /config/blueprints/automations folder in Home Assistant
-2. After uploading the Blueprints, go to Developer Tools > YAML tab and click AUTOMATIONS
+2. After uploading the Blueprints, go to Developer Tools > YAML tab and click AUTOMATIONS. Your existing automations will still work. 
 
 # How to use
 There are 7 Blueprints to control your Ulanzi Desktop Clock using Awtrix. Each automation that you create with a Blueprint needs a toggle helper to turn the notification or app on or off. Don't forget to create a toggle (or number) helper for each automation that you create with these Blueprints!
