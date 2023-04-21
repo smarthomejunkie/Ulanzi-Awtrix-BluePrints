@@ -29,7 +29,7 @@ You will get lifetime updates, and you can download new versions by logging in t
 **3. You can [find the Awtrix Light Repository here](https://github.com/Blueforcer/awtrix-light)**.
 
 # How to install
-1. Upload (or overwrite) the smarthomejunkie folder into the /config/blueprints/automations folder in Home Assistant
+1. Upload (or overwrite) the smarthomejunkie folder into the /config/blueprints/automations folder in Home Assistant.
 2. After uploading the Blueprints, go to Developer Tools > YAML tab and click AUTOMATIONS. Your existing automations will still work. 
 
 # How to use
@@ -160,6 +160,9 @@ A: It's: 12345678
 **Q: My display does not show notifications or apps as soon as I trigger them.**
 
 A: Make sure the MQTT prefix in Awtrix Light is exactly the same as the name of the device in Home Assistant. Don't use spaces in the name. 
+
+**Q: Will my existing automations still work after I'be updated the Blueprints to a new version?**
+A: Yes
 
 **Q: Will the display update as soon as a sensor value updates?**
 
