@@ -29,7 +29,7 @@ You will get lifetime updates, and you can download new versions by logging in t
 **3. You can [find the Awtrix Light Repository here](https://github.com/Blueforcer/awtrix-light)**.
 
 # How to install
-1. Upload the smarthomejunkie folder into the /config/blueprints/automations folder in Home Assistant
+1. Upload (or overwrite) the smarthomejunkie folder into the /config/blueprints/automations folder in Home Assistant
 2. After uploading the Blueprints, go to Developer Tools > YAML tab and click AUTOMATIONS. Your existing automations will still work. 
 
 # How to use
@@ -211,17 +211,3 @@ V1.2:
 V1.1: 
 * It's now possible to select to show temperature and windspeed optionally in Weather app. After uploading the new weather blueprint, go to Developer Tools > YAML and refresh the automations.
 * Added new Blueprint to toggle indicators.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
