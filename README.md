@@ -73,7 +73,7 @@ With this Blueprint, you can create a sensor App on the clock that is part of th
 |Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
-|Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime|
+|Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
 
 ## 3. Awtrix Rain Forecast
 With this Blueprint, you can create a bar or line chart that shows the rain forecast
@@ -93,7 +93,7 @@ With this Blueprint, you can create a bar or line chart that shows the rain fore
 |Text Case|dropdown|0|0=Use global setting<br />1=Force Uppercase<br />2=Show as you entered it|Select how you would like your text to display|
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
-|Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime|
+|Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
 
 ## 4. Awtrix Set Transition Time
 With this Blueprint, you can set the global time that each app is visible
@@ -149,7 +149,7 @@ With this Blueprint, you can set up the weather app
 |Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
-|Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime|
+|Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
 
 # FAQ
 
