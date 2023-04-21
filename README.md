@@ -17,7 +17,7 @@ Click the image to watch the video. (It will open in this browser window)
   * [5. Awtrix Toggle Stock App](#5-awtrix-toggle-stock-app)
   * [6. Toggle Indicators](#6-toggle-indicators)
   * [7. Awtrix Weather App](#7-awtrix-weather-app)
-- [Q&A](#q-a)
+- [Q&A](#q&a)
 - [Updates](#updates)
 
 # Where to get?
