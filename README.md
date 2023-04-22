@@ -176,13 +176,13 @@ A: Yes, it will update immediately.
 
 A: Set the toggle helper for your Awtrix notification to "on" in the automation that detects if the door gets opened. This way, the Awtrix notification automation that you've created will also be triggered. I call this technique "daisy-chaining" of automations and explain this in this video: https://youtu.be/sNmonuw4EHo
 
-**Q. How many custom apps can I run simultaneously on this clock?**
+**Q: How many custom apps can I run simultaneously on this clock?**
 
-A. You can run up to 20 custom apps simultaneously. 
+A: You can run up to 20 custom apps simultaneously. 
 
-**Q. How can I show the Artist and Song for 10 seconds every time when a new song starts playing?**
+**Q: How can I show the Artist and Song for 10 seconds every time when a new song starts playing?**
 
-A. Follow these steps:
+A: Follow these steps:
   1. Create an automation with the Awtrix Create Sensor App Blueprint.
   2. Select a toggle helper that you've created for the Awtrix media player app.
   3. Select the Media Player as the Sensor.
@@ -192,11 +192,11 @@ A. Follow these steps:
 
 **Q: How can I disable the stock apps so that they do not reappear after a reboot of the clock?**
 
-A. You can turn them off on the device itself. Long press the middle button to get into the menu and disable them one by one in the menu-option APPS.
+A: You can turn them off on the device itself. Long press the middle button to get into the menu and disable them one by one in the menu-option APPS.
 
-**Q. How can I change the order of the apps?
+**Q: How can I change the order of the apps?**
 
-A. The apps show in the order that you activate them.
+A: The apps show in the order that you activate them.
 
 # Updates
 
