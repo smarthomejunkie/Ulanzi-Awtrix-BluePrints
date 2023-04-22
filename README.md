@@ -190,7 +190,7 @@ A. Follow these steps:
 
 **Q: How can I disable the stock apps so that they do not reappear after a reboot of the clock?**
 
-A. You can turn them off on the device itself. Long press the middle button to get into the menu and disable them in the menu-option APPS.
+A. You can turn them off on the device itself. Long press the middle button to get into the menu and disable them one by one in the menu-option APPS.
 
 # Updates
 
