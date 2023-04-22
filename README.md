@@ -194,6 +194,10 @@ A. Follow these steps:
 
 A. You can turn them off on the device itself. Long press the middle button to get into the menu and disable them one by one in the menu-option APPS.
 
+**Q. How can I change the order of the apps?
+
+A. The apps show in the order that you activate them.
+
 # Updates
 
 V1.52:
