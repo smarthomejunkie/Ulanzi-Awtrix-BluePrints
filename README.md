@@ -37,7 +37,7 @@ There are 7 Blueprints to control your Ulanzi Desktop Clock using Awtrix. Each a
 
 
 ## 1. Awtrix Create Notification
-With this Blueprint, you can send a notification to the clock.
+With this Blueprint, you can send a notification to the clock. It's also possible to use template code in the message
 
 **Fields:**
 
@@ -45,13 +45,14 @@ With this Blueprint, you can send a notification to the clock.
 |---|---|---|---|---|
 |Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
-|Notification Text|string||This is a notification|Enter the notification text|
+|Notification Text|string||Examples:< br />Dinner is Ready!<br/>The electricity price is now {{ states('sensor.electricity_price',rounded= True,with_unit=True) }} }}|Enter the notification text|
 |Icon|string||1234|Enter the Icon Name or ID of the icon that you like to show.|
 |Push Icon|dropdown|2|0=Icon doesn't move<br />1=Icon moves with text and will not appear again<br />2=Icon moves with text but appears again when the text starts|Icon behavior|
 |Text Case|dropdown|0|0=Use global setting<br />1=Force Uppercase<br />2=Show as you entered it|Select how you would like your text to display|
 |Background Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Background color|
 |Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
+|Play Alert Tone|boolean|false|true|Should an alert tone be played?<br /> Make sure you have copied the alerts.txt file into the MELODIES folder in Awtrix|
 |Hold Notification|boolean|true|false|Should the notification stay on the display until it's manually dismissed? (Overrides Duration)|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
 
