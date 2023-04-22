@@ -7,7 +7,7 @@ Click the image to watch the video. (It will open in this browser window)
 # Table of Contents:
 - [Ulanzi-Awtrix-BluePrints](#ulanzi-awtrix-blueprints)
 - [Contents:](#contents-)
-- [Where to get the Blueprints and firmware?](#where-to-get-the-blueprints-and-firmware-)
+- [Where to get the Blueprints and firmware?](#where-to-get-the-blueprints-and-firmware)
 - [How to install](#how-to-install)
 - [How to use](#how-to-use)
   * [1. Awtrix Create Notification](#1-awtrix-create-notification)
