@@ -188,7 +188,7 @@ A. Follow these steps:
   5. Set Lifetime to 10 seconds.
   6. Make sure the toggle helper is set to on.
 
-**Q: How can I disable the stock apps so that they do not reappear after a reboot of teh clock?**
+**Q: How can I disable the stock apps so that they do not reappear after a reboot of the clock?**
 
 A. You can turn them off on the device itself. Long press the middle button to get into the menu and disable them in the menu-option APPS.
 
