@@ -191,7 +191,7 @@ A. Follow these steps:
 # Updates
 
 V1.51:
-* An alert tone can now be played when a notification is triggered. Make sure you copy the alert.txt file into the MELODIES folder of Awtrix Light to make this work.
+* An alert tone can now be played when a notification is triggered. Make sure you copy the provided alert.txt file into the MELODIES folder of Awtrix Light to make this work.
 
 V1.50:
 * Added the possibility to select media players in the Awtrix Create Sensor App. It's now possible to show the artist and song on the clock when a new song starts playing on the selected media player.
