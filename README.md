@@ -196,6 +196,9 @@ A. You can turn them off on the device itself. Long press the middle button to g
 
 # Updates
 
+V1.52:
+* Fixed bug in Forecast Blueprint that pointed hardcoded to OpenWeatherMap.
+
 V1.51:
 * An alert tone can now be played when a notification is triggered. Make sure you copy the provided alert.txt file into the MELODIES folder of Awtrix Light to make this work.
 
