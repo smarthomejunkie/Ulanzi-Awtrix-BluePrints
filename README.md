@@ -199,7 +199,7 @@ A: The apps show in the order that you activate them.
 
 **Q: How can I download an updated version of the Blueprints for free?**
 
-A: If you've ordered the Blueprints before, log in to Ko-Fi and go the menu. Select "Payments History" en go to your previous payment. You can download the news version by clicking on "View Details > View Content > "Download".
+A: If you've ordered the Blueprints before, log in to Ko-Fi and go the menu. Select "Payments History" and go to your previous payment. You can download the new version by clicking on "View Details > View Content > Download".
 
 # Updates
 
