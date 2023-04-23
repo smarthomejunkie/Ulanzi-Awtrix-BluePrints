@@ -76,7 +76,7 @@ With this Blueprint, you can create a sensor App on the clock that is part of th
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
 |Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
-|Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes?|
+|Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes? **BEWARE**: Setting this to On for a sensor that changes very frequently might flood your clock with MQTT messages and might cause reboots of the clock!|
 
 ## 3. Awtrix Rain Forecast
 With this Blueprint, you can create a bar or line chart that shows the rain forecast
