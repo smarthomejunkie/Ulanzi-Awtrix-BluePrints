@@ -76,7 +76,7 @@ With this Blueprint, you can create a sensor App on the clock that is part of th
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
 |Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
-|Switch to App on Value Change|boolean|true|false|Should the clock switch to the app immidiately when the value of the sensor changes?|
+|Switch to App on Value Change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes?|
 
 ## 3. Awtrix Rain Forecast
 With this Blueprint, you can create a bar or line chart that shows the rain forecast
@@ -97,7 +97,7 @@ With this Blueprint, you can create a bar or line chart that shows the rain fore
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
 |Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
-|Switch to App on Value Change|boolean|true|false|Should the clock switch to the app immidiately when the value of the sensor changes?|
+|Switch to App on Value Change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes?|
 
 ## 4. Awtrix Set Transition Time
 With this Blueprint, you can set the global time that each app is visible
@@ -154,7 +154,7 @@ With this Blueprint, you can set up the weather app
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
 |Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
-|Switch to App on Value Change|boolean|true|false|Should the clock switch to the app immidiately when the value of the sensor changes?|
+|Switch to App on Value Change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes?|
 
 # FAQ
 
@@ -205,6 +205,9 @@ A: The apps show in the order that you activate them.
 A: If you've ordered the Blueprints before, log in to Ko-Fi and go the menu. Select "Payments History" and go to your previous payment. You can download the new version by clicking on "View Details > View Content > Download".
 
 # Updates
+
+V1.53:
+* Added the option to toggle if the clock should switch to the app immediately when the value of the sensor changes.
 
 V1.52:
 * Fixed bug in Forecast Blueprint that pointed hardcoded to OpenWeatherMap.
