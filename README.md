@@ -75,7 +75,7 @@ With this Blueprint, you can create a sensor App on the clock that is part of th
 |Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
-|Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
+|~~Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled~~|
 |Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes? **BEWARE**: Setting this to On for a sensor that changes very frequently might flood your clock with MQTT messages and might cause reboots of the clock!|
 
 ## 3. Awtrix Rain Forecast
@@ -205,6 +205,9 @@ A: The apps show in the order that you activate them.
 A: If you've ordered the Blueprints before, log in to Ko-Fi and go the menu. Select "Payments History" and go to your previous payment. You can download the new version by clicking on "View Details > View Content > Download".
 
 # Updates
+
+V1.54:
+* Removed the lifetime setting from the Blueprints. This setting causes the device to reboot every now and then.
 
 V1.53:
 * Added the option to toggle if the clock should switch to the app immediately when the value of the sensor changes.
