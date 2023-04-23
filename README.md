@@ -96,7 +96,7 @@ With this Blueprint, you can create a bar or line chart that shows the rain fore
 |Text Case|dropdown|0|0=Use global setting<br />1=Force Uppercase<br />2=Show as you entered it|Select how you would like your text to display|
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
-|Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
+|~~Lifetime (in seconds)~~|~~number~~|~~0~~|~~30~~|~~Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled~~|
 |Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes?|
 
 ## 4. Awtrix Set Transition Time
@@ -153,7 +153,7 @@ With this Blueprint, you can set up the weather app
 |Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
-|Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
+|~~Lifetime (in seconds)~~|~~number~~|~~0~~|~~30~~|~~Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled~~|
 |Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes?|
 
 # FAQ
@@ -182,15 +182,14 @@ A: Set the toggle helper for your Awtrix notification to "on" in the automation 
 
 A: You can run up to 20 custom apps simultaneously. 
 
-**Q: How can I show the Artist and Song for 10 seconds every time when a new song starts playing?**
+**Q: How can I show the Artist and Song every time when a new song starts playing?**
 
 A: Follow these steps:
   1. Create an automation with the Awtrix Create Sensor App Blueprint.
   2. Select a toggle helper that you've created for the Awtrix media player app.
   3. Select the Media Player as the Sensor.
   4. Add code to the template field to show the artist and title. For example: {{ state_attr('media_player.chromecast_audio','media_artist') }} - {{ state_attr('media_player.chromecast_audio','media_title') }}
-  5. Set Lifetime to 10 seconds.
-  6. Make sure the toggle helper is set to on.
+  5. Make sure the toggle helper is set to on.
 
 **Q: How can I disable the stock apps so that they do not reappear after a reboot of the clock?**
 
