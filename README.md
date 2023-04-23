@@ -76,6 +76,7 @@ With this Blueprint, you can create a sensor App on the clock that is part of th
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
 |Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
+|Switch to App on Value Change|boolean|true|false|Should the clock switch to the app immidiately when the value of the sensor changes?|
 
 ## 3. Awtrix Rain Forecast
 With this Blueprint, you can create a bar or line chart that shows the rain forecast
@@ -96,6 +97,7 @@ With this Blueprint, you can create a bar or line chart that shows the rain fore
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
 |Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
+|Switch to App on Value Change|boolean|true|false|Should the clock switch to the app immidiately when the value of the sensor changes?|
 
 ## 4. Awtrix Set Transition Time
 With this Blueprint, you can set the global time that each app is visible
@@ -152,6 +154,7 @@ With this Blueprint, you can set up the weather app
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
 |Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
+|Switch to App on Value Change|boolean|true|false|Should the clock switch to the app immidiately when the value of the sensor changes?|
 
 # FAQ
 
