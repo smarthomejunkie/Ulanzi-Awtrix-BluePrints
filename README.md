@@ -211,23 +211,23 @@ NOTE: This uses the default entity ID for the middle button of the Ulanzi clock 
 
 
 **V1.54:**
-* Removed the lifetime setting from the Blueprints. This setting causes the device to reboot every now and then.
+> Removed the lifetime setting from the Blueprints. This setting causes the device to reboot every now and then.
 
 **V1.53:**
-* Added the option to toggle if the clock should switch to the app immediately when the value of the sensor changes.
+> Added the option to toggle if the clock should switch to the app immediately when the value of the sensor changes.
 
 **V1.52:**
-* Fixed bug in Forecast Blueprint that pointed hardcoded to OpenWeatherMap.
+> Fixed bug in Forecast Blueprint that pointed hardcoded to OpenWeatherMap.
 
 **V1.51:**
-* An alert tone can now be played when a notification is triggered. Make sure you copy the provided alert.txt file into the MELODIES folder of Awtrix Light to make this work.
+> An alert tone can now be played when a notification is triggered. Make sure you copy the provided alert.txt file into the MELODIES folder of Awtrix Light to make this work.
 
 **V1.50:**
-* Added the possibility to select media players in the Awtrix Create Sensor App. It's now possible to show the artist and song on the clock when a new song starts playing on the selected media player.
-* Added a Template field. You can now format your sensors so that they look exactly like you want them to look!
+> Added the possibility to select media players in the Awtrix Create Sensor App. It's now possible to show the artist and song on the clock when a new song starts playing on the selected media player.
+> Added a Template field. You can now format your sensors so that they look exactly like you want them to look!
 
 **V1.43:**
-* Renaming the prefix in Awtrix Light and in Home Assistant to the same name will not break the apps anymore.
+> Renaming the prefix in Awtrix Light and in Home Assistant to the same name will not break the apps anymore.
 
 **V1.42:**
 * Added option to select a background color for notifications and custom apps.
