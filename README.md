@@ -205,46 +205,46 @@ A: If you've ordered the Blueprints before, log in to Ko-Fi and go the menu. Sel
 
 # Release Notes
 
-V1.55:
+**V1.55:**
 * The middle button of the Ulanzi clock now dismisses a notification and sets the corresponding toggle helper to Off.
 NOTE: This uses the default entity ID for the middle button of the Ulanzi clock which is binary_sensor.button_select. If you renamed this entity ID, this function will not work!
-***
 
-V1.54:
+
+**V1.54:**
 * Removed the lifetime setting from the Blueprints. This setting causes the device to reboot every now and then.
 
-V1.53:
+**V1.53:**
 * Added the option to toggle if the clock should switch to the app immediately when the value of the sensor changes.
 
-V1.52:
+**V1.52:**
 * Fixed bug in Forecast Blueprint that pointed hardcoded to OpenWeatherMap.
 
-V1.51:
+**V1.51:**
 * An alert tone can now be played when a notification is triggered. Make sure you copy the provided alert.txt file into the MELODIES folder of Awtrix Light to make this work.
 
-V1.50:
+**V1.50:**
 * Added the possibility to select media players in the Awtrix Create Sensor App. It's now possible to show the artist and song on the clock when a new song starts playing on the selected media player.
 * Added a Template field. You can now format your sensors so that they look exactly like you want them to look!
 
-V1.43:
+**V1.43:**
 * Renaming the prefix in Awtrix Light and in Home Assistant to the same name will not break the apps anymore.
 
-V1.42:
+**V1.42:**
 * Added option to select a background color for notifications and custom apps.
 * Fixed rain forecast bug that in some cases did not show a graph.
 
-V1.41:
+**V1.41:**
 * Fixed new App Time setting so that it matches the new API variable.
 
-V1.4:
+**V1.4:**
 * Added Blueprint for the Rain Forecast Graph. It will show a bar chart or line chart for the Rain Forecast. If no rain is expected in the next couple of hours it will show a custom message instead.
 
-V1.3:
+**V1.3:**
 * Added app lifetime option to sensor app and weather app Blueprints. This removes the custom app when there is no update after the given time in seconds.
 
-V1.2:
+**V1.2:**
 * Some textual changes in the indicator blueprint.
 
-V1.1: 
+**V1.1:** 
 * It's now possible to select to show temperature and windspeed optionally in Weather app. After uploading the new weather blueprint, go to Developer Tools > YAML and refresh the automations.
 * Added new Blueprint to toggle indicators.
