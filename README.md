@@ -208,7 +208,7 @@ A: If you've ordered the Blueprints before, log in to Ko-Fi and go the menu. Sel
 V1.55:
 * The middle button of the Ulanzi clock now dismisses a notification and sets the corresponding toggle helper to Off.
 NOTE: This uses the default entity ID for the middle button of the Ulanzi clock which is binary_sensor.button_select. If you renamed this entity ID, this function will not work!
-<hr>
+___
 
 V1.54:
 * Removed the lifetime setting from the Blueprints. This setting causes the device to reboot every now and then.
