@@ -17,7 +17,7 @@ Click the image to watch the video. (It will open in this browser window)
   * [6. Toggle Indicators](#6-toggle-indicators)
   * [7. Awtrix Weather App](#7-awtrix-weather-app)
 - [FAQ](#faq)
-- [Release Notes](#release_notes)
+- [Release Notes](#release-notes)
 
 # Where to get the Blueprints and firmware?
 **1. You can download the Home Assistant Blueprints by sponsoring me on [this Ko-Fi page](https://ko-fi.com/s/0d1e4419bd)**.
