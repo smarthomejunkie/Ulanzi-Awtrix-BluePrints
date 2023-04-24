@@ -17,7 +17,7 @@ Click the image to watch the video. (It will open in this browser window)
   * [6. Toggle Indicators](#6-toggle-indicators)
   * [7. Awtrix Weather App](#7-awtrix-weather-app)
 - [FAQ](#faq)
-- [Updates](#updates)
+- [Release Notes](#release_notes)
 
 # Where to get the Blueprints and firmware?
 **1. You can download the Home Assistant Blueprints by sponsoring me on [this Ko-Fi page](https://ko-fi.com/s/0d1e4419bd)**.
@@ -203,7 +203,10 @@ A: The apps show in the order that you activate them.
 
 A: If you've ordered the Blueprints before, log in to Ko-Fi and go the menu. Select "Payments History" and go to your previous payment. You can download the new version by clicking on "View Details > View Content > Download".
 
-# Updates
+# Release Notes
+
+V1.55:
+* The Middle button of the Ulanzi clock now dismisses a notification and sets the corresponding toggle helper to Off. NOTE: This uses the default entity ID for the middle button of the Ulanzi clock which is binary_sensor.button_select. If you renamed this Entity ID, this function will not work!
 
 V1.54:
 * Removed the lifetime setting from the Blueprints. This setting causes the device to reboot every now and then.
