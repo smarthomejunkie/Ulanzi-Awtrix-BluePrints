@@ -205,7 +205,7 @@ A: If you've ordered the Blueprints before, log in to Ko-Fi and go the menu. Sel
 
 **Q: Where can I ask questions?**
 
-A: Join my Discord server to ask questions in the Ulanzi channel: [https://discord.gg/pP53uDEgUw](https://discord.gg/pP53uDEgUw)
+A: Join my Discord server to ask questions in the Ulanzi-display channel: [https://discord.gg/pP53uDEgUw](https://discord.gg/pP53uDEgUw)
 
 # Release Notes
 
