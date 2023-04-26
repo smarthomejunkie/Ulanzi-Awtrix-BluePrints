@@ -203,6 +203,10 @@ A: The apps show in the order that you activate them.
 
 A: If you've ordered the Blueprints before, log in to Ko-Fi and go the menu. Select "Payments History" and go to your previous payment. You can download the new version by clicking on "View Details > View Content > Download".
 
+**Q: Where can I ask questions?**
+
+A: Join my Discord server to ask questions in the Ulanzi channel: [https://discord.gg/pP53uDEgUw](https://discord.gg/pP53uDEgUw)
+
 # Release Notes
 
 **V1.55:**
