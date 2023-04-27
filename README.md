@@ -212,7 +212,7 @@ A: Join my Discord server to ask questions in the Ulanzi-display channel: [https
 **V1.56:**
 * Re-added the Lifetime option. This option resulted in errors in older Awtrix firmware. Make sure you have at least Awtrix Light firmware version 0.59 installed to let this work properly.
 * Up to 3 Ulanzi displays now support the middle button to dismiss a notification for you people with multiple clocks in your home.
-* Streamlined some code to make it future proof.
+* Streamlined some code to make it future-proof.
 
 **V1.55:**
 * The middle button of the Ulanzi clock now dismisses a notification and sets the corresponding toggle helper to Off.
