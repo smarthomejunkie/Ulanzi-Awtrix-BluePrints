@@ -75,7 +75,7 @@ With this Blueprint, you can create a sensor App on the clock that is part of th
 |Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
-|~~Lifetime (in seconds)~~|~~number~~|~~0~~|~~30~~|~~Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled~~|
+|Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
 |Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes? **BEWARE**: Setting this to On for a sensor that changes very frequently might flood your clock with MQTT messages and might cause reboots of the clock!|
 
 ## 3. Awtrix Rain Forecast
@@ -96,7 +96,7 @@ With this Blueprint, you can create a bar or line chart that shows the rain fore
 |Text Case|dropdown|0|0=Use global setting<br />1=Force Uppercase<br />2=Show as you entered it|Select how you would like your text to display|
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
-|~~Lifetime (in seconds)~~|~~number~~|~~0~~|~~30~~|~~Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled~~|
+|Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
 |Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes?|
 
 ## 4. Awtrix Set Transition Time
@@ -153,7 +153,7 @@ With this Blueprint, you can set up the weather app
 |Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
-|~~Lifetime (in seconds)~~|~~number~~|~~0~~|~~30~~|~~Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled~~|
+|Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
 |Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes?|
 
 # FAQ
@@ -209,10 +209,14 @@ A: Join my Discord server to ask questions in the Ulanzi-display channel: [https
 
 # Release Notes
 
+**V1.56:**
+* Re-added the Lifetime option. This option resulted in errors in older Awtrix firmware. Make sure you have at least Awtrix Light firmware version 0.59 installed to let this work properly.
+* Up to 3 Ulanzi displays now support the middle button to dismiss a notification for you people with multiple clocks in your home.
+* Streamlined some code to make it future proof.
+
 **V1.55:**
 * The middle button of the Ulanzi clock now dismisses a notification and sets the corresponding toggle helper to Off.
 NOTE: This uses the default entity ID for the middle button of the Ulanzi clock which is binary_sensor.button_select. If you renamed this entity ID, this function will not work!
-
 
 **V1.54:**
 * Removed the lifetime setting from the Blueprints. This setting causes the device to reboot every now and then.
