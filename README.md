@@ -209,6 +209,9 @@ A: Join my Discord server to ask questions in the Ulanzi-display channel: [https
 
 # Release Notes
 
+**V1.57:**
+* Added a toggle to the Indicators Blueprint to toggle an alert sound on and off. Make sure you've uploaded the alert.txt file to the MELODIES folder to make this work.
+
 **V1.56:**
 * Re-added the Lifetime option. This option resulted in errors in older Awtrix firmware. Make sure you have at least Awtrix Light firmware version 0.58 installed to let this work properly.
 * Up to 3 Ulanzi displays now support the middle button to dismiss a notification for you people with multiple clocks in your home.
