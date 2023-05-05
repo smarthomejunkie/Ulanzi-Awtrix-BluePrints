@@ -158,6 +158,10 @@ With this Blueprint, you can set up the weather app
 
 # FAQ
 
+**Q: Where can I ask questions about the Blueprints?**
+
+A: Go to my Discord server and visit [this channel](https://discord.com/channels/743727205246566483/1090978984835170414)
+
 **Q: What's the password for the Access Point when the clock is in AP Mode?**
 
 A: The AP Mode password is: 12345678
