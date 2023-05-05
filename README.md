@@ -158,10 +158,6 @@ With this Blueprint, you can set up the weather app
 
 # FAQ
 
-**Q: Where can I ask questions about the Blueprints?**
-
-A: Go to my Discord server and visit [this channel](https://discord.com/channels/743727205246566483/1090978984835170414)
-
 **Q: What's the password for the Access Point when the clock is in AP Mode?**
 
 A: The AP Mode password is: 12345678
@@ -210,6 +206,10 @@ A: If you've ordered the Blueprints before, log in to Ko-Fi and go to the menu. 
 **Q: Where can I ask questions?**
 
 A: Join my Discord server to ask questions in the Ulanzi-display channel: [https://discord.gg/pP53uDEgUw](https://discord.gg/pP53uDEgUw)
+
+**Q: My Ulanzi clock dies after a couple of hours. What can I do to fix this?**
+
+A: Unfortunately, there has been a bad hardware batch released by Ulanzi. They pinpointed the issue and fixed it in new batches. Contact your seller and/or Ulanzi and they will send you a new device. Be sure not to tell you've flashed the device, although Ulanzi promotes flashing it on their website.
 
 # Release Notes
 
