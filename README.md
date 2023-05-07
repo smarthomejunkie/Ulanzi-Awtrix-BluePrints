@@ -213,6 +213,10 @@ A: Unfortunately, there has been a bad hardware batch released by Ulanzi. They p
 
 # Release Notes
 
+**V1.58:**
+* If you have multiple clocks in your house, you can target a specific clock in the notification Blueprint, so that the middle button for that specific clock will dismiss the notifcation when pressed. This fix is created to prevent tools as Watchman to report errors for non used entity ids.
+* BREAKING CHANGE: If you already had multiple clocks in your house, the middle button of the extra clocks will not work automatically anymore. You have to go through all the notification automations for each extra clock to select that specific clock to make it work again.
+
 **V1.57:**
 * Added a toggle to the Indicators Blueprint to toggle an alert sound on and off. Make sure you've uploaded the alert.txt file to the MELODIES folder to make this work.
 
