@@ -45,6 +45,7 @@ With this Blueprint, you can send a notification to the clock. It's also possibl
 |Name|Type|Default|Example|Decription|
 |---|---|---|---|---|
 |Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
+|Clock Number|dropdown|Clock Number 1|Clock Number 3|Select your clock in your house if you have multiple clocks. This is needed to support the middle button to dismiss a notification. Supports up to 5 clocks.|
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
 |Notification Text|string||**Examples:**<br />Dinner is Ready!<br/>The electricity price is now {{ states('sensor.electricity_price',rounded= True,with_unit=True) }}|Enter the notification text. Template code is allowed.|
 |Icon|string||1234|Enter the Icon Name or ID of the icon that you like to show.|
