@@ -228,6 +228,11 @@ A: Join my Discord server to ask questions in the Ulanzi-display channel: [https
 
 A: Unfortunately, there has been a bad hardware batch released by Ulanzi. They pinpointed the issue and fixed it in new batches. Contact your seller and/or Ulanzi and they will send you a new device. Be sure not to tell you've flashed the device, although Ulanzi promotes flashing it on their website.
 
+**Q: The colors on the clock do not look the same as the colors that I've selected in the Blueprint**
+
+A: The colors on the clock are determined by the color code and the brightness setting of the clock. The clock has a color correction function to correct the colors. Mostly bright colors work best. "In-between" colors do not work well.
+
+
 # Release Notes
 
 **V1.59:**
