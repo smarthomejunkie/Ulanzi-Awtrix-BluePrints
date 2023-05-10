@@ -205,7 +205,8 @@ A: Follow these steps:
   2. Select a toggle helper that you've created for the Awtrix media player app.
   3. Select the Media Player as the Sensor.
   4. Add code to the template field to show the artist and title. For example: {{ state_attr('media_player.chromecast_audio','media_artist') }} - {{ state_attr('media_player.chromecast_audio','media_title') }}
-  5. Make sure the toggle helper is set to on.
+  5. Set the lifetime to 5 minutes
+  6. Make sure the toggle helper is set to on.
 
 **Q: How can I disable the stock apps so that they do not reappear after a reboot of the clock?**
 
