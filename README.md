@@ -16,6 +16,7 @@ Click the image to watch the video. (It will open in this browser window)
   * [5. Awtrix Toggle Stock App](#5-awtrix-toggle-stock-app)
   * [6. Toggle Indicators](#6-toggle-indicators)
   * [7. Awtrix Weather App](#7-awtrix-weather-app)
+  * [8. Awtrix Moodlight](#8-awtrix-moodlight)
 - [FAQ](#faq)
 - [Release Notes](#release-notes)
 
@@ -156,6 +157,20 @@ With this Blueprint, you can set up the weather app
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
 |Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
 |Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes?|
+
+## 8. Awtrix Moodlight
+With this Blueprint, you can turn your Awtrix clock into a moodlight
+
+**Fields:**
+
+|Name|Type|Default|Example|Decription|
+|---|---|---|---|---|
+|Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
+|Clock Number|dropdown|Clock Number 1|Clock Number 3|Select your clock in your house if you have multiple clocks. This is needed to support the middle button to dismiss a notification. Supports up to 5 clocks.|
+|Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
+|Brightness|number|100|200|**WARNING**: This function causes much higher current draw and heat, because every pixel is lit. Keep the brightness value low (between 0 and 200). The clock may turn off if the brightness level is too high when running on battery power!|
+|Color|color_rgb|[255, 255, 255]|[255, 255, 0]|Select the Moodlight color|
+|Kelvin value|number|0|4000|Enter a Kelvin value. Typically choose a value between 1000 and 10000. A value of 0 disables Kelvin. Kelvin overwrites the color.|
 
 # FAQ
 
