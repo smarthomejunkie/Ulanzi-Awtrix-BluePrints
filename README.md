@@ -102,14 +102,14 @@ With this Blueprint, you can create a bar or line chart that shows the rain fore
 |Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes?|
 
 ## 4. Awtrix Set Transition Time
-With this Blueprint, you can set the global time that each app is visible
+With this Blueprint, you can set the global time that each app is visible in seconds.
 
 **Fields:**
 
 |Name|Type|Default|Example|Decription|
 |---|---|---|---|---|
 |Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
-|App Time Number Helper|dropdown||input_number.app_time|Select the App Time Number Helper that stores the App time|
+|App Time Number Helper|dropdown||input_number.app_time|Select the App Time Number Helper that stores the App time. The number helper should be set in seconds.|
 
 ## 5. Awtrix Toggle Stock App
 With this Blueprint, you can toggle the stock apps Time, Clock, Temperature, Humidity, Battery. Eyes
