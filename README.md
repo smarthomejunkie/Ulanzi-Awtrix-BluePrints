@@ -112,7 +112,7 @@ With this Blueprint, you can set the global time that each app is visible
 |App Time Number Helper|dropdown||input_number.app_time|Select the App Time Number Helper that stores the App time|
 
 ## 5. Awtrix Toggle Stock App
-With this Blueprint, you can toggle the stock apps Time, Clock, Temperature, Humidity, Battery
+With this Blueprint, you can toggle the stock apps Time, Clock, Temperature, Humidity, Battery. Eyes
 
 **Fields:**
 
@@ -234,6 +234,9 @@ A: The colors on the clock are determined by the color code and the brightness s
 
 
 # Release Notes
+
+**V1.61:**
+* The new stock App Eyes can now be enabled and disabled using the Toggle Stock App Blueprint
 
 **V1.60:**
 * Added a blink speed number selector for the indicators in the indicator blueprint. Supports Awtrix firmware 0.62 or higher.
