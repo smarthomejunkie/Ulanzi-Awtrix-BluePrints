@@ -132,10 +132,10 @@ With this Blueprint, you can set up the two indicators to indicate a certain eve
 |Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
 |Right Top Indicator Toggle Helper|dropdown||input_boolean.indicator_1|Select the Toggle Helper that will toggle the right top indicator|
 |Right Top Indicator color|color_rgb|[255, 255, 255]|[255, 255, 0]|Select the Right Top Indicator color|
-|Blink Right Top Indicator|boolean|false|true|Should the Right Top Indicator blink?|
+|Blink Speed Top Indicator|number|0|1000|Select the blink speed in milliseconds. (0 = no blinking)|
 |Right Bottom Indicator Toggle Helper|dropdown||input_boolean.indicator_1|Select the Toggle Helper that will toggle the right bottom indicator|
 |Right Bottom Indicator color|color_rgb|[255, 255, 255]|[255, 255, 0]|Select the Right Bottom Indicator color|
-|Blink Right Bottom Indicator|boolean|false|true|Should the Right Bottom Indicator blink?|
+|Blink Speed Bottom Indicator|number|0|1000|Select the blink speed in milliseconds. (0 = no blinking)|
 
 ## 7. Awtrix Weather App
 With this Blueprint, you can set up the weather app
@@ -234,6 +234,9 @@ A: The colors on the clock are determined by the color code and the brightness s
 
 
 # Release Notes
+
+**V1.60:**
+* Added a blink speed number selector for the indicators in the indicator blueprint. Supports Awtrix firmware 0.62 or higher.
 
 **V1.59:**
 * Added a new Blueprint to convert your Awtrix Clock into a moodlight. Awtrix Light Firmware 0.61 or higher is needed for this to work.
