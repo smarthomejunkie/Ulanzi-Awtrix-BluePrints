@@ -236,6 +236,10 @@ A: The colors on the clock are determined by the color code and the brightness s
 
 A: Long press the middle button on the clock to access the clock menu on the clock itself. You can navigate to the update menu item using the left and right buttons on the clock. Short press the middle button on the clock to enter the menu item of your choice.
 
+**Q: How can I change the Language of the Weather Forecast Blueprint?**
+
+A: You can create a template sensor that translates the names of the weather states and use that template sensor in the blueprint.
+
 
 # Release Notes
 
