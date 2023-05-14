@@ -232,6 +232,10 @@ A: Unfortunately, there has been a bad hardware batch released by Ulanzi. They p
 
 A: The colors on the clock are determined by the color code and the brightness setting of the clock. The clock has a color correction function to correct the colors. Mostly bright colors work best. "In-between" colors do not work well.
 
+**Q: The update button in Home Assistant does not work. How can I update the firmware?**
+
+A: Long press the middle button on the clock to access the clock menu on the clock itself. You can navigate to the update menu item using the left and right buttons on the clock. Short press the middle button on the clock to enter the menu item of your cjoice.
+
 
 # Release Notes
 
