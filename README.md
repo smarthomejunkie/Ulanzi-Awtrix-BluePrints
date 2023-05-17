@@ -58,7 +58,7 @@ With this Blueprint, you can send a notification to the clock. It's also possibl
 |Play Alert Tone|boolean|false|true|Should an alert tone be played?<br /> Make sure you have copied the alerts.txt file into the MELODIES folder in Awtrix|
 |Hold Notification|boolean|true|false|Should the notification stay on the display until it's manually dismissed? (Overrides Duration)|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
-|Stack|boolean|true|false|Defines if the notification will be stacked. "Off" will immediately replace the current notification.|
+|Stack|boolean|true|false|Defines if the notification will be stacked. False will immediately replace the current notification.|
 
 ## 2. Awtrix Create Sensor App
 With this Blueprint, you can create a sensor App on the clock that is part of the app cycle.
