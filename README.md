@@ -243,6 +243,9 @@ A: You can create a template sensor that translates the names of the weather sta
 
 # Release Notes
 
+**V1.63:**
+* Added stack option to notrifications. Defines if the notification will be stacked. "Off" will immediately replace the current notification. Compatible with Awtrix Light v0.66 and above.
+
 **V1.62:**
 * Now three indicators are supported in the Indicators Blueprint. Note: the Indicators blueprint assumes that you created three toggle helpers: input_boolean.awtrix_display_indicator_1, input_boolean.awtrix_display_indicator_2, and input_boolean.awtrix_display_indicator_3. This is needed to make sure your already created automations that use the Indicators Blueprint will not break. You don't need to create these helpers and can still use any toggle helper you like. Compatible with Awtrix Light v0.63 and above.
 
