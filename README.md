@@ -167,7 +167,6 @@ With this Blueprint, you can turn your Awtrix clock into a moodlight
 |Name|Type|Default|Example|Decription|
 |---|---|---|---|---|
 |Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
-|Clock Number|dropdown|Clock Number 1|Clock Number 3|Select your clock in your house if you have multiple clocks. This is needed to support the middle button to dismiss a notification. Supports up to 5 clocks.|
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
 |Brightness|number|100|200|**WARNING**: This function causes much higher current draw and heat, because every pixel is lit. Keep the brightness value low (between 0 and 200). The clock may turn off if the brightness level is too high when running on battery power!|
 |Color|color_rgb|[255, 255, 255]|[255, 255, 0]|Select the Moodlight color|
