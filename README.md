@@ -69,7 +69,7 @@ With this Blueprint, you can create a sensor App on the clock that is part of th
 |---|---|---|---|---|
 |Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
-|Sensor|dropdown||sensor.netto_power|Select the Sensor or Media Player for which you want to show the state on the Ulanzi clock. The app value will change when the value of this sensor changes|
+|Sensor|dropdown||sensor.netto_power|Select the Sensor, Text helper, or Media Player for which you want to show the state on the Ulanzi clock. The app value will change when the value of this sensor changes|
 |Template (Optional)|string||{{ state_attr('media_player.chromecast_audio','media_artist') }} - {{ state_attr('media_player.chromecast_audio','media_title') }}|Enter a template to format your sensor the way you like it. (Advanced mode)|
 |Icon|string||1234|Enter the Icon Name or ID of the icon that you like to show.|
 |Push Icon|dropdown|2|0=Icon doesn't move<br />1=Icon moves with text and will not appear again<br />2=Icon moves with text but appears again when the text starts|Icon behavior|
