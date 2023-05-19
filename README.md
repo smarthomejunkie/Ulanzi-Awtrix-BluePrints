@@ -243,6 +243,9 @@ A: You can create a template sensor that translates the names of the weather sta
 
 # Release Notes
 
+**V1.64:**
+* Added possibility to select an input text helper as a sensor for the Sensor App Blueprint. It's now possible to trigger the automation based on a Text Helper value as well.  
+
 **V1.63:**
 * Added stack option to notrifications. Defines if the notification will be stacked. "Off" will immediately replace the current notification. Compatible with Awtrix Light v0.66 and above.
 
