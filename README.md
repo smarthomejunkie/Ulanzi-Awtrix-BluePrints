@@ -238,7 +238,7 @@ A: Long press the middle button on the clock to access the clock menu on the clo
 
 **Q: How can I change the Language of the Weather Forecast Blueprint?**
 
-A: You can create a template sensor that translates the names of the weather states and use that template sensor in the blueprint.
+A: You can create a template sensor that translates the names of the weather states and use that template sensor in the Custom App blueprint.
 
 
 # Release Notes
