@@ -180,7 +180,7 @@ A: The AP Mode password is: 12345678
 
 **Q: I cannot see my clock in Home Assistant**
 
-A: Flash your clock again and make sure you tick the "erase" checkbox. Thi sshould hard reset the clock. If this didn't work, then go to [Blueforcer's Discord server](https://discord.gg/Wn7TWDzPY4) to ask for support about this issue.
+A: Flash your clock again and make sure you tick the "erase" checkbox. This should hard reset the clock. If this didn't work, then go to [Blueforcer's Discord server](https://discord.gg/Wn7TWDzPY4) to ask for support about this issue.
 
 **Q: My display does not show notifications or apps as soon as I trigger them.**
 
