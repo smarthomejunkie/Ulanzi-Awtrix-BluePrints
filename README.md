@@ -43,7 +43,7 @@ With this Blueprint, you can send a notification to the clock. It's also possibl
 
 **Fields:**
 
-|Name|Type|Default|Example|Decription|
+|Name|Type|Default|Example|Description|
 |---|---|---|---|---|
 |Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
 |Clock Number|dropdown|Clock Number 1|Clock Number 3|Select your clock in your house if you have multiple clocks. This is needed to support the middle button to dismiss a notification. Supports up to 5 clocks.|
@@ -56,16 +56,19 @@ With this Blueprint, you can send a notification to the clock. It's also possibl
 |Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Play Alert Tone|boolean|false|true|Should an alert tone be played?<br /> Make sure you have copied the alerts.txt file into the MELODIES folder in Awtrix|
-|Hold Notification|boolean|true|false|Should the notification stay on the display until it's manually dismissed? (Overrides Duration)|
+|Hold Notification|boolean|true|false|Should the notification stay on the display until it's manually dismissed? (Overrides Repeat & Duration)|
+|Repeat|number|-1|5|Sets how many times the text should be scrolled through the matrix before the app ends. If the value is -1, the duration will be taken into account instead.|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
 |Stack|boolean|true|false|Defines if the notification will be stacked. False will immediately replace the current notification.|
+|Scroll|boolean|true|false|Enables text scrolling.|
+|Scroll Speed Percentage|number|100|50|Modifies the scrollspeed. You need to enter a percentage value.|
 
 ## 2. Awtrix Create Sensor App
 With this Blueprint, you can create a sensor App on the clock that is part of the app cycle.
 
 **Fields:**
 
-|Name|Type|Default|Example|Decription|
+|Name|Type|Default|Example|Description|
 |---|---|---|---|---|
 |Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
@@ -77,16 +80,19 @@ With this Blueprint, you can create a sensor App on the clock that is part of th
 |Background Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Background color|
 |Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
+|Repeat|number|-1|5|Sets how many times the text should be scrolled through the matrix before the app ends. If the value is -1, the duration will be taken into account instead.|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
 |Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
 |Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes? **BEWARE**: Setting this to On for a sensor that changes very frequently might flood your clock with MQTT messages and might cause reboots of the clock!|
+|Scroll|boolean|true|false|Enables text scrolling.|
+|Scroll Speed Percentage|number|100|50|Modifies the scrollspeed. You need to enter a percentage value.|
 
 ## 3. Awtrix Rain Forecast
 With this Blueprint, you can create a bar or line chart that shows the rain forecast
 
 **Fields:**
 
-|Name|Type|Default|Example|Decription|
+|Name|Type|Default|Example|Description|
 |---|---|---|---|---|
 |Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
@@ -107,7 +113,7 @@ With this Blueprint, you can set the global time that each app is visible in sec
 
 **Fields:**
 
-|Name|Type|Default|Example|Decription|
+|Name|Type|Default|Example|Description|
 |---|---|---|---|---|
 |Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
 |App Time Number Helper|dropdown||input_number.app_time|Select the App Time Number Helper that stores the App time. The number helper should be set in seconds.|
@@ -117,7 +123,7 @@ With this Blueprint, you can toggle the stock apps Time, Clock, Temperature, Hum
 
 **Fields:**
 
-|Name|Type|Default|Example|Decription|
+|Name|Type|Default|Example|Description|
 |---|---|---|---|---|
 |Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
 |Toggle Helper|dropdown||input_boolean.display_battery|Select the Toggle Helper that will toggle the App on or off|
@@ -128,7 +134,7 @@ With this Blueprint, you can set up the two indicators to indicate a certain eve
 
 **Fields:**
 
-|Name|Type|Default|Example|Decription|
+|Name|Type|Default|Example|Description|
 |---|---|---|---|---|
 |Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
 |Right Top Indicator Toggle Helper|dropdown||input_boolean.indicator_1|Select the Toggle Helper that will toggle the right top indicator|
@@ -143,7 +149,7 @@ With this Blueprint, you can set up the weather app
 
 **Fields:**
 
-|Name|Type|Default|Example|Decription|
+|Name|Type|Default|Example|Description|
 |---|---|---|---|---|
 |Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
@@ -155,16 +161,19 @@ With this Blueprint, you can set up the weather app
 |Background Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Background color|
 |Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
+|Repeat|number|-1|5|Sets how many times the text should be scrolled through the matrix before the app ends. If the value is -1, the duration will be taken into account instead.|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
 |Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
 |Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes?|
+|Scroll|boolean|true|false|Enables text scrolling.|
+|Scroll Speed Percentage|number|100|50|Modifies the scrollspeed. You need to enter a percentage value.|
 
 ## 8. Awtrix Moodlight
 With this Blueprint, you can turn your Awtrix clock into a moodlight
 
 **Fields:**
 
-|Name|Type|Default|Example|Decription|
+|Name|Type|Default|Example|Description|
 |---|---|---|---|---|
 |Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the moodlight on or off|
@@ -246,6 +255,11 @@ A: You can create a template sensor that translates the names of the weather sta
 
 
 # Release Notes
+
+**V1.65:**
+* Added the Repeat option for Custom Apps and Notifications
+* Added the Scroll option for Custom Apps and Notifications
+* Added the Scroll Speed option for Custom Apps and Notifications
 
 **V1.64:**
 * Added the possibility to select an input text helper as a sensor for the Sensor App Blueprint. It's now possible to trigger the automation based on a Text Helper value as well.  
