@@ -45,8 +45,7 @@ With this Blueprint, you can send a notification to the clock. It's also possibl
 
 |Name|Type|Default|Example|Description|
 |---|---|---|---|---|
-|Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
-|Clock Number|dropdown|Clock Number 1|Clock Number 3|Select your clock in your house if you have multiple clocks. This is needed to support the middle button to dismiss a notification. Supports up to 5 clocks.|
+|Awtrix Displays|dropdown||awtrix_d6b064|Select the target Awtrix displays|
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
 |Notification Text|string||**Examples:**<br />Dinner is Ready!<br/>The electricity price is now {{ states('sensor.electricity_price',rounded= True,with_unit=True) }}|Enter the notification text. Template code is allowed.|
 |Icon|string||1234|Enter the Icon Name or ID of the icon that you like to show.|
@@ -70,7 +69,7 @@ With this Blueprint, you can create a sensor App on the clock that is part of th
 
 |Name|Type|Default|Example|Description|
 |---|---|---|---|---|
-|Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
+|Awtrix Displays|dropdown||awtrix_d6b064|Select the target Awtrix displays|
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
 |Sensor|dropdown||sensor.netto_power|Select the Sensor, Text helper, or Media Player for which you want to show the state on the Ulanzi clock. The app value will change when the value of this sensor changes|
 |Template (Optional)|string||{{ state_attr('media_player.chromecast_audio','media_artist') }} - {{ state_attr('media_player.chromecast_audio','media_title') }}|Enter a template to format your sensor the way you like it. (Advanced mode)|
@@ -94,7 +93,7 @@ With this Blueprint, you can create a bar or line chart that shows the rain fore
 
 |Name|Type|Default|Example|Description|
 |---|---|---|---|---|
-|Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
+|Awtrix Displays|dropdown||awtrix_d6b064|Select the target Awtrix displays|
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
 |Sensor|dropdown||sensor.netto_power|Select your Weather Sensor|
 |Graph Type|dropdown|bar|Select bar chart or line chart|
@@ -115,7 +114,7 @@ With this Blueprint, you can set the global time that each app is visible in sec
 
 |Name|Type|Default|Example|Description|
 |---|---|---|---|---|
-|Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
+|Awtrix Displays|dropdown||awtrix_d6b064|Select the target Awtrix displays|
 |App Time Number Helper|dropdown||input_number.app_time|Select the App Time Number Helper that stores the App time. The number helper should be set in seconds.|
 
 ## 5. Awtrix Toggle Stock App
@@ -125,7 +124,7 @@ With this Blueprint, you can toggle the stock apps Time, Clock, Temperature, Hum
 
 |Name|Type|Default|Example|Description|
 |---|---|---|---|---|
-|Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
+|Awtrix Displays|dropdown||awtrix_d6b064|Select the target Awtrix displays|
 |Toggle Helper|dropdown||input_boolean.display_battery|Select the Toggle Helper that will toggle the App on or off|
 |Sensor|radiobutton||Battery|Select the stock app that you'd like to toggle|
 
@@ -136,7 +135,7 @@ With this Blueprint, you can set up the two indicators to indicate a certain eve
 
 |Name|Type|Default|Example|Description|
 |---|---|---|---|---|
-|Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
+|Awtrix Displays|dropdown||awtrix_d6b064|Select the target Awtrix displays|
 |Right Top Indicator Toggle Helper|dropdown||input_boolean.indicator_1|Select the Toggle Helper that will toggle the right top indicator|
 |Right Top Indicator color|color_rgb|[255, 255, 255]|[255, 255, 0]|Select the Right Top Indicator color|
 |Blink Speed Top Indicator|number|0|1000|Select the blink speed in milliseconds. (0 = no blinking)|
@@ -151,7 +150,7 @@ With this Blueprint, you can set up the weather app
 
 |Name|Type|Default|Example|Description|
 |---|---|---|---|---|
-|Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
+|Awtrix Displays|dropdown||awtrix_d6b064|Select the target Awtrix displays|
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
 |Sensor|dropdown||weather.openweathermap|Select your Weather Sensor|
 |Show temperature|boolean|true|false|Should the temperature be shown?|
@@ -175,7 +174,7 @@ With this Blueprint, you can turn your Awtrix clock into a moodlight
 
 |Name|Type|Default|Example|Description|
 |---|---|---|---|---|
-|Awtrix Display|dropdown||awtrix_d6b064|Select the target Awtrix display|
+|Awtrix Displays|dropdown||awtrix_d6b064|Select the target Awtrix displays|
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the moodlight on or off|
 |Brightness|number|100|200|**WARNING**: This function causes much higher current draw and heat, because every pixel is lit. Keep the brightness value low (between 0 and 200). The clock may turn off if the brightness level is too high when running on battery power!|
 |Color|color_rgb|[255, 255, 255]|[255, 255, 0]|Select the Moodlight color|
@@ -255,6 +254,10 @@ A: You can create a template sensor that translates the names of the weather sta
 
 
 # Release Notes
+
+**V1.66:**
+* You can now choose MULTIPLE clocks
+* **BREAKING CHANGE** You need to edit all your existing automations that are based on these blueprints and select the clocks for each automation.
 
 **V1.65:**
 * Added the Repeat option for Custom Apps and Notifications
