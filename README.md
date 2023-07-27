@@ -61,6 +61,8 @@ With this Blueprint, you can send a notification to the clock. It's also possibl
 |Stack|boolean|true|false|Defines if the notification will be stacked. False will immediately replace the current notification.|
 |Scroll|boolean|true|false|Enables text scrolling.|
 |Scroll Speed Percentage|number|100|50|Modifies the scrollspeed. You need to enter a percentage value.|
+|Effect|string|None|Ripple|Shows a background effect. If you only want to show the effect in a notification, then simply do not enter a text in the notification.|
+* Bugfixes|
 
 ## 2. Awtrix Create Sensor App
 With this Blueprint, you can create a sensor App on the clock that is part of the app cycle.
@@ -85,6 +87,7 @@ With this Blueprint, you can create a sensor App on the clock that is part of th
 |Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes? **BEWARE**: Setting this to On for a sensor that changes very frequently might flood your clock with MQTT messages and might cause reboots of the clock!|
 |Scroll|boolean|true|false|Enables text scrolling.|
 |Scroll Speed Percentage|number|100|50|Modifies the scrollspeed. You need to enter a percentage value.|
+|Effect|string|None|Ripple|Shows a background effect.|
 
 ## 3. Awtrix Rain Forecast
 With this Blueprint, you can create a bar or line chart that shows the rain forecast
@@ -166,6 +169,7 @@ With this Blueprint, you can set up the weather app
 |Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes?|
 |Scroll|boolean|true|false|Enables text scrolling.|
 |Scroll Speed Percentage|number|100|50|Modifies the scrollspeed. You need to enter a percentage value.|
+|Effect|string|None|Ripple|Shows a background effect.|
 
 ## 8. Awtrix Moodlight
 With this Blueprint, you can turn your Awtrix clock into a moodlight
@@ -254,6 +258,10 @@ A: You can create a template sensor that translates the names of the weather sta
 
 
 # Release Notes
+
+**V1.68:**
+* Added the effects option to show a background effect on Notifications and Apps. If you only want to show the effect in a notification, then simply do not enter a text in the notification.
+* Bugfixes
 
 **V1.67:**
 * Removed the possibility to select the eyes app because it's removed from Awtrix Light V0.71
