@@ -255,6 +255,9 @@ A: You can create a template sensor that translates the names of the weather sta
 
 # Release Notes
 
+**V1.67:**
+* Removed the possibility to select the eyes app because it's removed from Awtrix Light V0.71
+
 **V1.66:**
 * You can now choose MULTIPLE clocks
 * **BREAKING CHANGE:** You need to edit all your existing automations that are based on these blueprints and select the clocks for each automation.
