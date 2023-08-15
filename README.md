@@ -184,6 +184,30 @@ With this Blueprint, you can turn your Awtrix clock into a moodlight
 |Color|color_rgb|[255, 255, 255]|[255, 255, 0]|Select the Moodlight color|
 |Kelvin value|number|0|4000|Enter a Kelvin value. Typically choose a value between 1000 and 10000. A value of 0 disables Kelvin. Kelvin overwrites the color.|
 
+## 9. Awtrix List Calendar
+With this Blueprint, you can create a calendar App on the clock that is part of the app cycle. It shows the calendar events for the next 24 hours of a chosen calendar
+
+**Fields:**
+
+|Name|Type|Default|Example|Description|
+|---|---|---|---|---|
+|Awtrix Displays|dropdown||awtrix_d6b064|Select the target Awtrix displays|
+|Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
+|Calendar|dropdown||yourname@gmail.com|Select the calendar for which you want to show the items on the Ulanzi clock. The app value will change when the value of this sensor changes|
+|Icon|string||1234|Enter the Icon Name or ID of the icon that you like to show.|
+|Push Icon|dropdown|2|0=Icon doesn't move<br />1=Icon moves with text and will not appear again<br />2=Icon moves with text but appears again when the text starts|Icon behavior|
+|Text Case|dropdown|0|0=Use global setting<br />1=Force Uppercase<br />2=Show as you entered it|Select how you would like your text to display|
+|Background Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Background color|
+|Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
+|Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
+|Repeat|number|-1|5|Sets how many times the text should be scrolled through the matrix before the app ends. If the value is -1, the duration will be taken into account instead.|
+|Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
+|Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
+|Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes? **BEWARE**: Setting this to On for a sensor that changes very frequently might flood your clock with MQTT messages and might cause reboots of the clock!|
+|Scroll|boolean|true|false|Enables text scrolling.|
+|Scroll Speed Percentage|number|100|50|Modifies the scrollspeed. You need to enter a percentage value.|
+|Effect|string|None|Ripple|Shows a background effect.|
+
 # FAQ
 
 **Q: What's the password for the Access Point when the clock is in AP Mode?**
@@ -258,6 +282,10 @@ A: You can create a template sensor that translates the names of the weather sta
 
 
 # Release Notes
+
+**V1.69:**
+* Added the HorizontalLine effect
+* Added a new Blueprint: Awtrix List Calendar that shows the calendar events for your chosen calendar for the next 24 hours.
 
 **V1.68:**
 * Added the effects option to show a background effect on Notifications and Apps. If you only want to show the effect in a notification, then simply do not enter a text in the notification.
