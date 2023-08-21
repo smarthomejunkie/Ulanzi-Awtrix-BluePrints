@@ -7,7 +7,7 @@ Click the image to watch the video. (It will open in this browser window)
 # Table of Contents:
 - [Ulanzi-Awtrix-BluePrints](#ulanzi-awtrix-blueprints)
 - [Where to get the Blueprints and firmware?](#where-to-get-the-blueprints-and-firmware)
-- [How to install](#how-to-install)
+- [How to install or update](#how-to-install-or-update)
 - [How to use](#how-to-use)
   * [1. Awtrix Create Notification](#1-awtrix-create-notification)
   * [2. Awtrix Create Sensor App](#2-awtrix-create-sensor-app)
@@ -28,7 +28,7 @@ You will get lifetime updates, and you can download new versions by logging in t
 
 **3. You can [find the Awtrix Light Repository here](https://github.com/Blueforcer/awtrix-light)**.
 
-# How to install
+# How to install or update
 1. Upload (or overwrite) the smarthomejunkie folder into the /config/blueprints/automations folder in Home Assistant.
 2. After uploading the Blueprints, go to Developer Tools > YAML tab and click AUTOMATIONS. Your existing automations will still work. 
 3. You can upload the icons in the ICONS folder using the file manager in the Awtrix web interface.
