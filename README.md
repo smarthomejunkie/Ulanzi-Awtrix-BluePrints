@@ -156,8 +156,10 @@ With this Blueprint, you can set up the weather app
 |Awtrix Displays|dropdown||awtrix_d6b064|Select the target Awtrix displays|
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
 |Sensor|dropdown||weather.openweathermap|Select your Weather Sensor|
+|Show Weather Text|boolean|true|false|Should the weather condition be shown as text?|
 |Show temperature|boolean|true|false|Should the temperature be shown?|
-|Show windspeed|boolean|false|true|Should the windspeed be shown?|
+|Show windspeed|boolean|true|false|Should the windspeed be shown?|
+|Show Humidity|boolean|true|false|Should the humidity be shown?|
 |Push Icon|dropdown|2|0=Icon doesn't move<br />1=Icon moves with text and will not appear again<br />2=Icon moves with text but appears again when the text starts|Icon behavior|
 |Text Case|dropdown|0|0=Use global setting<br />1=Force Uppercase<br />2=Show as you entered it|Select how you would like your text to display|
 |Background Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Background color|
@@ -194,6 +196,7 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 |Awtrix Displays|dropdown||awtrix_d6b064|Select the target Awtrix displays|
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
 |Calendar|dropdown||yourname@gmail.com|Select the calendar for which you want to show the items on the Ulanzi clock. The app value will change when the value of this sensor changes|
+|Hours ahead|number|24|8|How many hours in advance should agenda items be shown? (default 24).|
 |Icon|string||1234|Enter the Icon Name or ID of the icon that you like to show.|
 |Push Icon|dropdown|2|0=Icon doesn't move<br />1=Icon moves with text and will not appear again<br />2=Icon moves with text but appears again when the text starts|Icon behavior|
 |Text Case|dropdown|0|0=Use global setting<br />1=Force Uppercase<br />2=Show as you entered it|Select how you would like your text to display|
@@ -282,6 +285,13 @@ A: You can create a template sensor that translates the names of the weather sta
 
 
 # Release Notes
+
+**v1.70**
+* Weather Blueprint: added the option to show humidity
+* Weather Blueprint: added the option to hide the weather condition text so that you only see the icon with conditions
+* Calendar Blueprint: added the option that you can enter how many hours in advance the agenda items should be shown
+* Calendar Blueprint: delimiter will not be shown after the last calendar item anymore
+* Calendar Blueprint optimization: value will only change when the calendar items change
 
 **V1.69:**
 * Added the HorizontalLine effect
