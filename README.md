@@ -286,7 +286,7 @@ A: You can create a template sensor that translates the names of the weather sta
 
 # Release Notes
 
-**v1.70**
+**v1.70:**
 * Weather Blueprint: added the option to show humidity
 * Weather Blueprint: added the option to hide the weather condition text so that you only see the icon with conditions
 * Calendar Blueprint: added the option that you can enter how many hours in advance the agenda items should be shown
