@@ -286,6 +286,9 @@ A: You can create a template sensor that translates the names of the weather sta
 
 # Release Notes
 
+**V1.71:**
+* Fixed refresh bug in calendar Blueprint. Now retrieves new data every 15 minutes.
+
 **v1.70:**
 * Weather Blueprint: added the option to show humidity
 * Weather Blueprint: added the option to hide the weather condition text so that you only see the icon with conditions
