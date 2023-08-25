@@ -1,5 +1,5 @@
-# Ulanzi-Awtrix-BluePrints
-Manual for the Ulanzi Clock - Awtrix Firmware BluePrints
+# Ulanzi-Awtrix-Light-BluePrints
+Manual for the Awtrix Light Firmware BluePrints (and the Ulanzi Desktop Clock)
 
 [![This is the BEST MATRIX DISPLAY CLOCK for Home Assistant!](https://img.youtube.com/vi/N0NKPJzGHuA/maxresdefault.jpg)](https://www.youtube.com/watch?v=N0NKPJzGHuA)
 Click the image to watch the video. (It will open in this browser window)
