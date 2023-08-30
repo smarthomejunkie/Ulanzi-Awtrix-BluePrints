@@ -286,6 +286,14 @@ A: You can create a template sensor that translates the names of the weather sta
 
 # Release Notes
 
+**V1.72:**
+* Huge improvements on the Calendar Blueprint:
+** Added the possibility to enable or disable showing the complete timeline.
+** Added the possibility to get a notification alert on your clock 15 minutes before an event starts.
+** Added the possibility to enable or disable whole-day events.
+** Added the possibility to enable or disable the alert tone for an event warning.
+* Fixed a bug in the weather forecast Blueprint. Message when no rain is expected will not be shown on top of the graph anymore.
+
 **V1.71:**
 * Fixed refresh bug in calendar Blueprint. Now retrieves new data every 15 minutes.
 
