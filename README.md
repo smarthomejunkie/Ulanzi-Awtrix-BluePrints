@@ -17,6 +17,7 @@ Click the image to watch the video. (It will open in this browser window)
   * [6. Toggle Indicators](#6-toggle-indicators)
   * [7. Awtrix Weather App](#7-awtrix-weather-app)
   * [8. Awtrix Moodlight](#8-awtrix-moodlight)
+  * [9. Awtrix List Calendar](#9-awtrix-list-calendar)
 - [FAQ](#faq)
 - [Release Notes](#release-notes)
 
