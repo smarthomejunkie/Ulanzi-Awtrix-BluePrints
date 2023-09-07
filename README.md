@@ -294,6 +294,7 @@ A: You can create a template sensor that translates the names of the weather sta
 
 **V1.73:**
 * Blueprints are now compatible with Awtrix Light V0.84. Make sure you read [the release notes of Awtrix Light 0.84](https://github.com/Blueforcer/awtrix-light/releases/tag/0.84) before you install these blueprints.
+* You MUST open eaach native/stock app automation and select the stock apps (time, date, humidity, temperature, battery) again in your automation and save the automation to make enabling and disabling of stock automations work for this version.
 * Fixed a bug in the rain forecast blueprint.
 
 **V1.72:**
