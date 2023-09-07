@@ -293,8 +293,8 @@ A: You can create a template sensor that translates the names of the weather sta
 # Release Notes
 
 **V1.73:**
-* Blueprints are now compatible with Awtrix Light V0.84. Make sure you read [the release notes of Awtrix Light 0.84](https://github.com/Blueforcer/awtrix-light/releases/tag/0.84) before you install these blueprints
-* Fixed a bug in the rain forecast blueprint
+* Blueprints are now compatible with Awtrix Light V0.84. Make sure you read [the release notes of Awtrix Light 0.84](https://github.com/Blueforcer/awtrix-light/releases/tag/0.84) before you install these blueprints.
+* Fixed a bug in the rain forecast blueprint.
 
 **V1.72:**
 * Huge improvements on the Calendar Blueprint:
