@@ -297,6 +297,7 @@ A: You can create a template sensor that translates the names of the weather sta
 
 **V1.74**
 * The Rain Forecast Blueprint is now compatible with Home Assistant 2023.9 and up. This now makes use of the new weather.get_forecast service instead of the forecast attribute.
+* **BREAKING CHANGE:** Make sure you run Home Assistant 2023.9 or higher to use the updated Rain Forecast Blueprint. It won't work with a Home Assistant version before 2023.9.
 
 **V1.73:**
 * Blueprints are now compatible with Awtrix Light V0.84. Make sure you read [the release notes of Awtrix Light 0.84](https://github.com/Blueforcer/awtrix-light/releases/tag/0.84) before you install these blueprints.
