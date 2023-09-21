@@ -292,6 +292,9 @@ A: You can create a template sensor that translates the names of the weather sta
 
 # Release Notes
 
+**V1.76**
+* Made Rain Forecast Blueprint backwards compatible to support custom weather integrations
+
 **V1.75**
 * Bugfixes in the Rain Forecast Blueprint
 
