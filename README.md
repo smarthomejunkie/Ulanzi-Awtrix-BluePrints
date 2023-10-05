@@ -220,14 +220,16 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 # FAQ
 
 <details>
- <summary>**Q: What's the password for the Access Point when the clock is in AP Mode?**</summary>
+ <summary>Q: What's the password for the Access Point when the clock is in AP Mode?</summary>
 
  A: The AP Mode password is: 12345678
 </details>
 
-**Q: I cannot see my clock in Home Assistant**
+<details>
+ <summary>Q: I cannot see my clock in Home Assistant</summary>
 
-A: Flash your clock again and make sure you tick the "erase" checkbox. This should hard reset the clock. If this didn't work, then go to [Blueforcer's Discord server](https://discord.gg/Wn7TWDzPY4) to ask for support about this issue.
+ A: Flash your clock again and make sure you tick the "erase" checkbox. This should hard reset the clock. If this didn't work, then go to [Blueforcer's Discord server](https://discord.gg/Wn7TWDzPY4) to ask for support about this issue.
+</details>
 
 **Q: My display does not show notifications or apps as soon as I trigger them.**
 
