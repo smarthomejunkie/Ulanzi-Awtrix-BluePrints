@@ -288,7 +288,10 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 <details>
  <summary><b>How can I download an updated version of the Blueprints for free?</b></summary>
 
- If you've ordered the Blueprints before, log in to Ko-Fi and go to the menu. Select "Payments History" and go to your previous payment. You can download the new version by clicking on "View Details > View Content > Download". Or, open the e-mail that you got at the time of the purchase and click the link in the e-mail to download the latest version.
+ * If you've ordered the Blueprints before, log in to Ko-Fi and go to the menu.
+ * Select "Payments History" and go to your previous payment.
+ * You can download the new version by clicking on "View Details > View Content > Download".
+ * Or, open the e-mail that you got at the time of the purchase and click the link in the e-mail to download the latest version.
 </details>
 <details>
  <summary><b>Where can I ask questions?</b></summary>
