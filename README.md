@@ -219,9 +219,11 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 
 # FAQ
 
-**Q: What's the password for the Access Point when the clock is in AP Mode?**
+<details>
+ <summary>**Q: What's the password for the Access Point when the clock is in AP Mode?**</summary>
 
-A: The AP Mode password is: 12345678
+ A: The AP Mode password is: 12345678
+</details>
 
 **Q: I cannot see my clock in Home Assistant**
 
