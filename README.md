@@ -231,76 +231,99 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
  Flash your clock again and make sure you tick the "erase" checkbox. This should hard reset the clock. If this didn't work, then go to [Blueforcer's Discord server](https://discord.gg/Wn7TWDzPY4) to ask for support about this issue.
 </details>
 
-**Q: My display does not show notifications or apps as soon as I trigger them.**
+<details>
+ <summary><b>My display does not show notifications or apps as soon as I trigger them</b></summary>
 
-A: Make sure the MQTT prefix in Awtrix Light is exactly the same as the name of the device in Home Assistant. Don't use spaces in the name. 
+ Make sure the MQTT prefix in Awtrix Light is exactly the same as the name of the device in Home Assistant. Don't use spaces in the name. 
+</details>
 
-**Q: Will my existing automations still work after I've updated the Blueprints to a new version?**
+<details>
+ <summary><b>Will my existing automations still work after I've updated the Blueprints to a new version?</b></summary>
 
-A: Yes
+ Yes
+</details>
 
-**Q: Will the display update as soon as a sensor value updates?**
+<details>
+ <summary><b>Will the display update as soon as a sensor value updates?</b></summary>
 
-A: Yes, it will update immediately.
+ Yes, it will update immediately.
+</details>
 
-**Q: How can I toggle a notification when a sensor value changes. For instance when a door sensor gets opened?**
+<details>
+ <summary><b>How can I toggle a notification when a sensor value changes. For instance when a door sensor gets opened?</b></summary>
 
-A: Set the toggle helper for your Awtrix notification to "on" in the automation that detects if the door gets opened. This way, the Awtrix notification automation that you've created will also be triggered. I call this technique "daisy-chaining" of automations and explain this in this video: https://youtu.be/sNmonuw4EHo
+ Set the toggle helper for your Awtrix notification to "on" in the automation that detects if the door gets opened. This way, the Awtrix notification automation that you've created will also be triggered. I call this technique "daisy-chaining" of automations and explain this in this video: https://youtu.be/sNmonuw4EHo
+</details>
 
-**Q: How many custom apps can I run simultaneously on this clock?**
+<details>
+ <summary><b>How many custom apps can I run simultaneously on this clock?</b></summary>
 
-A: You can run up to 20 custom apps simultaneously. 
+ You can run up to 20 custom apps simultaneously. 
+ </details>
 
-**Q: How can I show the Artist and Song every time when a new song starts playing?**
+<details>
+ <summary><b>How can I show the Artist and Song every time when a new song starts playing?</b></summary>
 
-A: Follow these steps:
+ Follow these steps:
   1. Create an automation with the Awtrix Create Sensor App Blueprint.
   2. Select a toggle helper that you've created for the Awtrix media player app.
   3. Select the Media Player as the Sensor.
   4. Add code to the template field to show the artist and title. For example: {{ state_attr('media_player.chromecast_audio','media_artist') }} - {{ state_attr('media_player.chromecast_audio','media_title') }}
   5. Set the lifetime to 5 minutes
   6. Make sure the toggle helper is set to on.
+</details>
 
-**Q: How can I disable the stock apps so that they do not reappear after a reboot of the clock?**
+<details>
+ <summary><b>How can I disable the stock apps so that they do not reappear after a reboot of the clock?</b></summary>
 
-A: You can turn them off on the device itself. Long press the middle button to get into the menu and disable them one by one in the menu-option APPS.
+ You can turn them off on the device itself. Long press the middle button to get into the menu and disable them one by one in the menu-option APPS.
+</details>
 
-**Q: How can I change the order of the apps?**
+<details>
+ <summary><b>How can I change the order of the apps?</b></summary>
 
-A: The apps show in the order that you activate them.
+ The apps show in the order that you activate them.
+</details>
 
-**Q: How can I download an updated version of the Blueprints for free?**
+<details>
+ <summary><b>How can I download an updated version of the Blueprints for free?</b></summary>
 
-A: If you've ordered the Blueprints before, log in to Ko-Fi and go to the menu. Select "Payments History" and go to your previous payment. You can download the new version by clicking on "View Details > View Content > Download". Or, open the e-mail that you got at the time of the purchase and click the link in the e-mail to download the latest version.
+ If you've ordered the Blueprints before, log in to Ko-Fi and go to the menu. Select "Payments History" and go to your previous payment. You can download the new version by clicking on "View Details > View Content > Download". Or, open the e-mail that you got at the time of the purchase and click the link in the e-mail to download the latest version.
+</details>
+<details>
+ <summary><b>Where can I ask questions?</b></summary>
 
-**Q: Where can I ask questions?**
+ Join my Discord server to ask questions in the Ulanzi-display channel: [https://discord.gg/pP53uDEgUw](https://discord.gg/pP53uDEgUw)
+</details>
+<details>
+ <summary><b>My Ulanzi clock dies after a couple of hours. What can I do to fix this?</b></summary>
 
-A: Join my Discord server to ask questions in the Ulanzi-display channel: [https://discord.gg/pP53uDEgUw](https://discord.gg/pP53uDEgUw)
+ Unfortunately, there has been a bad hardware batch released by Ulanzi. They pinpointed the issue and fixed it in new batches. Contact your seller and/or Ulanzi and they will send you a new device. Be sure not to tell you've flashed the device, although Ulanzi promotes flashing it on their website.
+</details>
+<details>
+ <summary><b>The colors on the clock do not look the same as the colors that I've selected in the Blueprint</b></summary>
 
-**Q: My Ulanzi clock dies after a couple of hours. What can I do to fix this?**
+ The colors on the clock are determined by the color code and the brightness setting of the clock. The clock has a color correction function to correct the colors. Mostly bright colors work best. "In-between" colors do not work well.
+</details>
+<details>
+ <summary><b>The update button in Home Assistant does not work. How can I update the firmware?</b></summary>
 
-A: Unfortunately, there has been a bad hardware batch released by Ulanzi. They pinpointed the issue and fixed it in new batches. Contact your seller and/or Ulanzi and they will send you a new device. Be sure not to tell you've flashed the device, although Ulanzi promotes flashing it on their website.
+ Long press the middle button on the clock to access the clock menu on the clock itself. You can navigate to the update menu item using the left and right buttons on the clock. Short press the middle button on the clock to enter the menu item of your choice.
+</details>
+<details>
+ <summary><b>How can I change the Language of the Weather Forecast Blueprint?</b></summary>
 
-**Q: The colors on the clock do not look the same as the colors that I've selected in the Blueprint**
+ You can create a template sensor that translates the names of the weather states and use that template sensor in the Custom App blueprint.
+</details>
+<details>
+ <summary><b>How can I show a different icon based on the value of a sensor in the Create Sensor App Blueprint?</b></summary>
 
-A: The colors on the clock are determined by the color code and the brightness setting of the clock. The clock has a color correction function to correct the colors. Mostly bright colors work best. "In-between" colors do not work well.
-
-**Q: The update button in Home Assistant does not work. How can I update the firmware?**
-
-A: Long press the middle button on the clock to access the clock menu on the clock itself. You can navigate to the update menu item using the left and right buttons on the clock. Short press the middle button on the clock to enter the menu item of your choice.
-
-**Q: How can I change the Language of the Weather Forecast Blueprint?**
-
-A: You can create a template sensor that translates the names of the weather states and use that template sensor in the Custom App blueprint.
-
-**Q: How can I show a different icon based on the value of a sensor in the Create Sensor App Blueprint?**
-
-A: You can add template code in the icon field like this:
+ You can add template code in the icon field like this:
 
 ```{% if states('sensor.yoursensor') | int < 0 %}55738{% else %}55742{% endif %}```
 
 Replace the <yoursensor> entity with your own and replace the icon numbers with the icon numbers of your choice.
-
+</details>
 
 
 # Release Notes
