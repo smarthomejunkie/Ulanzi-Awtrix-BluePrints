@@ -306,7 +306,7 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 <details>
  <summary><b>The colors on the clock do not look the same as the colors that I've selected in the Blueprint</b></summary>
 
- The colors on the clock are determined by the color code and the brightness setting of the clock. The clock has a color correction function to correct the colors. Mostly bright colors work best. "In-between" colors do not work well.
+ The colors on the clock are determined by the color code and the brightness setting of the clock. The clock has a color correction function to correct the colors. Mostly bright colors work best. "In-between" colors might not work well.
 </details>
 <details>
  <summary><b>The update button in Home Assistant does not work. How can I update the firmware?</b></summary>
@@ -319,7 +319,7 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
  You can create a template sensor that translates the names of the weather states and use that template sensor in the Custom App blueprint.
 </details>
 <details>
- <summary><b>How can I show a different icon based on the value of a sensor in the Create Sensor App Blueprint?</b></summary>
+ <summary><b>How can I show a different icon based on the value of a sensor?</b></summary>
 
  You can add template code in the icon field like this:
 
