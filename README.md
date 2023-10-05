@@ -291,7 +291,9 @@ A: You can create a template sensor that translates the names of the weather sta
 
 **Q: How can I show a different icon based on the value of a sensor in the Create Sensor App Blueprint?**
 
-A: You can add template code in the icon field like this:  {% if states('sensor.yoursensor') | int < 0 %}55738{% else %}55742{% endif %}. Replace the <yoursensor> entity with your own and replace the icon numbers with the icon numbers of your choice.
+A: You can add template code in the icon field like this:
+```{% if states('sensor.yoursensor') | int < 0 %}55738{% else %}55742{% endif %}```
+Replace the <yoursensor> entity with your own and replace the icon numbers with the icon numbers of your choice.
 
 
 
