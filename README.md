@@ -81,6 +81,10 @@ With this Blueprint, you can create a sensor App on the clock that is part of th
 |Text Case|dropdown|0|0=Use global setting<br />1=Force Uppercase<br />2=Show as you entered it|Select how you would like your text to display|
 |Background Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Background color|
 |Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
+|Use Threshold value|boolean|false|true|If set to true, the color of your text will adapt based on whether the value of your sensor is below or above the threshold value. THIS ONLY WORKS WITH NUMERIC VALUES.|
+|Threshold Value|number|0|200|Enter a value that can be used as a threshold to switch colors|
+|Low-value Text color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the color when the value of the sensor is lower than the threshold value|
+|High-value Text color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the color when the value of the sensor is equal to or higher than the threshold value|
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Repeat|number|-1|5|Sets how many times the text should be scrolled through the matrix before the app ends. If the value is -1, the duration will be taken into account instead.|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
@@ -330,6 +334,9 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+
+**V1.77**
+* Added a Threshold option to the Sensor App Blueprint, so that you can change the color of the sensor value if it's below or above a certain threshold value.
 
 **V1.76**
 * Made Rain Forecast Blueprint backward compatible to support custom weather integrations
