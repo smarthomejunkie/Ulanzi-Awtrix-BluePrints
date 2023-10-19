@@ -335,6 +335,9 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 # Release Notes
 
+**V1.78**
+* Added a fix so that the threshold value works regardless if your template value contains a string.
+
 **V1.77**
 * Added a Threshold option to the Sensor App Blueprint, so that you can change the color of the sensor value if it's below or above a certain threshold value.
 
