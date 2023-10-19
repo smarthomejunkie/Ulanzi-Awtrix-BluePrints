@@ -81,7 +81,7 @@ With this Blueprint, you can create a sensor App on the clock that is part of th
 |Text Case|dropdown|0|0=Use global setting<br />1=Force Uppercase<br />2=Show as you entered it|Select how you would like your text to display|
 |Background Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Background color|
 |Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
-|Use Threshold value|boolean|false|true|If set to true, the color of your text will adapt based on whether the value of your sensor is below or above the threshold value. THIS ONLY WORKS WITH NUMERIC VALUES.|
+|Use Threshold value|boolean|false|true|If set to true, the color of your text will adapt based on whether the value of your sensor is below or above the threshold value.|
 |Threshold Value|number|0|200|Enter a value that can be used as a threshold to switch colors|
 |Low-value Text color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the color when the value of the sensor is lower than the threshold value|
 |High-value Text color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the color when the value of the sensor is equal to or higher than the threshold value|
