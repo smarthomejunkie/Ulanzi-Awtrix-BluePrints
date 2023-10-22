@@ -334,6 +334,8 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V1.79**
+* Bugfix in the sensor app blueprint that fixes an issue that occurs in some cases when users make use of a custom template.
 
 **V1.78**
 * Added a fix so that the threshold value works regardless if your template value contains a string.
