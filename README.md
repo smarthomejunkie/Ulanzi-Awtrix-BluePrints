@@ -267,6 +267,13 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
  </details>
 
 <details>
+ <summary><b>The icons are not showing on the display.</b></summary>
+
+ Upload the icons to your clock first using the Awtrix interface.
+</details>
+
+
+<details>
  <summary><b>How can I show the Artist and Song every time a new song starts playing?</b></summary>
 
  Follow these steps:
