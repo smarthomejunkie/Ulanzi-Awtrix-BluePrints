@@ -269,7 +269,7 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 <details>
  <summary><b>The icons are not showing on the display.</b></summary>
 
- Upload the icons to your clock first using the Awtrix interface.
+ Upload the icons to your clock first using the Awtrix interface. Go to your Ulanzi URL, Icons tab, fill in the icon ID, and click on Preview to check it. Use the download button to upload the icon to the Ulanzi clock.
 </details>
 
 
