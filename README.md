@@ -334,6 +334,10 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V1.80**
+* Added the option to show a custom text when there are no upcoming calendar events.
+* Full day appointments now do not show the time "00:00" anymore.
+  
 **V1.79**
 * Bugfix in the sensor app blueprint that fixes an issue that occurs in some cases when users make use of a custom template.
 
