@@ -250,11 +250,11 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 <details>
  <summary><b>Will the display update as soon as a sensor value updates?</b></summary>
 
- Yes, it will update immediately.
+ Yes, it will be updated immediately.
 </details>
 
 <details>
- <summary><b>How can I toggle a notification when a sensor value changes. For instance when a door sensor gets opened?</b></summary>
+ <summary><b>How can I toggle a notification when a sensor value changes? For instance when a door sensor gets opened?</b></summary>
 
  Set the toggle helper for your Awtrix notification to "on" in the automation that detects if the door gets opened. This way, the Awtrix notification automation that you've created will also be triggered. I call this technique "daisy-chaining" of automations and explain this in this video: https://youtu.be/sNmonuw4EHo
 </details>
@@ -266,7 +266,7 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
  </details>
 
 <details>
- <summary><b>How can I show the Artist and Song every time when a new song starts playing?</b></summary>
+ <summary><b>How can I show the Artist and Song every time a new song starts playing?</b></summary>
 
  Follow these steps:
   1. Create an automation with the Awtrix Create Sensor App Blueprint.
@@ -336,7 +336,7 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 # Release Notes
 **V1.80**
 * Added the option to show a custom text when there are no upcoming calendar events.
-* Full day appointments now do not show the time "00:00" anymore.
+* Full-day appointments now do not show the time "00:00" anymore.
   
 **V1.79**
 * Bugfix in the sensor app blueprint that fixes an issue that occurs in some cases when users make use of a custom template.
