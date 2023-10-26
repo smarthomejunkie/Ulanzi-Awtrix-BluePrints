@@ -209,6 +209,7 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 |Stack|boolean|true|false|Defines if the notification will be stacked. False will immediately replace the current notification.|
 |Icon|string||1234|Enter the Icon Name or ID of the icon that you like to show.|
 |Push Icon|dropdown|2|0=Icon doesn't move<br />1=Icon moves with text and will not appear again<br />2=Icon moves with text but appears again when the text starts|Icon behavior|
+|Custom Text|string|Yay! You have no appointments!|No events|Text to show when there are no upcoming calendar events|
 |Text Case|dropdown|0|0=Use global setting<br />1=Force Uppercase<br />2=Show as you entered it|Select how you would like your text to display|
 |Background Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Background color|
 |Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
