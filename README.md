@@ -306,7 +306,7 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
  * Or, open the e-mail that you got at the time of the purchase and click the link in the e-mail to download the latest version.
 </details>
 <details>
- <summary><b>Where can I ask questions?</b></summary>
+ <summary><b>Where can I ask questions or report a bug?</b></summary>
 
  Join my Discord server to ask questions in the Ulanzi-display channel: [https://discord.gg/pP53uDEgUw](https://discord.gg/pP53uDEgUw)
 </details>
