@@ -261,6 +261,12 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 </details>
 
 <details>
+ <summary><b>How can I turn off a notification, so that I can turn it on again after a while?</b></summary>
+
+ When you've set the notification to turn off after a delay time in the blueprint, the toggle helper will not turn off automatically because Home Assistant cannot see the status of the notification. So, if you use a notification in an automation, you have to switch off the toggle helper after a duration in the automation that triggers that toggle helper to on. 
+</details>
+
+<details>
  <summary><b>How many custom apps can I run simultaneously on this clock?</b></summary>
 
  You can run up to 20 custom apps simultaneously. 
@@ -323,7 +329,9 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 <details>
  <summary><b>The update button in Home Assistant does not work. How can I update the firmware?</b></summary>
 
- Long press the middle button on the clock to access the clock menu on the clock itself. You can navigate to the update menu item using the left and right buttons on the clock. Short press the middle button on the clock to enter the menu item of your choice.
+ There are two ways: 
+ 1. Long press the middle button on the clock to access the clock menu on the clock itself. You can navigate to the update menu item using the left and right buttons on the clock. Short press the middle button on the clock to enter the menu item of your choice.
+ 2. Download the iPhone or Android App for Awtrix Light and update your clock using that app.
 </details>
 <details>
  <summary><b>How can I change the Language of the Weather Forecast Blueprint?</b></summary>
