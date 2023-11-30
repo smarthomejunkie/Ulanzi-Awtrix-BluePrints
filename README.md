@@ -350,10 +350,13 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V1.82**
+* Made Blueprints for Weather Forecast and Calendar compatible with Home Assistant 2023.12. Only use V1.82 if you have Home Assistant 2023.12 or higher installed!
+
 **V1.81**
 * Fixed bug where custom text was not shown if no calendar events were present.
 * Added snowy-rainy.gif for the weather app. Make sure you upload it to your ICONS folder on your clock(s).
-* 
+  
 **V1.80**
 * Added the option to show a custom text when there are no upcoming calendar events.
 * Full-day appointments now do not show the time "00:00" anymore.
