@@ -272,6 +272,12 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
  You can run up to 20 custom apps simultaneously. 
  </details>
 
+ <details>
+ <summary><b>I only see one app on the clock, even when I configured more than one. How can I fix this?</b></summary>
+
+ You probably entered a high number for the transition time. This time is in seconds nowadays. In the past, it was in milliseconds.
+ </details>
+
 <details>
  <summary><b>The icons are not showing on the display.</b></summary>
 
