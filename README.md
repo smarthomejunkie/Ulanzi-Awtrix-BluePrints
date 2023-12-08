@@ -357,6 +357,9 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V2.0**
+* Major update! This is something that a lot of you were eagerly anticipating: Multi-language support for the Weather App. It currently supports, English, Dutch, French, German, Polish, Portuguese, and Spanish
+
 **V1.82**
 * Made Blueprints for Weather Forecast and Calendar compatible with Home Assistant 2023.12. Only use V1.82 if you have Home Assistant 2023.12 or higher installed!
 
