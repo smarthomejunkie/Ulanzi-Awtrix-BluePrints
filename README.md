@@ -162,6 +162,7 @@ With this Blueprint, you can set up the weather app
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
 |Sensor|dropdown||weather.openweathermap|Select your Weather Sensor|
 |Show Weather Text|boolean|true|false|Should the weather condition be shown as text?|
+|Language|dropdown|English|Dutch|Show the weather condition in this language|
 |Show temperature|boolean|true|false|Should the temperature be shown?|
 |Show windspeed|boolean|true|false|Should the windspeed be shown?|
 |Show Humidity|boolean|true|false|Should the humidity be shown?|
