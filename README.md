@@ -360,6 +360,9 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V2.04**
+* Fixed a bug in the event notification
+
 **V2.03**
 * Optional Today and Tomorrow options are now also working correctly after a refresh of the app on the clock.
   
