@@ -357,6 +357,12 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V2.01**
+* New functionalities and bug fixes in the list calendar app:
+- Added the option to enter a prefix for your calendar. If you use multiple calendars, you can now show for what calendar the events are shown.
+- Added the option to enter a Today and Tomorrow text. A personalized message labeled "Today" precedes the schedule of events for the current day, while a corresponding message labeled "Tomorrow" precedes the list of events for the following day.
+- Fixed a bug where finished events were still shown after the event ended.
+
 **V2.0**
 * Major update! This is something that a lot of you were eagerly anticipating: Multi-language support for the Weather App. It currently supports, English, Dutch, French, German, Polish, Portuguese, and Spanish
 
