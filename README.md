@@ -211,6 +211,9 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 |Icon|string||1234|Enter the Icon Name or ID of the icon that you like to show.|
 |Push Icon|dropdown|2|0=Icon doesn't move<br />1=Icon moves with text and will not appear again<br />2=Icon moves with text but appears again when the text starts|Icon behavior|
 |Custom Text|string|Yay! You have no appointments!|No events|Text to show when there are no upcoming calendar events|
+|Prefix|string|<empty>|Ed's Calendar:|Enter an optional prefix text. For instance, show the Calendar name if you use multiple calendars in front of the list of events.|
+|Today Text|string|Today:|Text to show for events that occur today.|
+|Tomorrow Text|string|Tomorrow:|Text to show for events that occur tomorrow.|
 |Text Case|dropdown|0|0=Use global setting<br />1=Force Uppercase<br />2=Show as you entered it|Select how you would like your text to display|
 |Background Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Background color|
 |Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
@@ -359,9 +362,9 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 # Release Notes
 **V2.01**
 * New functionalities and bug fixes in the list calendar app:
-- Added the option to enter a prefix for your calendar. If you use multiple calendars, you can now show for what calendar the events are shown.
-- Added the option to enter a Today and Tomorrow text. A personalized message labeled "Today" precedes the schedule of events for the current day, while a corresponding message labeled "Tomorrow" precedes the list of events for the following day.
-- Fixed a bug where finished events were still shown after the event ended.
+    * Added the option to enter a prefix for your calendar. If you use multiple calendars, you can now show for what calendar the events are shown.
+    * Added the option to enter a Today and Tomorrow text. A personalized message labeled "Today" precedes the schedule of events for the current day, while a corresponding message labeled "Tomorrow" precedes the list of events for the following day.
+    * Fixed a bug where finished events were still shown after the event ended.
 
 **V2.0**
 * Major update! This is something that a lot of you were eagerly anticipating: Multi-language support for the Weather App. It currently supports, English, Dutch, French, German, Polish, Portuguese, and Spanish
