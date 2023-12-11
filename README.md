@@ -213,7 +213,7 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 |Custom Text|string|Yay! You have no appointments!|No events|Text to show when there are no upcoming calendar events|
 |Prefix|string|<empty>|Ed's Calendar:|Enter an optional prefix text. For instance, show the Calendar name if you use multiple calendars in front of the list of events.|
 |Today Text|string|<empty>|Text to show for events that occur today.|
-|Tomorrow Text|<empty>|Tomorrow:|Text to show for events that occur tomorrow.|
+|Tomorrow Text|string|<empty>|Text to show for events that occur tomorrow.|
 |Text Case|dropdown|0|0=Use global setting<br />1=Force Uppercase<br />2=Show as you entered it|Select how you would like your text to display|
 |Background Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Background color|
 |Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
