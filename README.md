@@ -361,7 +361,7 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 # Release Notes
 **V2.03**
-* Optional Today and Tomorrow options are now also working after a refresh of the app on the clock.
+* Optional Today and Tomorrow options are now also working correctly after a refresh of the app on the clock.
   
 **V2.02**
 * Today and Tomorrow options are now optional for the list calendar app
