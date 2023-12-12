@@ -268,6 +268,8 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
  <summary><b>How can I turn off a notification, so that I can turn it on again after a while?</b></summary>
 
  When you've set the notification to turn off after a delay time in the blueprint, the toggle helper will not turn off automatically because Home Assistant cannot see the status of the notification. So, if you use a notification in an automation, you have to switch off the toggle helper after a duration in the automation that triggers that toggle helper to on. 
+Alternatively, you can use the sensor app blueprint instead. You can enter a custom message in the template field so that it behaves a lot like the notification app. 
+
 </details>
 
 <details>
