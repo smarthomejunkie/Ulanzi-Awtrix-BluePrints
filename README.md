@@ -255,7 +255,7 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 <details>
  <summary><b>Will the display update as soon as a sensor value updates?</b></summary>
 
- Yes, it will be updated immediately.
+ If you enable the "Switch to app on value change" option, changes will take effect immediately. Conversely, if the option is disabled, the updated value will be displayed when the app appears in the cycle.
 </details>
 
 <details>
