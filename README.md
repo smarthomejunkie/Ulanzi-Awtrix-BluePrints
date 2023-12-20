@@ -363,7 +363,7 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
  <summary><b>How do I make sure that my calendar is not shown when there are no events scheduled for the upcoming hours?</b></summary>
 
  1. Set the Show Empty Calendar option to off.
- 2. Set the Lifetime (in seconds) option to a number higher than 60. For instance: 70.
+ 2. Set the Lifetime (in seconds) option to a number higher than 60. For instance: 120.
 </details>
 
 
