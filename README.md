@@ -204,13 +204,13 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 |Calendar|dropdown||yourname@gmail.com|Select the calendar for which you want to show the items on the Ulanzi clock. The app value will change when the value of this sensor changes|
 |Hours ahead|number|24|8|How many hours in advance should agenda items be shown? (default 24).|
 |Show Timeline|boolean|true|false|Do you want to cycle the whole timeline for the upcoming hours?|
-|Show Whole Day Events|boolean|true|false|Do you want to show events that last the whole day?|
 |Show Alerts|boolean|true|false|Do you want to show an alert when the calendar event starts|
 |Play Alert Tone|boolean|false|true|Should an alert tone be played 15 minutes before the event starts?|
 |Stack|boolean|true|false|Defines if the notification will be stacked. False will immediately replace the current notification.|
 |Icon|string||1234|Enter the Icon Name or ID of the icon that you like to show.|
 |Push Icon|dropdown|2|0=Icon doesn't move<br />1=Icon moves with text and will not appear again<br />2=Icon moves with text but appears again when the text starts|Icon behavior|
 |Custom Text|string|Yay! You have no appointments!|No events|Text to show when there are no upcoming calendar events|
+|Show Empty Calendar|boolean|true|false|Show the custom text when there are no events. If set to false, the calendar will not show when there are no events after the lifetime has ended. This might take a minute or two to take effect.|
 |Prefix|string|<empty>|Ed's Calendar:|Enter an optional prefix text. For instance, show the Calendar name if you use multiple calendars in front of the list of events.|
 |Today Text|string|<empty>|Text to show for events that occur today.|
 |Tomorrow Text|string|<empty>|Text to show for events that occur tomorrow.|
@@ -362,6 +362,9 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V2.05**
+*  Implemented an option to hide the calendar when there are no events scheduled for the upcoming hours specified in the "hours ahead" option.
+
 **V2.04**
 * Fixed a bug in the event notification
 
