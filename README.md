@@ -204,6 +204,7 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 |Calendar|dropdown||yourname@gmail.com|Select the calendar for which you want to show the items on the Ulanzi clock. The app value will change when the value of this sensor changes|
 |Hours ahead|number|24|8|How many hours in advance should agenda items be shown? (default 24).|
 |Show Timeline|boolean|true|false|Do you want to cycle the whole timeline for the upcoming hours?|
+|Show Whole Day Events|boolean|true|false|Do you want to show events that last the whole day?|
 |Show Alerts|boolean|true|false|Do you want to show an alert when the calendar event starts|
 |Play Alert Tone|boolean|false|true|Should an alert tone be played 15 minutes before the event starts?|
 |Stack|boolean|true|false|Defines if the notification will be stacked. False will immediately replace the current notification.|
@@ -368,6 +369,11 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V2.06**
+* Optimized code for the Calendar app
+* Re-introduced the possibility to show or disable Whole Day events
+* Fixed Spanish translation in the Weather app.
+
 **V2.05**
 *  Implemented an option to hide the calendar when there are no events scheduled for the upcoming hours specified in the "hours ahead" option.
 
