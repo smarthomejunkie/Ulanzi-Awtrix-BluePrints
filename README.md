@@ -5,7 +5,7 @@ Manual for the Awtrix 3 Firmware BluePrints (and the Ulanzi Desktop Clock)
 Click the image to watch the video. (It will open in this browser window)
 
 # Table of Contents:
-- [Ulanzi-Awtrix-BluePrints](#ulanzi-awtrix-blueprints)
+- [Ulanzi-Awtrix-BluePrints](#ulanzi-awtrix-3-blueprints)
 - [Where to get the Blueprints and firmware?](#where-to-get-the-blueprints-and-firmware)
 - [How to install or update](#how-to-install-or-update)
 - [How to use](#how-to-use)
