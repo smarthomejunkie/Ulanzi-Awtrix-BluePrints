@@ -29,6 +29,8 @@ You will get lifetime updates, and you can download new versions by logging in t
 
 **3. You can [find the Awtrix 3 Repository here](https://github.com/Blueforcer/awtrix3)**.
 
+**4. Check [the manual of Awtrix 3 here](https://blueforcer.github.io/awtrix3/#/README)**.
+
 # How to install or update
 1. Upload (or overwrite) the smarthomejunkie folder into the /config/blueprints/automations folder in Home Assistant.
 2. After uploading the Blueprints, go to Developer Tools > YAML tab and click AUTOMATIONS. Your existing automations will still work. 
