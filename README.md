@@ -1,5 +1,5 @@
-# Ulanzi-Awtrix-Light-BluePrints
-Manual for the Awtrix Light Firmware BluePrints (and the Ulanzi Desktop Clock)
+# Ulanzi-Awtrix-3-BluePrints
+Manual for the Awtrix 3 Firmware BluePrints (and the Ulanzi Desktop Clock)
 
 [![This is the BEST MATRIX DISPLAY CLOCK for Home Assistant!](https://img.youtube.com/vi/N0NKPJzGHuA/maxresdefault.jpg)](https://www.youtube.com/watch?v=N0NKPJzGHuA)
 Click the image to watch the video. (It will open in this browser window)
@@ -25,9 +25,9 @@ Click the image to watch the video. (It will open in this browser window)
 **1. You can download the Home Assistant Blueprints by sponsoring me on [this Ko-Fi page](https://ko-fi.com/s/0d1e4419bd)**.
 You will get lifetime updates, and you can download new versions by logging in to Ko-Fi when a new update is released.
 
-**2. You can get the Awtrix Light firmware [on this site](https://blueforcer.github.io/awtrix-light/#/README)**.
+**2. You can get the Awtrix 3 firmware [on this site](https://github.com/Blueforcer/awtrix3#readme)**.
 
-**3. You can [find the Awtrix Light Repository here](https://github.com/Blueforcer/awtrix-light)**.
+**3. You can [find the Awtrix 3 Repository here](https://github.com/Blueforcer/awtrix3)**.
 
 # How to install or update
 1. Upload (or overwrite) the smarthomejunkie folder into the /config/blueprints/automations folder in Home Assistant.
@@ -244,7 +244,7 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 <details>
  <summary><b>My display does not show notifications or apps as soon as I trigger them</b></summary>
 
- Make sure the MQTT prefix in Awtrix Light is exactly the same as the name of the device in Home Assistant. Don't use spaces in the name. 
+ Make sure the MQTT prefix in Awtrix 3 is exactly the same as the name of the device in Home Assistant. Don't use spaces in the name. 
 </details>
 
 <details>
@@ -344,7 +344,7 @@ Alternatively, you can use the sensor app blueprint instead. You can enter a cus
 
  There are two ways: 
  1. Long press the middle button on the clock to access the clock menu on the clock itself. You can navigate to the update menu item using the left and right buttons on the clock. Short press the middle button on the clock to enter the menu item of your choice.
- 2. Download the iPhone or Android App for Awtrix Light and update your clock using that app.
+ 2. Download the iPhone or Android App for Awtrix 3 and update your clock using that app.
 </details>
 <details>
  <summary><b>How can I change the Language of the Weather Forecast Blueprint?</b></summary>
@@ -426,7 +426,7 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 * **BREAKING CHANGE:** Make sure you run Home Assistant 2023.9 or higher to use the updated Rain Forecast Blueprint. It won't work with a Home Assistant version before 2023.9.
 
 **V1.73:**
-* Blueprints are now compatible with Awtrix Light V0.84. Make sure you read [the release notes of Awtrix Light 0.84](https://github.com/Blueforcer/awtrix-light/releases/tag/0.84) before you install these blueprints.
+* Blueprints are now compatible with Awtrix 3 V0.84. Make sure you read [the release notes of Awtrix 3 0.84](https://github.com/Blueforcer/awtrix3/releases/tag/0.84) before you install these blueprints.
 * You **HAVE TO** open each native/stock app automation and select the stock apps (time, date, humidity, temperature, battery) again in your automation and save the automation to make enabling and disabling of stock automations work for this version.
 * Fixed a bug in the rain forecast blueprint.
 
@@ -457,7 +457,7 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 * Bugfixes
 
 **V1.67:**
-* Removed the possibility to select the eyes app because it's removed from Awtrix Light V0.71
+* Removed the possibility to select the eyes app because it's removed from Awtrix 3 V0.71
 
 **V1.66:**
 * You can now choose MULTIPLE clocks
@@ -472,10 +472,10 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 * Added the possibility to select an input text helper as a sensor for the Sensor App Blueprint. It's now possible to trigger the automation based on a Text Helper value as well.  
 
 **V1.63:**
-* Added stack option to notrifications. Defines if the notification will be stacked. "Off" will immediately replace the current notification. Compatible with Awtrix Light v0.66 and above.
+* Added stack option to notrifications. Defines if the notification will be stacked. "Off" will immediately replace the current notification. Compatible with Awtrix 3 v0.66 and above.
 
 **V1.62:**
-* Now three indicators are supported in the Indicators Blueprint. Note: the Indicators blueprint assumes that you created three toggle helpers: input_boolean.awtrix_display_indicator_1, input_boolean.awtrix_display_indicator_2, and input_boolean.awtrix_display_indicator_3. This is needed to make sure your already created automations that use the Indicators Blueprint will not break. You don't need to create these helpers and can still use any toggle helper you like. Compatible with Awtrix Light v0.63 and above.
+* Now three indicators are supported in the Indicators Blueprint. Note: the Indicators blueprint assumes that you created three toggle helpers: input_boolean.awtrix_display_indicator_1, input_boolean.awtrix_display_indicator_2, and input_boolean.awtrix_display_indicator_3. This is needed to make sure your already created automations that use the Indicators Blueprint will not break. You don't need to create these helpers and can still use any toggle helper you like. Compatible with Awtrix 3 v0.63 and above.
 
 **V1.61:**
 * The new stock App Eyes can now be enabled and disabled using the Toggle Stock App Blueprint
@@ -484,7 +484,7 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 * Added a blink speed number selector for the indicators in the indicator blueprint. Supports Awtrix firmware 0.62 or higher.
 
 **V1.59:**
-* Added a new Blueprint to convert your Awtrix Clock into a moodlight. Awtrix Light Firmware 0.61 or higher is needed for this to work.
+* Added a new Blueprint to convert your Awtrix Clock into a moodlight. Awtrix 3 Firmware 0.61 or higher is needed for this to work.
 
 **V1.58:**
 * If you have multiple clocks in your house, you can target a specific clock in the notification Blueprint, so that the middle button for that specific clock will dismiss the notifcation when pressed. This fix is created to prevent tools as Watchman to report errors for non used entity ids.
@@ -494,7 +494,7 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 * Added a toggle to the Indicators Blueprint to toggle an alert sound on and off. Make sure you've uploaded the alert.txt file to the MELODIES folder to make this work.
 
 **V1.56:**
-* Re-added the Lifetime option. This option resulted in errors in older Awtrix firmware. Make sure you have at least Awtrix Light firmware version 0.58 installed to let this work properly.
+* Re-added the Lifetime option. This option resulted in errors in older Awtrix firmware. Make sure you have at least Awtrix 3 firmware version 0.58 installed to let this work properly.
 * Up to 3 Ulanzi displays now support the middle button to dismiss a notification for you people with multiple clocks in your home.
 * Streamlined some code to make it future-proof.
 
@@ -512,14 +512,14 @@ NOTE: This uses the default entity ID for the middle button of the Ulanzi clock 
 * Fixed bug in Forecast Blueprint that pointed hardcoded to OpenWeatherMap.
 
 **V1.51:**
-* An alert tone can now be played when a notification is triggered. Make sure you copy the provided alert.txt file into the MELODIES folder of Awtrix Light to make this work.
+* An alert tone can now be played when a notification is triggered. Make sure you copy the provided alert.txt file into the MELODIES folder of Awtrix 3 to make this work.
 
 **V1.50:**
 * Added the possibility to select media players in the Awtrix Create Sensor App. It's now possible to show the artist and song on the clock when a new song starts playing on the selected media player.
 * Added a Template field. You can now format your sensors so that they look exactly like you want them to look!
 
 **V1.43:**
-* Renaming the prefix in Awtrix Light and in Home Assistant to the same name will not break the apps anymore.
+* Renaming the prefix in Awtrix 3 and in Home Assistant to the same name will not break the apps anymore.
 
 **V1.42:**
 * Added option to select a background color for notifications and custom apps.
