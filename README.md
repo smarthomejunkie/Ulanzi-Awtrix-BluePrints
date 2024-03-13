@@ -89,7 +89,8 @@ With this Blueprint, you can create a sensor App on the clock that is part of th
 |High-value Text color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the color when the value of the sensor is equal to or higher than the threshold value|
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Repeat|number|-1|5|Sets how many times the text should be scrolled through the matrix before the app ends. If the value is -1, the duration will be taken into account instead.|
-|Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
+|Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time.|
+|Interval (in seconds)|number|15|30|Sets the minimum interval time between sending MQTT messages to your MQTT broker. This helps prevent your MQTT broker from being flooded when a sensor value changes frequently.|
 |Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
 |Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes? **BEWARE**: Setting this to On for a sensor that changes very frequently might flood your clock with MQTT messages and might cause reboots of the clock!|
 |Scroll|boolean|true|false|Enables text scrolling.|
@@ -371,6 +372,11 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V2.07**
+* Added compatibility for Awtrix 3
+* Added an interval option for the sensor app to prevent flooding of your MQTT broker
+* Added a text file that contains the version number
+
 **V2.06**
 * Optimized code for the Calendar app
 * Re-introduced the possibility to show or disable Whole Day events
