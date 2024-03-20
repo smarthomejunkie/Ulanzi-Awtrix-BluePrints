@@ -34,7 +34,7 @@ You will get lifetime updates, and you can download new versions by logging in t
 # How to install or update
 1. Upload (or overwrite) the smarthomejunkie folder into the /config/blueprints/automations folder in Home Assistant.
 2. After uploading the Blueprints, go to Developer Tools > YAML tab and click AUTOMATIONS. Your existing automations will still work. 
-3. You can upload the icons in the ICONS folder using the file manager in the Awtrix web interface.
+3. You can upload the weather icons in the ICONS folder using the file manager in the Awtrix web interface.
 3. You can upload the notification file alert.txt in the MELODIES folder using the file manager in the Awtrix web interface.
 
 # How to use
