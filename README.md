@@ -90,7 +90,7 @@ With this Blueprint, you can create a sensor App on the clock that is part of th
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Repeat|number|-1|5|Sets how many times the text should be scrolled through the matrix before the app ends. If the value is -1, the duration will be taken into account instead.|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time.|
-|Interval (in seconds)|number|15|30|Sets the minimum interval time between sending MQTT messages to your MQTT broker. This helps prevent your MQTT broker from being flooded when a sensor value changes frequently.|
+|Interval (in seconds)|number|15|30|Sets the minimum interval time between sending MQTT messages to your MQTT broker. This helps prevent your MQTT broker from being flooded when a sensor value changes frequently. **NOTE**: This might result in Warnings in the log files of Hom,e Assistant that the automation is already running. Lower this value to prevent too many warnings.|
 |Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
 |Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes? **BEWARE**: Setting this to On for a sensor that changes very frequently might flood your clock with MQTT messages and might cause reboots of the clock!|
 |Scroll|boolean|true|false|Enables text scrolling.|
