@@ -65,7 +65,6 @@ With this Blueprint, you can send a notification to the clock. It's also possibl
 |Scroll|boolean|true|false|Enables text scrolling.|
 |Scroll Speed Percentage|number|100|50|Modifies the scrollspeed. You need to enter a percentage value.|
 |Effect|string|None|Ripple|Shows a background effect. If you only want to show the effect in a notification, then simply do not enter a text in the notification.|
-* Bugfixes|
 
 ## 2. Awtrix Create Sensor App
 With this Blueprint, you can create a sensor App on the clock that is part of the app cycle.
@@ -90,7 +89,7 @@ With this Blueprint, you can create a sensor App on the clock that is part of th
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
 |Repeat|number|-1|5|Sets how many times the text should be scrolled through the matrix before the app ends. If the value is -1, the duration will be taken into account instead.|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time.|
-|Interval (in seconds)|number|15|30|Sets the minimum interval time between sending MQTT messages to your MQTT broker. This helps prevent your MQTT broker from being flooded when a sensor value changes frequently. **NOTE**: This might result in Warnings in the log files of Home Assistant that the automation is already running. Lower this value to prevent too many warnings.|
+|Interval (in seconds)|number|15|30|Sets the minimum interval time between sending MQTT messages to your MQTT broker. This helps prevent your MQTT broker from being flooded when a sensor value changes frequently. **NOTE**: This might result in Warnings in the log files of Home Assistant that the automation is already running. Lower this value to prevent too many warnings. Setting this value to zero should eliminate almost all warnings, but your MQTT broker might get flooded.|
 |Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
 |Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes? **BEWARE**: Setting this to On for a sensor that changes very frequently might flood your clock with MQTT messages and might cause reboots of the clock!|
 |Scroll|boolean|true|false|Enables text scrolling.|
