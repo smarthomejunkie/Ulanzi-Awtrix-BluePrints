@@ -371,6 +371,10 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V2.08**
+* Added Danish language for the Weather Blueprint
+* Fixed a "bug" that showed a warning message in the log files when a sensor was still running.
+
 **V2.07**
 * Added compatibility for Awtrix 3
 * Added an interval option for the sensor app to prevent flooding of your MQTT broker
