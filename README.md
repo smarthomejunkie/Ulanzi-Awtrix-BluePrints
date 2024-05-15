@@ -370,6 +370,12 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V2.11**
+* Added some code to suppress messages in the log files.
+
+**V2.10**
+* Fixed a bug that in some cases apps couldn't be closed using an automation.
+
 **V2.09**
 * Rolled back the interval option because it causes issues.
 
