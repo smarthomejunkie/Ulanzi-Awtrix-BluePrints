@@ -56,7 +56,9 @@ With this Blueprint, you can send a notification to the clock. It's also possibl
 |Text Case|dropdown|0|0=Use global setting<br />1=Force Uppercase<br />2=Show as you entered it|Select how you would like your text to display|
 |Background Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Background color|
 |Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
-|Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
+|Gradient 1|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the first Gradient color if you want to use a gradient color for the text. This will be ignored if both gradient colors are the same.|
+|Gradient 2|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the second Gradient color if you want to use a gradient color for the text. This will be ignored if both gradient colors are the same.|
+|Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors? This overwrites the Gradient setting.|
 |Play Alert Tone|boolean|false|true|Should an alert tone be played?<br /> Make sure you have copied the alerts.txt file into the MELODIES folder in Awtrix|
 |Hold Notification|boolean|true|false|Should the notification stay on the display until it's manually dismissed? (Overrides Repeat & Duration)|
 |Repeat|number|-1|5|Sets how many times the text should be scrolled through the matrix before the app ends. If the value is -1, the duration will be taken into account instead.|
@@ -86,7 +88,9 @@ With this Blueprint, you can create a sensor App on the clock that is part of th
 |Threshold Value|number|0|200|Enter a value that can be used as a threshold to switch colors|
 |Low-value Text color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the color when the value of the sensor is lower than the threshold value|
 |High-value Text color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the color when the value of the sensor is equal to or higher than the threshold value|
-|Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
+|Gradient 1|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the first Gradient color if you want to use a gradient color for the text. This will be ignored if both gradient colors are the same.|
+|Gradient 2|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the second Gradient color if you want to use a gradient color for the text. This will be ignored if both gradient colors are the same.|
+|Rainbow Colors|boolean|false|true|Should the text be shown in Rainbow colors? This overwrites the Gradient setting.|
 |Repeat|number|-1|5|Sets how many times the text should be scrolled through the matrix before the app ends. If the value is -1, the duration will be taken into account instead.|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time.|
 |Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
@@ -370,6 +374,10 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V2.13**
+* Added text gradient options to the Notification and Sensor Blueprints
+* Added sections for Text and Advanced sections to the Notification and Sensor Blueprints.
+
 **V2.12**
 * Added correct Polish translations
   
