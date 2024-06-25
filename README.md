@@ -370,6 +370,9 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V2.12**
+* Added correct Polish translations
+  
 **V2.11**
 * Added some code to suppress messages in the log files.
 
