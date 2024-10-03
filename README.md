@@ -374,6 +374,9 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V2.14**
+* Updated all Blueprints to make them compatible with Home Assistant 2024.10 and higher.
+
 **V2.13**
 * Added text gradient options to the Notification and Sensor Blueprints
 * Added sections for Text and Advanced options to the Notification and Sensor Blueprints.
