@@ -374,6 +374,9 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V2.15**
+* Refactored the code so that Legacy warnings are not showing anymore in Studio Code Server
+
 **V2.14**
 * Updated all Blueprints to make them compatible with Home Assistant 2024.10 and higher. This is a backward incompatible change. This version will not work with lower versions of Home Assistant!
 
