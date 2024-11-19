@@ -374,6 +374,9 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V2.16**
+* Fixed a bug in the Create Sensor App Blueprint
+
 **V2.15**
 * Refactored the code so that Legacy warnings are not showing anymore in Studio Code Server
 
