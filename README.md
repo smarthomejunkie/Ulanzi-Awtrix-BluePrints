@@ -374,6 +374,11 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V2.17**
+* Fixed bug in the translations of the Weather Blueprint. Some languages were not displayed correctly
+* Added Italian language for the Weather Blueprint
+* Added Russian language for the Weather Blueprint
+  
 **V2.16**
 * Fixed a bug in the Create Sensor App Blueprint
 
