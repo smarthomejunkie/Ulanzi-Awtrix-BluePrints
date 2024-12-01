@@ -232,6 +232,33 @@ With this Blueprint, you can create a calendar App on the clock that is part of 
 |Scroll Speed Percentage|number|100|50|Modifies the scrollspeed. You need to enter a percentage value.|
 |Effect|string|None|Ripple|Shows a background effect.|
 
+## 10. Awtrix List ToDo Items
+With this Blueprint, you can create a ToDo List App on the clock that is part of the app cycle. It shows the to-do items for the chosen to-do list
+
+**Fields:**
+
+|Name|Type|Default|Example|Description|
+|---|---|---|---|---|
+|Awtrix Displays|dropdown||awtrix_d6b064|Select the target Awtrix displays|
+|Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
+|ToDo List|dropdown||My ToDo List|Select your todo list|
+|Icon|string|29644|1234|Enter the Icon Name or ID of the icon that you like to show.|
+|Push Icon|dropdown|2|0=Icon doesn't move<br />1=Icon moves with text and will not appear again<br />2=Icon moves with text but appears again when the text starts|Icon behavior|
+|Custom Text|string|Yay! You have no appointments!|No events|Text to show when there are no upcoming calendar events|
+|Prefix|string|To Do:|My To-Do list:|Enter a prefix text.|
+|Show Empty ToDo List|boolean|true|false|Show the custom text when there are no items.|
+|Text Case|dropdown|0|0=Use global setting<br />1=Force Uppercase<br />2=Show as you entered it|Select how you would like your text to display|
+|Background Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Background color|
+|Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
+|Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
+|Repeat|number|-1|5|Sets how many times the text should be scrolled through the matrix before the app ends. If the value is -1, the duration will be taken into account instead.|
+|Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
+|Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
+|Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes? **BEWARE**: Setting this to On for a sensor that changes very frequently might flood your clock with MQTT messages and might cause reboots of the clock!|
+|Scroll|boolean|true|false|Enables text scrolling.|
+|Scroll Speed Percentage|number|100|50|Modifies the scrollspeed. You need to enter a percentage value.|
+|Effect|string|None|Ripple|Shows a background effect.|
+
 # FAQ
 
 <details>
@@ -374,6 +401,10 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V3.0**
+* Added a new Blueprint: Show Your ToDo Lists on the Ulanzi clock!
+* Added a default icon for the ToDo List Blueprint. Make sure you upload it in your icons folder on your Ulanzi Clock.
+  
 **V2.17**
 * Fixed bug in the translations of the Weather Blueprint. Some languages were not displayed correctly
 * Added Italian language for the Weather Blueprint
