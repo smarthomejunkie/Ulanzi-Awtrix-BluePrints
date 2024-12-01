@@ -245,7 +245,7 @@ With this Blueprint, you can create a ToDo List App on the clock that is part of
 |ToDo List|dropdown||My ToDo List|Select your todo list|
 |Icon|string|29644|1234|Enter the Icon Name or ID of the icon that you like to show.|
 |Push Icon|dropdown|2|0=Icon doesn't move<br />1=Icon moves with text and will not appear again<br />2=Icon moves with text but appears again when the text starts|Icon behavior|
-|Custom Text|string|Yay! You have no appointments!|No events|Text to show when there are no upcoming calendar events|
+|Custom Text|string|Relax! You have nothing to do!|No events|Text to show when there are no to-do items|
 |Prefix|string|To Do:|My To-Do list:|Enter a prefix text.|
 |Show Empty ToDo List|boolean|true|false|Show the custom text when there are no items.|
 |Text Case|dropdown|0|0=Use global setting<br />1=Force Uppercase<br />2=Show as you entered it|Select how you would like your text to display|
