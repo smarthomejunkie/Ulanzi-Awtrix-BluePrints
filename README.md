@@ -402,6 +402,9 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V3.01**
+* Fixed a bug that occurred after the update of Home Assistant 2025.2 where turning off apps did not work anymore.
+
 **V3.0**
 * Added a new Blueprint: Show Your ToDo Lists on the Ulanzi clock!
 * Added a default icon for the ToDo List Blueprint. Make sure you upload it in your icons folder on your Ulanzi Clock.
