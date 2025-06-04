@@ -402,6 +402,9 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V3.02**
+* Fixed a bug where next day calendar items were not preceded with a space when the "Tomorrow Text" field in the blueprint was not filled.
+  
 **V3.01**
 * Fixed a bug that occurred after the update of Home Assistant 2025.2 where turning off apps did not work anymore.
 
