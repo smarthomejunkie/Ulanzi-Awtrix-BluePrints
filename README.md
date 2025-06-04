@@ -402,6 +402,9 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V3.03**
+* Fixed a minor bug where an extra space became visible after refreshing the calendar entity.
+
 **V3.02**
 * Fixed a bug where next day calendar items were not preceded with a space when the "Tomorrow Text" field in the blueprint was not filled.
   
