@@ -402,6 +402,9 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V3.04**
+* Completely refactored the ToDo list Blueprint to fix various bugs.
+  
 **V3.03**
 * Fixed a minor bug where an extra space became visible after refreshing the calendar entity.
 
