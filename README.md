@@ -399,6 +399,11 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
  1. Set the Show Empty Calendar option to off.
  2. Set the Lifetime (in seconds) option to a number higher than 60. For instance: 120.
 </details>
+<details>
+ <summary><b>How should I interpret the weather forecast graph?</b></summary>
+
+ The weather forecast graph displays the expected precipitation provided by your weather provider. Each bar represents the time interval during which your provider delivers. In the case of OpenWeatherMap, this is three hours. You have to check for yourself what the time interval for expected precipitation is for the weather integration that you use.   
+</details>
 
 
 # Release Notes
