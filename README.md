@@ -410,13 +410,13 @@ Alternatively, you can use the sensor app blueprint instead. You can enter a cus
  <summary><b>The update button in Home Assistant does not work. How can I update the firmware?</b></summary>
 
  There are two ways: 
- 1. Long press the middle button on the clock to access the clock menu on the clock itself. You can navigate to the update menu item using the left and right buttons on the clock. Short press the middle button on the clock to enter the menu item of your choice.
+ 1. Long press the middle button on the clock to access the clock menu on the clock itself. You can navigate to the update menu item using the clock's left and right buttons. Short press the middle button on the clock to enter the menu item of your choice.
  2. Download the iPhone or Android App for Awtrix 3 and update your clock using that app.
 </details>
 <details>
  <summary><b>How can I change the Language of the Weather Forecast Blueprint?</b></summary>
 
- You can create a template sensor that translates the names of the weather states and use that template sensor in the Custom App blueprint.
+ You can create a template sensor that translates weather state names and use it in the Custom App blueprint.
 </details>
 <details>
  <summary><b>How can I show a different icon based on the value of a sensor?</b></summary>
@@ -425,7 +425,7 @@ Alternatively, you can use the sensor app blueprint instead. You can enter a cus
 
 ```{% if states('sensor.yoursensor') | int < 0 %}55738{% else %}55742{% endif %}```
 
-Replace the <yoursensor> entity with your own and replace the icon numbers with the icon numbers of your choice.
+Replace the <yoursensor> entity with your own, and replace the icon numbers with those of your choice.
 </details>
 <details>
  <summary><b>How do I make sure that my calendar is not shown when there are no events scheduled for the upcoming hours?</b></summary>
@@ -436,7 +436,12 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 <details>
  <summary><b>How should I interpret the weather forecast graph?</b></summary>
 
- The weather forecast graph displays the expected precipitation provided by your weather provider. Each bar represents the time interval during which your provider delivers. In the case of OpenWeatherMap, this is three hours. You have to check for yourself what the time interval for expected precipitation is for the weather integration that you use.   
+ The weather forecast graph displays the expected precipitation provided by your weather provider. Each bar represents the time interval during which your provider delivers. In the case of OpenWeatherMap, this is three hours. You have to check for yourself what the expected precipitation time interval is for the weather integration you use.   
+</details>
+<details>
+ <summary><b>Can the countdown timer count down in seconds?</b>b></summary>
+
+ It does show the seconds, but it can't count down in seconds because of the refresh interval. The clock should be refreshed every second in that case, and that would kill the app cycle on the clock. (And I guess even the clock itself, because it refreshes too often).
 </details>
 
 
