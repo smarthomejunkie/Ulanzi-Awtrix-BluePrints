@@ -442,6 +442,7 @@ Replace the <yoursensor> entity with your own, and replace the icon numbers with
  <summary><b>Can the countdown timer count down in seconds?</b></summary>
 
  It does show the seconds, but it can't count down in seconds because of the refresh interval. The clock should be refreshed every second in that case, and that would kill the app cycle on the clock. (And I guess even the clock itself, because it refreshes too often).
+ There's an option to turn off the display of seconds.
 </details>
 
 
