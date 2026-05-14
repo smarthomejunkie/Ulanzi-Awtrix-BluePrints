@@ -19,6 +19,7 @@ Click the image to watch the video. (It will open in this browser window)
   * [8. Awtrix Moodlight](#8-awtrix-moodlight)
   * [9. Awtrix List Calendar](#9-awtrix-list-calendar)
   * [10. Awtrix List ToDo Items](#10-awtrix-list-todo-items)
+  * [11. Awtrix Countdown timer](#11-awtrix-countdown-imer)
 - [FAQ](#faq)
 - [Release Notes](#release-notes)
 
