@@ -260,6 +260,39 @@ With this Blueprint, you can create a ToDo List App on the clock that is part of
 |Scroll Speed Percentage|number|100|50|Modifies the scrollspeed. You need to enter a percentage value.|
 |Effect|string|None|Ripple|Shows a background effect.|
 
+## 11. Awtrix Countdown Timer
+With this Blueprint, you can create countdown timers for specific events. This timer counts down to a date. It's not possible to let it count down in seconds because of the refresh interval.
+
+**Fields:**
+
+|Name|Type|Default|Example|Description|
+|---|---|---|---|---|
+|Awtrix Displays|dropdown||awtrix_d6b064|Select the target Awtrix displays|
+|Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
+|Event Name|text|Countdown|New Year|Enter a short name for your event. This is used as the app identifier on the clock and shown as a label (e.g. "Birthday", "Vacation", "New Year").|
+|Event Date|text|2025-12-31|2027-01-01|Enter the target date in YYYY-MM-DD format (e.g. 2025-12-31).|
+|Event Time|text|00:00:00|00:00:00|Enter the target time in HH:MM:SS format using 24-hour notation (e.g. 00:00:00).|
+|Show Event Name on Clock|boolean|true|false|If enabled, the event name will be shown as a prefix before the countdown (e.g. "Vacation 3d 4h 20m 10s"). Disable to show only the countdown value.|
+|Show Seconds|boolean|true|false|If enabled, seconds will be included in the countdown display. Note: the automation updates every minute, so seconds are approximate.|
+|Event Started Message|text|empty|New year has started!|Message to display from the moment the event starts until midnight of the same day (e.g. "🎂 Happy Birthday!" or "✈️ Bon Voyage!"). Leave empty to skip straight to the Event Reached Text below.|
+|Event Reached Text|text|🎉 Now!|It's New Years Day|Fallback text to display once the event day has ended (i.e. from midnight onward). Also used on the event day if Event Started Message is left empty. Leave empty to hide the app automatically after the event.|
+|Icon|string|29644|1234|Enter the Icon Name or ID of the icon that you like to show.|
+|Push Icon|dropdown|2|0=Icon doesn't move<br />1=Icon moves with text and will not appear again<br />2=Icon moves with text but appears again when the text starts|Icon behavior|
+|Custom Text|string|Relax! You have nothing to do!|No events|Text to show when there are no to-do items|
+|Prefix|string|To Do:|My To-Do list:|Enter a prefix text.|
+|Show Empty ToDo List|boolean|true|false|Show the custom text when there are no items.|
+|Text Case|dropdown|0|0=Use global setting<br />1=Force Uppercase<br />2=Show as you entered it|Select how you would like your text to display|
+|Background Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Background color|
+|Text Color|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the Text color|
+|Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors?|
+|Repeat|number|-1|5|Sets how many times the text should be scrolled through the matrix before the app ends. If the value is -1, the duration will be taken into account instead.|
+|Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
+|Lifetime (in seconds)|number|0|30|Sets how long the app should stay alive before it gets removed from the app cycle automatically. 0 is infinite lifetime. This only works if App cycling is enabled|
+|Switch to app on value change|boolean|true|false|Should the clock switch to the app immediately when the value of the sensor changes? **BEWARE**: Setting this to On for a sensor that changes very frequently might flood your clock with MQTT messages and might cause reboots of the clock!|
+|Scroll|boolean|true|false|Enables text scrolling.|
+|Scroll Speed Percentage|number|100|50|Modifies the scrollspeed. You need to enter a percentage value.|
+|Effect|string|None|Ripple|Shows a background effect.|
+
 # FAQ
 
 <details>
