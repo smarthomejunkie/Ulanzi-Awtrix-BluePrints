@@ -407,6 +407,9 @@ Replace the <yoursensor> entity with your own and replace the icon numbers with 
 
 
 # Release Notes
+**V4.0**
+* Added Blueprint to show a countdown timer to a specific date
+  
 **V3.04**
 * Completely refactored the ToDo list Blueprint to fix various bugs.
   
