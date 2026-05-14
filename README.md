@@ -439,7 +439,7 @@ Replace the <yoursensor> entity with your own, and replace the icon numbers with
  The weather forecast graph displays the expected precipitation provided by your weather provider. Each bar represents the time interval during which your provider delivers. In the case of OpenWeatherMap, this is three hours. You have to check for yourself what the expected precipitation time interval is for the weather integration you use.   
 </details>
 <details>
- <summary><b>Can the countdown timer count down in seconds?</b>b></summary>
+ <summary><b>Can the countdown timer count down in seconds?</b></summary>
 
  It does show the seconds, but it can't count down in seconds because of the refresh interval. The clock should be refreshed every second in that case, and that would kill the app cycle on the clock. (And I guess even the clock itself, because it refreshes too often).
 </details>
