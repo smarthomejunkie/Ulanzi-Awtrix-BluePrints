@@ -36,11 +36,11 @@ You will get lifetime updates, and you can download new versions by logging in t
 # How to install or update
 1. Upload (or overwrite) the smarthomejunkie folder into the /config/blueprints/automation/awtrix_ng folder in Home Assistant.
 2. After uploading the Blueprints, go to Developer Tools > YAML tab and click AUTOMATIONS. Your existing automations will still work. 
-3. You can upload the weather icons in the ICONS folder using the file manager in the Awtrix web interface.
-3. You can upload the notification file alert.txt in the MELODIES folder using the file manager in the Awtrix web interface.
+3. You can upload the weather icons in the ICONS folder using the Icons tab in the Awtrix NG web interface.
+3. You can upload the notification file alert.txt in the Sounds tab using the file manager in the Awtrix NG web interface.
 
 # How to use
-There are 9 Blueprints to control your Ulanzi Desktop Clock using Awtrix. Each automation that you create with a Blueprint needs a toggle helper to turn the notification or app on or off. Don't forget to create a toggle (or number) helper for each automation that you create with these Blueprints!
+There are 11 Blueprints to control your Ulanzi Desktop Clock using Awtrix NG. Each automation that you create with a Blueprint needs a toggle helper to turn the notification or app on or off. Don't forget to create a toggle (or number) helper for each automation that you create with these Blueprints!
 
 
 ## 1. Awtrix Create Notification
