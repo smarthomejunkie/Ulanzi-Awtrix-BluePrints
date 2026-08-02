@@ -61,10 +61,9 @@ If discovery is off, or you have a second clock that is not in Home Assistant, u
 
 ## 2. Installing a blueprint
 
-1. In Home Assistant, go to **Settings → Automations & Scenes → Blueprints**.
-2. Click **Import Blueprint**, or copy the `.yaml` file into `config/blueprints/automation/smarthomejunkie/`.
-3. If you copied files manually, go to **Developer Tools → YAML → Reload Blueprints** (or restart Home Assistant).
-4. Back on the Blueprints page, click the blueprint and choose **Create Automation**.
+1. Copy the `.yaml` file into `config/blueprints/automation/smarthomejunkie/awtrix_ng`.
+2. Go to **Developer Tools → YAML → Reload Blueprints** (or restart Home Assistant).
+3. In Home Assistant, go to **Settings → Automations & Scenes → Blueprints**. Click the blueprint and choose **Create Automation**.
 
 Each blueprint can be used **as many times as you like**. One automation per sensor, per calendar, per countdown. They do not interfere with each other as long as each one targets a different app name.
 
