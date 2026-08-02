@@ -61,7 +61,7 @@ If discovery is off, or you have a second clock that is not in Home Assistant, u
 
 ## 2. Installing a blueprint
 
-1. Copy the `.yaml` file into `config/blueprints/automation/smarthomejunkie/awtrix_ng`.
+1. Copy the `.yaml` files into `config/blueprints/automation/smarthomejunkie/awtrix_ng`.
 2. Go to **Developer Tools → YAML → Reload Blueprints** (or restart Home Assistant).
 3. In Home Assistant, go to **Settings → Automations & Scenes → Blueprints**. Click the blueprint and choose **Create Automation**.
 
