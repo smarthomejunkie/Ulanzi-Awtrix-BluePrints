@@ -1,4 +1,4 @@
-# Ulanzi-Awtrix-NG-BluePrints
+# Ulanzi-Awtrix-NG-Blueprints
 Manual for the Awtrix NG Firmware BluePrints (and the Ulanzi Desktop Clock)
 
 [![This is the BEST MATRIX DISPLAY CLOCK for Home Assistant!](https://img.youtube.com/vi/N0NKPJzGHuA/maxresdefault.jpg)](https://www.youtube.com/watch?v=N0NKPJzGHuA)
@@ -42,8 +42,7 @@ You will get lifetime updates, and you can download new versions by logging in t
 # How to use
 There are 11 Blueprints to control your Ulanzi Desktop Clock using Awtrix NG. Each automation that you create with a Blueprint needs a toggle helper to turn the notification or app on or off. Don't forget to create a toggle (or number) helper for each automation that you create with these Blueprints!
 
-
-## 1. Awtrix Create Notification
+## 1. Awtrix NG Create Notification
 With this Blueprint, you can send a notification to the clock. It's also possible to use template code in the message
 
 **Fields:**
@@ -51,6 +50,7 @@ With this Blueprint, you can send a notification to the clock. It's also possibl
 |Name|Type|Default|Example|Description|
 |---|---|---|---|---|
 |Awtrix Displays|dropdown||awtrix_d6b064|Select the target Awtrix displays|
+|Extra MQTT prefixes|text||my_other_clock|Optional. MQTT topic prefixes of displays that are not in Home Assistant - the mqttPrefix from their MQTT settings, or the 12-character device uid when that field is empty. Commands go to <prefix>/cmd/notify.|
 |Toggle Helper|dropdown||input_boolean.display_power|Select the Toggle Helper that will toggle the notification on or off|
 |Notification Text|string||**Examples:**<br />Dinner is Ready!<br/>The electricity price is now {{ states('sensor.electricity_price',rounded= True,with_unit=True) }}|Enter the notification text. Template code is allowed.|
 |Icon|string||1234|Enter the Icon Name or ID of the icon that you like to show.|
@@ -61,12 +61,15 @@ With this Blueprint, you can send a notification to the clock. It's also possibl
 |Gradient 1|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the first Gradient color if you want to use a gradient color for the text. This will be ignored if both gradient colors are the same.|
 |Gradient 2|color_rgb|[0, 0, 0]|[255, 255, 0]|Select the second Gradient color if you want to use a gradient color for the text. This will be ignored if both gradient colors are the same.|
 |Rainbow Colors|boolean|false|true|Should the notification be shown in Rainbow colors? This overwrites the Gradient setting.|
+|Notification Name|text||Dinner|Optional label for this notification. With a name set, switching the toggle off dismisses exactly this notification wherever it sits in the queue instead of whatever is on screen. Use letters, digits, - and _.|
 |Play Alert Tone|boolean|false|true|Should an alert tone be played?<br /> Make sure you have copied the alerts.txt file into the MELODIES folder in Awtrix|
+|Sound File/Track|text||melody|Optional. Buzzer: the name of a melody in /MELODIES (without .txt). DFPlayer: the track number. Leave empty to play the RTTTL melody below. Only used when "Play Alert Tone" is on.|
+|Alert Melody (RTTTL)|text|alert:d=4,o=5,b=180:8c6,8p,8c6,8p,8c6|alert:d=4,o=5,b=180:8c6,8p,8c6,8p,8c6|Melody played when "Play Alert Tone" is on and no sound file is set.|
 |Hold Notification|boolean|true|false|Should the notification stay on the display until it's manually dismissed? (Overrides Repeat & Duration)|
-|Repeat|number|-1|5|Sets how many times the text should be scrolled through the matrix before the app ends. If the value is -1, the duration will be taken into account instead.|
+|Repeat|number|-1|5|How many times the text is scrolled through the matrix before the app ends. 0 turns it off and the duration is used instead.|
 |Duration (in seconds)|number|0|30|Sets how long the app should be displayed. 0 is global app time|
-|Stack|boolean|true|false|Defines if the notification will be stacked. False will immediately replace the current notification.|
-|Scroll|boolean|true|false|Enables text scrolling.|
+|Stack Notification?|boolean|true|false|Defines if the notification will be stacked. "Off" will immediately replace the current notification..|
+|Scroll the notification?|boolean|true|false|Enables text scrolling.|
 |Scroll Speed Percentage|number|100|50|Modifies the scrollspeed. You need to enter a percentage value.|
 |Effect|string|None|Ripple|Shows a background effect. If you only want to show the effect in a notification, then simply do not enter a text in the notification.|
 
