@@ -40,8 +40,7 @@ You will get lifetime updates, and you can download new versions by logging in t
 3. You can upload the notification file alert.txt in the MELODIES folder using the file manager in the Awtrix web interface.
 
 # How to use
-There are 9 Blueprints to control your Ulanzi Desktop Clock using Awtrix. Each automation that you create with a Blueprint needs a toggle helper to turn the notification or app on or off. Don't forget to create a toggle (or number) helper for each automation that you create with these Blueprints!
-
+There are 11 Blueprints to control your Ulanzi Desktop Clock using Awtrix. Each automation that you create with a Blueprint needs a toggle helper to turn the notification or app on or off. Don't forget to create a toggle (or number) helper for each automation that you create with these Blueprints!
 
 ## 1. Awtrix Create Notification
 With this Blueprint, you can send a notification to the clock. It's also possible to use template code in the message
