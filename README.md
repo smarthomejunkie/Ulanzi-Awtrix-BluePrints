@@ -87,7 +87,7 @@ Both sets cover roughly the same ground:
 | **Set App Time** | Change how long each app stays on screen, from a slider |
 | **Toggle apps** | Switch the built-in Time, Date, Temperature, Humidity and Battery apps on and off |
 
-**AWTRIX NG adds:** stale-data marking (an app gets a red frame when its sensor stops reporting), animated weather overlays, named notifications you can dismiss individually, and full rotation ordering — so you decide exactly which apps run and in what order.
+**AWTRIX NG adds:** stale-data marking (an app gets a red frame when its sensor stops reporting), animated weather overlays, and named notifications you can dismiss individually.
 
 Each automation you create from a blueprint needs its own **toggle helper** to switch it on and off. Both manuals walk you through that.
 
