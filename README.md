@@ -101,7 +101,7 @@ Each automation you create from a blueprint needs its own **toggle helper** to s
 | **AWTRIX 3 firmware** | [github.com/Blueforcer/awtrix3](https://github.com/Blueforcer/awtrix3) |
 | **AWTRIX 3 documentation** | [blueforcer.github.io/awtrix3](https://blueforcer.github.io/awtrix3/#/README) |
 | **AWTRIX NG firmware** | [github.com/Blueforcer/awtrix-ng](https://github.com/Blueforcer/awtrix-ng) |
-| **AWTRIX NG documentation** | [ang.blueforcer.de](https://ang.blueforcer.de/) |
+| **AWTRIX NG documentation** | [blueforcer.github.io/awtrix-ng/](https://blueforcer.github.io/awtrix-ng/) |
 | **Icons** | [developer.lametric.com/icons](https://developer.lametric.com/icons) |
 
 ---
