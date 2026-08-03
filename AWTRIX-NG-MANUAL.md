@@ -642,67 +642,48 @@ Shows `Vacation 47d 12h 30m` counting down, switches to `Bon voyage!` on the day
 
 ### What it does
 
-Switches the five built-in apps — **Time, Date, Temperature, Humidity, Battery** — on and off from five toggle helpers, and sets the order they rotate in.
+Switches the five built-in apps — **Time, Date, Temperature, Humidity, Battery** — on and off from five toggle helpers. Your rotation order, pushed apps and scripts are left exactly as they are.
 
 ### Read this before you set it up
 
-AWTRIX NG does not have a command for "hide one app". The rotation is **one ordered list**, and that list *is* the loop: **anything not named in the list is switched off.**
+AWTRIX NG does not have a command for "hide one app" either — but unlike the app order, the off-list is not "one ordered list you must fully restate". `<prefix>/cmd/apps/order` accepts a `disabled` array on its own, and two rules make that safe to use:
 
-So this blueprint rebuilds the whole list every time a toggle flips. That means the **Rotation order** field must name *everything you want running* — including your pushed apps and scripts. Anything you leave out gets switched off on the clock.
+- **`disabled` is always required, `order` is optional.** Sending `disabled` by itself switches those apps off and leaves your arrangement exactly as it was — this blueprint never has to know or resend your rotation order.
+- **An app named in neither list keeps what it had.** Your pushed apps and scripts are never named here, so they are never touched.
+
+So this blueprint only ever lists the built-ins whose helper is explicitly off. Everything else — order, pushed apps, scripts — is left alone.
+
+A switched-off built-in app stays installed. It keeps appearing in the clock's app list with `enabled: false`, and switching it back on restores it to the slot it always had. The off-list is written to flash, so it survives a reboot.
 
 ### When it runs
 
-- Any of the five toggle helpers changes → the rotation is republished.
-- Home Assistant starts → the rotation is republished (can be switched off).
+- Any of the five toggle helpers changes → the off-list is republished.
+- Home Assistant starts → the off-list is republished (can be switched off).
 
 ### Fields
 
 | Field | What it does |
 |---|---|
-| **Time / Date / Temperature / Humidity / Battery app Toggle Helper** | One toggle helper per built-in app. On = the app rotates, off = it does not. |
-| **Rotation order** | The full list of app names, in the order you want them. |
-| **Apply on Home Assistant start** | Republish the rotation when HA starts. The clock stores the order itself, so this is only a safety net. On by default. |
-| **Switch to an app after a change** | Optional. Name of an app to jump to right after a change, so you can see the result immediately. Leave empty for normal behaviour. |
+| **Time / Date / Temperature / Humidity / Battery app** | One toggle helper per built-in app. On = the app rotates, off = it is switched off. |
+| **Apply on Home Assistant start** | Republish the off-list when HA starts, so the clock matches your toggles again after a restart. The off-list is stored in flash, so this is only a safety net. On by default. |
 
-### Filling in the Rotation order
-
-Add one entry per line:
-
-- Built-in apps: `Time`, `Date`, `Temperature`, `Humidity`, `Battery` — each only rotates while its toggle is on.
-- Your own apps: whatever the other blueprints named them. A sensor app for `sensor.bedroom_co2` is called `sensor_bedroom_co2`; the rain forecast is called `rain_forecast`; a countdown named "Vacation" is called `vacation`.
-- Scripts you have written on the clock: their own names.
-
-An app listed **twice** gets two slots per cycle — a legitimate way to give something extra screen time.
-
-A name that does not exist yet is harmless. It simply waits, and drops into its slot the moment that app appears.
+That's it — there is no rotation-order field. Set the order your apps run in directly on the clock (its web interface, or the `order` list if you publish MQTT commands yourself); this blueprint never sends or overwrites it.
 
 ### Example
 
-Five helpers, and this rotation order:
+Five helpers, with Temperature and Battery switched off:
 
 ```
-Time
-sensor_bedroom_co2
-Date
-rain_forecast
-Temperature
-Humidity
-Battery
+{"disabled":["Temperature","Battery"]}
 ```
 
-With Temperature and Battery toggled off, the clock rotates:
-
-```
-Time → sensor_bedroom_co2 → Date → rain_forecast → Humidity
-```
-
-Your CO₂ app and rain forecast keep their slots regardless of the toggles — only the built-ins are affected.
+Time, Date and Humidity keep rotating in whatever order the clock already had. Any pushed apps (a sensor app, the rain forecast, a countdown) and any scripts keep their slots too — they are never named in this blueprint's payload, on or off.
 
 ### Notes
 
 - **Humidity** and **Battery** only exist on hardware that has the sensor or a battery pin. On a board without them the toggle simply does nothing.
-- Auto-rotation needs **at least two** apps in the list. Switch everything off but one and the clock just sits on it.
-- The order is stored on the clock and survives a reboot.
+- A helper that is **unavailable or unknown** leaves its built-in app switched on — the safer failure, so a helper glitch never blanks an app you wanted showing.
+- The off-list is stored on the clock and survives a reboot.
 
 ---
 
@@ -867,9 +848,9 @@ Your **Lifetime** is shorter than the interval at which the source data updates.
 
 ### Everything vanished except one app
 
-Something published an app order that left the others out. Check your [Toggle Built-in Apps](#12-toggle-built-in-apps) automation — the **Rotation order** field must list *every* app you want running, pushed apps included.
+Something published an `order` list to `<prefix>/cmd/apps/order` that left the others out — `order`, unlike `disabled`, does have to be complete, so a partial list switches everything not named off. This is not something the [Toggle Built-in Apps](#12-toggle-built-in-apps) blueprint can cause: it only ever sends `disabled`, never `order`. Look instead at any other automation or script that publishes to this topic.
 
-To get everything back, add the missing names to the rotation order and flip any toggle to republish.
+To get everything back, republish a complete `order` list from the clock's web interface (or your own automation), or just wait — pushed apps that are re-created by their blueprint (toggle their helper off and on) reappear on their own.
 
 ### The clock reboots or misbehaves
 
@@ -984,8 +965,8 @@ That is why your old blueprints go silent rather than half-working. These NG blu
 | Gone | Why, and what to do instead |
 |---|---|
 | **`save`** — apps surviving a reboot | Pushed apps are deliberately memory-only now, so they come back with *fresh* data instead of a stale copy. Your automation re-pushes on Home Assistant start. For content that needs no outside data, write a script on the clock. |
-| **`pos`** — placing an app at a position | Replaced by the one rotation order — see [Toggle Built-in Apps](#12-toggle-built-in-apps). Unlike `pos`, the new order is stored on the clock and survives reboots. |
-| **Per-app show/hide** | Replaced by the same rotation order. This is why that blueprint asks for the complete list. |
+| **`pos`** — placing an app at a position | No blueprint field for this. Set the order directly on the clock (its web interface, or your own `order` publish to `<prefix>/cmd/apps/order`) — it is stored there and survives reboots. |
+| **Per-app show/hide** | Replaced by the `disabled` array on `<prefix>/cmd/apps/order` — see [Toggle Built-in Apps](#12-toggle-built-in-apps). Send `disabled` on its own and everything else, order included, is left untouched. |
 | **`topText`** | No equivalent. |
 | **`clients`** | Gone — but the blueprints already send to every display you select. |
 
