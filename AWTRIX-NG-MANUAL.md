@@ -998,6 +998,9 @@ Full firmware documentation: **[ang.blueforcer.de](https://ang.blueforcer.de/)**
 *Blueprints and manual © 2026 Smart Home Junkie. You may not copy, reproduce, distribute, transmit, modify, create derivative works, or in any other way exploit any part of this copyrighted material without prior written permission from Smart Home Junkie.*
 
 # Release Notes
+**V5.3**
+*Fixed template rendering for all blueprints, including rendering of icon templates
+
 **V5.2**
 * Fixed an error in the template rendering for the sensor app blueprint
 
