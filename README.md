@@ -1,6 +1,6 @@
 # Ulanzi Desktop Clock — Home Assistant Blueprints
 
-Home Assistant Blueprints for the **Ulanzi TC001 Desktop Clock**, for both the **AWTRIX 3** and the **AWTRIX NG** firmware.
+Home Assistant Blueprints for the **Ulanzi TC001** and **Ulanzi TC002 Desktop Clocks**, for both the **AWTRIX 3** and the **AWTRIX NG** firmware. The TC002 runs AWTRIX NG only.
 
 By [Smart Home Junkie](https://www.youtube.com/@SmartHomeJunkie).
 
@@ -20,7 +20,7 @@ The original set of blueprints for the AWTRIX 3 firmware. Mature, widely used, a
 
 ### ➡️ **[AWTRIX NG Blueprints — Manual](AWTRIX-NG-MANUAL.md)**
 
-The rebuilt set for the new AWTRIX NG firmware. Same ideas, new firmware API, plus a few things AWTRIX 3 could not do.
+The rebuilt set for the new AWTRIX NG firmware. Same ideas, new firmware API, plus a few things AWTRIX 3 could not do. This is the set for the TC002.
 
 **Not sure which one you need?** See [Which firmware am I running?](#which-firmware-am-i-running) below.
 
@@ -32,16 +32,18 @@ The Ulanzi TC001 is a small desk clock built around a **32 × 8 RGB LED matrix**
 
 Inside, it is an **ESP32**. That is the interesting part, because it means the stock firmware can be replaced with something far more capable.
 
+The **Ulanzi TC002** is its bigger sibling: a **52 × 16** matrix with a speaker, a microphone and a rotary knob. Inside it is a small Linux computer instead of an ESP32, and its stock firmware can be replaced too.
+
 The hardware you get to play with:
 
-| | |
-|---|---|
-| **Display** | 32 × 8 RGB LED matrix |
-| **Indicators** | Three separate pixels along the right-hand edge |
-| **Sensors** | Temperature, humidity, and an ambient light sensor for automatic brightness |
-| **Buttons** | Three — left, select, right |
-| **Sound** | Built-in buzzer (and a DFPlayer module on modified units) |
-| **Power** | USB-C, with an internal battery so it keeps running unplugged |
+| | Ulanzi TC001 | Ulanzi TC002 |
+|---|---|---|
+| **Display** | 32 × 8 RGB LED matrix | 52 × 16 RGB LED matrix |
+| **Indicators** | Three separate pixels along the right-hand edge | Three small groups of pixels along the right-hand edge |
+| **Sensors** | Temperature, humidity, and an ambient light sensor for automatic brightness | No temperature, humidity or light sensor |
+| **Buttons** | Three — left, select, right | Three — left, select, right — plus a rotary knob |
+| **Sound** | Built-in buzzer (and a DFPlayer module on modified units) | Built-in speaker that plays MP3 files and melodies, and a microphone |
+| **Power** | USB-C, with an internal battery so it keeps running unplugged | USB-C, with an internal battery so it keeps running unplugged |
 
 ---
 
@@ -55,15 +57,15 @@ No YAML, no MQTT topics, no JSON. You pick a sensor from a dropdown, choose some
 
 ### AWTRIX 3 and AWTRIX NG
 
-**AWTRIX 3** is the established version — the one most clocks are running today.
+**AWTRIX 3** is the established version — the one most TC001 clocks are running today. It does not run on the TC002.
 
-**AWTRIX NG** is the next generation. It keeps the same idea but rewrites how the clock is controlled: new addresses for the messages, new names for every setting, and much stricter checking, so a mistake tells you exactly what is wrong instead of silently doing nothing. It also adds things AWTRIX 3 never had — richer scrolling modes, 16-stop colour palettes, weather overlays drawn on top of any app, and small programs that run on the clock itself.
+**AWTRIX NG** is the next generation, and the only AWTRIX for the TC002. It keeps the same idea but rewrites how the clock is controlled: new addresses for the messages, new names for every setting, and much stricter checking, so a mistake tells you exactly what is wrong instead of silently doing nothing. It also adds things AWTRIX 3 never had — richer scrolling modes, 16-stop colour palettes, weather overlays drawn on top of any app, and small programs that run on the clock itself.
 
 > ⚠️ **The two are not compatible.** AWTRIX 3 blueprints do not work on AWTRIX NG, and vice versa. That is not a bug in the blueprints — the firmware genuinely changed the way it is spoken to. Use the set that matches your firmware.
 
 ### Which firmware am I running?
 
-Open the clock's web interface in a browser. AWTRIX NG shows a modern dashboard with tabs for Apps, Display, Sounds and Files; AWTRIX 3 looks noticeably older.
+A TC002 with AWTRIX on it always runs AWTRIX NG. For a TC001, open the clock's web interface in a browser. AWTRIX NG shows a modern dashboard with tabs such as Dashboard, Apps, Scripts, Icons and Audio; AWTRIX 3 looks noticeably older.
 
 In Home Assistant, look at the device page under **Settings → Devices & Services → MQTT**. If you see a diagnostic sensor called **MQTT prefix**, you are on AWTRIX NG.
 
@@ -85,7 +87,7 @@ Both sets cover roughly the same ground:
 | **Toggle Indicators** | Use the three edge pixels as silent status lights |
 | **Moodlight** | Flood the whole panel with one colour and use the clock as a lamp |
 | **Set App Time** | Change how long each app stays on screen, from a slider |
-| **Toggle apps** | Switch the built-in Time, Date, Temperature, Humidity and Battery apps on and off |
+| **Toggle apps** | Switch the built-in Time, Date, Temperature, Humidity and Battery apps on and off (the TC002 only has the Time app of these) |
 
 **AWTRIX NG adds:** stale-data marking (an app gets a red frame when its sensor stops reporting), animated weather overlays, and named notifications you can dismiss individually.
 
@@ -101,18 +103,18 @@ Each automation you create from a blueprint needs its own **toggle helper** to s
 | **AWTRIX 3 firmware** | [github.com/Blueforcer/awtrix3](https://github.com/Blueforcer/awtrix3) |
 | **AWTRIX 3 documentation** | [blueforcer.github.io/awtrix3](https://blueforcer.github.io/awtrix3/#/README) |
 | **AWTRIX NG firmware** | [github.com/Blueforcer/awtrix-ng](https://github.com/Blueforcer/awtrix-ng) |
-| **AWTRIX NG documentation** | [blueforcer.github.io/awtrix-ng](https://blueforcer.github.io/awtrix-ng/) |
+| **AWTRIX NG documentation** | [ang.blueforcer.de](https://ang.blueforcer.de/) |
 | **Icons** | [developer.lametric.com/icons](https://developer.lametric.com/icons) |
 
 ---
 
 ## Quick start
 
-1. **Flash AWTRIX** onto the clock and connect it to your Wi-Fi.
+1. **Install AWTRIX** on the clock and connect it to your Wi-Fi. A TC001 is flashed from the browser; a TC002 uses the AWTRIX NG USB installer.
 2. **Enable MQTT** on the clock, pointed at the same broker Home Assistant uses. On AWTRIX NG, also switch on **Home Assistant discovery**.
 3. **Copy the blueprints** into `config/blueprints/automation/smarthomejunkie/` in Home Assistant.
 4. **Reload** — *Developer Tools → YAML → Reload Blueprints*, or restart Home Assistant.
-5. **Upload the icons** you want into the `/ICONS` folder using the file manager in the clock's web interface, and the alert melody into `/MELODIES`.
+5. **Upload the icons** you want and the alert melody in the clock's web interface. On AWTRIX 3, use the file manager (`/ICONS` and `/MELODIES`). On AWTRIX NG, use the **Icons** and **Audio** tabs.
 6. **Create a toggle helper**, then create your first automation from a blueprint.
 
 The full details, field by field, are in the two manuals linked at the top.
