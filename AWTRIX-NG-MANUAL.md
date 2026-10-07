@@ -77,7 +77,7 @@ Because less text fits on the TC002, your apps scroll sooner there. If you would
 
 1. In Home Assistant, go to **Settings → Automations & Scenes → Blueprints**.
 2. Click **Import Blueprint**, or copy the `.yaml` file into `config/blueprints/automation/smarthomejunkie/`.
-3. If you copied files manually, go to **Developer Tools → YAML → Reload Blueprints** (or restart Home Assistant).
+3. If you copied files manually, go to **Settings → Tools → YAML → Automations** (or restart Home Assistant).
 4. Back on the Blueprints page, click the blueprint and choose **Create Automation**.
 
 Each blueprint can be used **as many times as you like**. One automation per sensor, per calendar, per countdown. They do not interfere with each other as long as each one targets a different app name. The one exception is [Rain Forecast](#8-rain-forecast), which always uses the same app name — use it once per clock.
