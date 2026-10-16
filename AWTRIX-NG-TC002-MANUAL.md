@@ -4,6 +4,11 @@
 
 Blueprints by **Smart Home Junkie** for the **AWTRIX NG** firmware on the **Ulanzi TC002**.
 
+[![
+Install Awtrix NG on the Ulanzi TC002: Turn It Into a Home Assistant Voice Display!](https://img.youtube.com/vi/b_JTOygN-Y0/maxresdefault.jpg)](https://www.youtube.com/watch?v=b_JTOygN-Y0)
+
+*Click the image to watch the video.*
+
 > **Have a Ulanzi TC001?** Use the **[AWTRIX NG TC001 manual](AWTRIX-NG-TC001-MANUAL.md)** instead. Since V6.1 there are two separate sets of AWTRIX NG blueprints:
 >
 > | Set | Files | Blueprint names | Manual |

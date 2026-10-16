@@ -4,10 +4,6 @@ Home Assistant Blueprints for the **Ulanzi TC001** and **Ulanzi TC002 Desktop Cl
 
 By [Smart Home Junkie](https://www.youtube.com/@SmartHomeJunkie).
 
-[![This is the BEST MATRIX DISPLAY CLOCK for Home Assistant!](https://img.youtube.com/vi/N0NKPJzGHuA/maxresdefault.jpg)](https://www.youtube.com/watch?v=N0NKPJzGHuA)
-
-*Click the image to watch the video.*
-
 ---
 
 ## 📖 Documentation
