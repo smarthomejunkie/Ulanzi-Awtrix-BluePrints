@@ -4,6 +4,8 @@
 
 Blueprints by **Smart Home Junkie** for the **AWTRIX NG** firmware on the **Ulanzi TC002**.
 
+**⬇️ Download the blueprints:** sponsor on **[Ko-fi](https://ko-fi.com/s/0d1e4419bd)** — lifetime updates, re-download whenever a new version is released.
+
 [![
 Install Awtrix NG on the Ulanzi TC002: Turn It Into a Home Assistant Voice Display!](https://img.youtube.com/vi/b_JTOygN-Y0/maxresdefault.jpg)](https://www.youtube.com/watch?v=b_JTOygN-Y0)
 
@@ -84,6 +86,8 @@ The **Create Sensor App** blueprint does not use the double-size grid for two li
 ---
 
 ## 2. Installing a blueprint
+
+Download the blueprints from **[Ko-fi](https://ko-fi.com/s/0d1e4419bd)**. Use the `awtrix_ng_tc002_*.yaml` files for the TC002.
 
 1. In Home Assistant, go to **Settings → Automations & Scenes → Blueprints**.
 2. Click **Import Blueprint**, or copy the `.yaml` file into `config/blueprints/automation/smarthomejunkie/`.

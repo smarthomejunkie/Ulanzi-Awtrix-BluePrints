@@ -1,6 +1,8 @@
 # Ulanzi-Awtrix-3-BluePrints
 Manual for the Awtrix 3 Firmware BluePrints (and the Ulanzi Desktop Clock)
 
+**⬇️ Download the blueprints:** sponsor on **[Ko-fi](https://ko-fi.com/s/0d1e4419bd)** — lifetime updates, re-download whenever a new version is released.
+
 [![This is the BEST MATRIX DISPLAY CLOCK for Home Assistant!](https://img.youtube.com/vi/N0NKPJzGHuA/maxresdefault.jpg)](https://www.youtube.com/watch?v=N0NKPJzGHuA)
 Click the image to watch the video. (It will open in this browser window)
 

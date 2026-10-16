@@ -4,6 +4,8 @@
 
 Blueprints by **Smart Home Junkie** for the **AWTRIX NG** firmware on the **Ulanzi TC001** and compatible 32 × 8 LED matrix clocks.
 
+**⬇️ Download the blueprints:** sponsor on **[Ko-fi](https://ko-fi.com/s/0d1e4419bd)** — lifetime updates, re-download whenever a new version is released.
+
 > **Have a Ulanzi TC002?** Use the **[AWTRIX NG TC002 manual](AWTRIX-NG-TC002-MANUAL.md)** instead. Since V6.1 there are two separate sets of AWTRIX NG blueprints:
 >
 > | Set | Files | Blueprint names | Manual |
@@ -74,6 +76,8 @@ The **Ulanzi TC002** has its own set of blueprints, `awtrix_ng_tc002_*.yaml`, ma
 ---
 
 ## 2. Installing a blueprint
+
+Download the blueprints from **[Ko-fi](https://ko-fi.com/s/0d1e4419bd)**. Use the `awtrix_ng_*.yaml` files for the TC001.
 
 1. In Home Assistant, go to **Settings → Automations & Scenes → Blueprints**.
 2. Click **Import Blueprint**, or copy the `.yaml` file into `config/blueprints/automation/smarthomejunkie/`.

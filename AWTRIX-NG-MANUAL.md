@@ -2,6 +2,8 @@
 
 # AWTRIX NG Blueprints — User Manual
 
+**⬇️ Download the blueprints:** sponsor on **[Ko-fi](https://ko-fi.com/s/0d1e4419bd)** — lifetime updates, re-download whenever a new version is released.
+
 Since V6.1 the AWTRIX NG blueprints come in two sets, each with its own manual. Pick the one for your clock:
 
 | Clock | Files | Blueprint names | Manual |
