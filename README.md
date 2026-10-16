@@ -12,15 +12,25 @@ By [Smart Home Junkie](https://www.youtube.com/@SmartHomeJunkie).
 
 ## 📖 Documentation
 
-The manuals live on their own pages. Pick the one that matches the firmware on your clock:
+The manuals live on their own pages. Pick the one that matches your clock and the firmware on it:
+
+| Clock | Firmware | Blueprint files | Manual |
+|---|---|---|---|
+| Ulanzi TC001 | AWTRIX 3 | `awtrix_*.yaml` | **[AWTRIX 3 manual](AWTRIX-3-MANUAL.md)** |
+| Ulanzi TC001 | AWTRIX NG | `awtrix_ng_*.yaml` | **[AWTRIX NG TC001 manual](AWTRIX-NG-TC001-MANUAL.md)** |
+| Ulanzi TC002 | AWTRIX NG | `awtrix_ng_tc002_*.yaml` | **[AWTRIX NG TC002 manual](AWTRIX-NG-TC002-MANUAL.md)** |
 
 ### ➡️ **[AWTRIX 3 Blueprints — Manual](AWTRIX-3-MANUAL.md)**
 
-The original set of blueprints for the AWTRIX 3 firmware. Mature, widely used, and still fully supported.
+The original set of blueprints for the AWTRIX 3 firmware on the TC001. Mature, widely used, and still fully supported.
 
-### ➡️ **[AWTRIX NG Blueprints — Manual](AWTRIX-NG-MANUAL.md)**
+### ➡️ **[AWTRIX NG Blueprints for the TC001 — Manual](AWTRIX-NG-TC001-MANUAL.md)**
 
-The rebuilt set for the new AWTRIX NG firmware. Same ideas, new firmware API, plus a few things AWTRIX 3 could not do. This is the set for the TC002.
+The rebuilt set for the new AWTRIX NG firmware on the TC001. Same ideas, new firmware API, plus a few things AWTRIX 3 could not do. These are the `awtrix_ng_*.yaml` files — the same blueprints as before, now meant specifically for the TC001.
+
+### ➡️ **[AWTRIX NG Blueprints for the TC002 — Manual](AWTRIX-NG-TC002-MANUAL.md)**
+
+The AWTRIX NG set made specifically for the TC002 and its 52 × 16 display: the `awtrix_ng_tc002_*.yaml` files, named *AWTRIX NG TC002 …* in Home Assistant. Its Create Sensor App shows a large icon with two lines of text.
 
 **Not sure which one you need?** See [Which firmware am I running?](#which-firmware-am-i-running) below.
 
@@ -91,7 +101,9 @@ Both sets cover roughly the same ground:
 
 **AWTRIX NG adds:** stale-data marking (an app gets a red frame when its sensor stops reporting), animated weather overlays, and named notifications you can dismiss individually.
 
-Each automation you create from a blueprint needs its own **toggle helper** to switch it on and off. Both manuals walk you through that.
+**The TC002 set adds:** a Create Sensor App that uses the whole 52 × 16 display — a large icon with two lines of text, each line with its own sensor, template or text and an optional small icon, a background gradient, and a one-large-line mode that follows the clock's Enlarge apps setting.
+
+Each automation you create from a blueprint needs its own **toggle helper** to switch it on and off. Every manual walks you through that.
 
 ---
 
@@ -112,12 +124,12 @@ Each automation you create from a blueprint needs its own **toggle helper** to s
 
 1. **Install AWTRIX** on the clock and connect it to your Wi-Fi. A TC001 is flashed from the browser; a TC002 uses the AWTRIX NG USB installer.
 2. **Enable MQTT** on the clock, pointed at the same broker Home Assistant uses. On AWTRIX NG, also switch on **Home Assistant discovery**.
-3. **Copy the blueprints** into `config/blueprints/automation/smarthomejunkie/` in Home Assistant.
+3. **Copy the blueprints** for your clock into `config/blueprints/automation/smarthomejunkie/` in Home Assistant: `awtrix_*.yaml` for AWTRIX 3, `awtrix_ng_*.yaml` for AWTRIX NG on a TC001, `awtrix_ng_tc002_*.yaml` for a TC002.
 4. **Reload** — *Developer Tools → YAML → Reload Blueprints*, or restart Home Assistant.
 5. **Upload the icons** you want and the alert melody in the clock's web interface. On AWTRIX 3, use the file manager (`/ICONS` and `/MELODIES`). On AWTRIX NG, use the **Icons** and **Audio** tabs.
 6. **Create a toggle helper**, then create your first automation from a blueprint.
 
-The full details, field by field, are in the two manuals linked at the top.
+The full details, field by field, are in the manuals linked at the top.
 
 ---
 
