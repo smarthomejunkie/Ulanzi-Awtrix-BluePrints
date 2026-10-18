@@ -1190,10 +1190,12 @@ Full firmware documentation: **[ang.blueforcer.de/tc002](https://ang.blueforcer.
 ---
 
 # Release Notes
+**V6.3**
+* Create Sensor App (TC002): new **Top Line Background** and **Bottom Line Background** options. Each line can now have its own background colour, which overrides the general Background Color, the Background Gradient and the Effect for that line. The line background starts directly after the main icon, so it lines up exactly with the gradient. In one large line, the top line background fills the whole app — see [Line backgrounds](#line-backgrounds)
+* Create Sensor App (TC002): threshold colours are easier to use. The **Use Threshold value?** switches are gone: the Low-value and High-value colours of a line are used as soon as its **Threshold Value** contains a number. Leave the Threshold Value empty for the normal line colour. A decimal comma (`19,5`) is accepted too. Existing automations with a Threshold Value filled in now use their threshold colours automatically
+
 **V6.2**
 * Create Sensor App (TC002): new required **App Name** field. You now choose the name of the app on the clock yourself, instead of the blueprint taking it from the automation. Existing automations need an App Name filled in after updating the blueprint — see [App naming](#app-naming)
-* Create Sensor App (TC002): new **Top Line Background** and **Bottom Line Background** options give each line its own background colour, overriding the general background colour, gradient and effect for that line — see [Line backgrounds](#line-backgrounds)
-* Create Sensor App (TC002): the **Use Threshold value?** switches are gone. The threshold colours of a line are used as soon as its **Threshold Value** contains a number; leave it empty for the normal line colour. A decimal comma (`19,5`) is accepted
 
 **V6.1**
 * New: a separate set of blueprints for the TC002, `awtrix_ng_tc002_*.yaml`, named *AWTRIX NG TC002 …*. The `awtrix_ng_*.yaml` files are now the TC001 set
