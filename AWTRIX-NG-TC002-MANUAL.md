@@ -386,8 +386,7 @@ Both sections have the same fields:
 | **Threshold Value (Optional)** | Enter a number to colour the line by its value. As soon as a number is filled in, the Low-value and High-value colours are used instead of the line's Color. Leave it empty for the normal Color. A decimal comma (`19,5`) works too. |
 | **Low-value color** | Used when the value is **below** the threshold. |
 | **High-value color** | Used when the value is **at or above** the threshold. |
-| **Line Background** | Gives this line its own background colour. Off by default. |
-| **Line Background Color** | The background colour of this line, used when Line Background is on. Default dark grey. |
+| **Line Background Color** | The background colour of this line. Black *(default)* means no line background; any other colour gives the line its own background. |
 
 A line icon is skipped when the main icon leaves less than 10 pixels for the line.
 
@@ -445,7 +444,7 @@ In one large line with Enlarge apps on:
 
 ### Line backgrounds
 
-Each line can have its own background colour (**Top Line Background** / **Bottom Line Background**). It fills the line from directly after the main icon (including the 1-pixel gap before the text) to the right edge of the display, so it lines up exactly with the gradient, behind the line icon and the text, and **overrides the general Background Color, the Background Gradient and the Effect** for that line. The main icon keeps the general background.
+Each line can have its own background colour: pick a colour other than black in **Top Line Background Color** or **Bottom Line Background Color**. Black, the default, means no line background, so the general background shows there. It fills the line from directly after the main icon (including the 1-pixel gap before the text) to the right edge of the display, so it lines up exactly with the gradient, behind the line icon and the text, and **overrides the general Background Color, the Background Gradient and the Effect** for that line. The main icon keeps the general background.
 
 - In **one large line**, the top line background fills the full height next to the icon. With Enlarge apps on, the whole app is drawn as one line, so the top line background becomes the background of the whole app.
 - The bottom line background is not used in one large line.
@@ -729,45 +728,107 @@ No app in the rotation, just a heads-up 15 minutes before each meeting.
 
 ## 10. List ToDo Items
 
-**File:** `awtrix_ng_tc002_list_todo_items.yaml`
+**File:** `awtrix_ng_tc002_list_todo_items.yaml` · **Blueprint name:** *AWTRIX NG TC002 List ToDo Items* · **Version:** V2.0
 
 ### What it does
 
-Scrolls the open items from a Home Assistant to-do list across the clock. Completed items are ignored.
+Shows the open items from a Home Assistant to-do list on the clock. Completed items are ignored. It uses the same layout as the [Create Sensor App](#6-create-sensor-app): a large icon on the left, with the **Top Line Text** above and the **to-do items** below.
+
+```
++----------------+-+--------------------------------+
+|                | |  Top Line Text  (e.g. To Do:)  |
+|   Main icon    | +--------------------------------+
+|    16 × 16     | |  Milk // Bread // Coffee  ...  |
++----------------+-+--------------------------------+
+```
+
+Choose **One large line** to show the icon with the Top Line Text and the items on a single line, like the earlier version did.
 
 ### When it runs
 
-Toggle on → app created. Toggle off → app deleted. The to-do list changes → app updated immediately.
+- Toggle on → the app is created.
+- Toggle off → the app is deleted.
+- The to-do list changes (while the toggle is on) → the app is updated immediately.
 
-### Fields unique to this blueprint
+With items on the list, the clock switches to the app every time it is sent. With an empty list, it only switches when **Switch to app on value change** is on.
+
+### Fields — General
 
 | Field | What it does |
 |---|---|
 | **ToDo List** | The `todo` entity to read. |
-| **Prefix** | Text in front of the list. Default `To Do:`. |
-| **Custom Text** | Shown when the list is empty. Default `Relax! You have nothing to do!`. |
-| **Show Empty ToDo List** | Off: the app is removed entirely when the list is empty, rather than showing the custom text. |
+| **AWTRIX Displays**, **Extra MQTT prefixes**, **Toggle Helper** | See [section 4](#4-fields-you-will-see-in-almost-every-blueprint). |
+| **Icon** | The main icon on the left. An icon on the clock, or the web address of a PNG or JPEG picture. Empty by default — leave it empty for no icon. |
+| **Push Icon**, **Icon Width**, **Icon Height** | As in the Create Sensor App — see [Fields — Icon](#fields--icon). |
 
-The default icon is `29644` — a checklist.
+### Fields — Top line
+
+| Field | What it does |
+|---|---|
+| **Top Line Text** | The text on the top line, e.g. the name of the list. Default `To Do:`. In one large line it is shown in front of the items. Leave it empty for no top line text. This was the **Prefix** field in earlier versions. |
+| **Top Line Icon (Optional)** | A small 8 × 8 icon before the Top Line Text. |
+| **Top Line Font** | The font of the top line. In one large line it is used for the whole line. |
+| **Top Line Color** | The text colour of the top line. |
+| **Top Line Background Color** | Black *(default)* = no line background. Any other colour gives the top line its own background — see [Line backgrounds](#line-backgrounds). |
+| **Top Line Rainbow Colors** | Shows the top line in rainbow colours. |
+
+The top line has no sensor or template: it always shows the text you typed.
+
+### Fields — Bottom line (to-do items)
+
+| Field | What it does |
+|---|---|
+| **Custom Text** | Shown on the bottom line when the list is empty. Default `Relax! You have nothing to do!`. |
+| **Show Empty ToDo List** | Off: the app is removed from the clock while the list is empty, instead of showing the Custom Text. |
+| **Bottom Line Font** | The font of the to-do items. |
+| **Bottom Line Color** | The text colour of the to-do items. |
+| **Bottom Line Background Color** | Black *(default)* = no line background. Any other colour gives the bottom line its own background. |
+| **Bottom Line Rainbow Colors** | Shows the to-do items in rainbow colours. |
+
+The items are joined with ` // `. The bottom line has no icon and no threshold colours.
+
+### Layout and Advanced options
+
+**Display Mode**, **Text Alignment**, **Text Case**, **Background Color**, **Background Gradient**, **Effect**, **Repeat**, **Duration**, **Lifetime**, **Switch to app on value change** and **Scroll** work exactly as in the [Create Sensor App](#fields--layout-options). One large line follows the clock's **Enlarge apps** setting in the same way — see [Two lines or one large line](#two-lines-or-one-large-line).
+
+In **one large line**:
+
+- The line shows the Top Line Text followed by the items, e.g. `Shopping: Milk // Bread // Coffee`, in the **Top Line Font**.
+- The Top Line Text keeps the Top Line Color and the items keep the Bottom Line Color. With Rainbow Colors on either line, the whole line is drawn in rainbow colours.
+- The Top Line Background Color, when set, becomes the background of the whole line.
+
+### App naming
+
+The app is named after the to-do list: `todo.shopping_list` becomes the app `todo_shopping_list`. One automation per list.
 
 ### Example — shopping list
 
 | Field | Value |
 |---|---|
 | ToDo List | `todo.shopping_list` |
-| Prefix | `Shopping:` |
 | Icon | `29644` |
+| Top Line Text | `Shopping:` |
+| Top Line Color | Yellow |
 | Custom Text | `Nothing to buy` |
 | Show Empty ToDo List | Off |
+| Background Gradient | On, dark blue to black |
 | Scroll Speed Percentage | `90` |
 
-On screen:
+On screen, two lines next to the checklist icon:
 
 ```
-Shopping: Milk // Bread // Coffee // Apples
+Shopping:
+Milk // Bread // Coffee // Apples
 ```
 
 With **Show Empty ToDo List** off, the app disappears from the rotation entirely once you have ticked everything off — no wasted screen time.
+
+### Upgrading from the earlier version (V1.1)
+
+Existing automations keep working after you update the blueprint: the Prefix becomes the Top Line Text, and the icon, Push Icon, Text Color (now Bottom Line Color), Rainbow Colors (now Bottom Line Rainbow Colors), Custom Text, Background Color and Effect carry over. Two things to check:
+
+- The app now shows **two lines** by default. Set **Display Mode** to *One large line* for the old look.
+- The **Icon** no longer defaults to `29644`. If your automation never changed the icon, enter `29644` again.
 
 > **Tip:** this pairs beautifully with a voice assistant. "Add coffee to the shopping list" and it is on the clock a second later.
 
@@ -1190,6 +1251,17 @@ Full firmware documentation: **[ang.blueforcer.de/tc002](https://ang.blueforcer.
 ---
 
 # Release Notes
+**V6.4**
+* List ToDo Items V2.0 (TC002): rebuilt with the same layout as the Create Sensor App — see [List ToDo Items](#10-list-todo-items)
+  * A 16 × 16 main icon with the **Top Line Text** (the former **Prefix**) on the top line and the to-do items on the bottom line
+  * Optional 8 × 8 Top Line Icon, adjustable icon size and Push Icon
+  * Per-line font, colour, background colour and rainbow colours
+  * Background colour, vertical gradient and effect, as in the Create Sensor App
+  * Display Mode: two lines, or one large line with the Top Line Text and the items together, following the clock's Enlarge apps setting
+  * The main icon no longer has a default icon
+  * The to-do list handling is unchanged: same items, Custom Text, Show Empty ToDo List and app name
+* Create Sensor App and List ToDo Items (TC002): the **Top Line Background** and **Bottom Line Background** switches are gone. A line gets its own background as soon as its **Background Color** is set to anything other than black; black (the default) means no line background — see [Line backgrounds](#line-backgrounds)
+
 **V6.3**
 * Create Sensor App (TC002): new **Top Line Background** and **Bottom Line Background** options. Each line can now have its own background colour, which overrides the general Background Color, the Background Gradient and the Effect for that line. The line background starts directly after the main icon, so it lines up exactly with the gradient. In one large line, the top line background fills the whole app — see [Line backgrounds](#line-backgrounds)
 * Create Sensor App (TC002): threshold colours are easier to use. The **Use Threshold value?** switches are gone: the Low-value and High-value colours of a line are used as soon as its **Threshold Value** contains a number. Leave the Threshold Value empty for the normal line colour. A decimal comma (`19,5`) is accepted too. Existing automations with a Threshold Value filled in now use their threshold colours automatically
