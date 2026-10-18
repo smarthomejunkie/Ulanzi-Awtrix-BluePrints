@@ -383,10 +383,11 @@ Both sections have the same fields:
 | **Font** | The font of the line. Every font fits in the 8-pixel line: `small` *(default)*, `large`, and the Matrix Light and Matrix Chunky fonts. Try a few — they differ in width, so a text that just fits in one may scroll in another. |
 | **Color** | The text colour. |
 | **Rainbow Colors** | Paints the line in rainbow colours. Overrides the colours below. |
-| **Use Threshold value?** | Turns on colour-by-value for this line. |
-| **Threshold Value** | The number the value is compared against. |
+| **Threshold Value (Optional)** | Enter a number to colour the line by its value. As soon as a number is filled in, the Low-value and High-value colours are used instead of the line's Color. Leave it empty for the normal Color. A decimal comma (`19,5`) works too. |
 | **Low-value color** | Used when the value is **below** the threshold. |
 | **High-value color** | Used when the value is **at or above** the threshold. |
+| **Line Background** | Gives this line its own background colour. Off by default. |
+| **Line Background Color** | The background colour of this line, used when Line Background is on. Default dark grey. |
 
 A line icon is skipped when the main icon leaves less than 10 pixels for the line.
 
@@ -442,6 +443,13 @@ In one large line with Enlarge apps on:
 - **Animated GIFs** play at their own size and are never resized.
 - A layout can hold at most four icons. This blueprint uses at most three: the main icon and the two line icons.
 
+### Line backgrounds
+
+Each line can have its own background colour (**Top Line Background** / **Bottom Line Background**). It fills the line from directly after the main icon (including the 1-pixel gap before the text) to the right edge of the display, so it lines up exactly with the gradient, behind the line icon and the text, and **overrides the general Background Color, the Background Gradient and the Effect** for that line. The main icon keeps the general background.
+
+- In **one large line**, the top line background fills the full height next to the icon. With Enlarge apps on, the whole app is drawn as one line, so the top line background becomes the background of the whole app.
+- The bottom line background is not used in one large line.
+
 ### About the background gradient
 
 AWTRIX NG has no gradient background of its own, so the blueprint draws one: one line per row of the display, each in a colour blended between the top and bottom colour, behind the icons and the text. The text and icon boxes do not paint their own background, so the gradient shows behind them too. Black pixels in an icon stay black.
@@ -488,7 +496,6 @@ The temperature on top, the humidity with a small drop icon below it.
 | App Name | `bedroom_co2` |
 | Icon | `12160` |
 | Top Line Template | `{{ states('sensor.bedroom_co2') \| int }}ppm` |
-| Top Line - Use Threshold value? | On |
 | Top Line - Threshold Value | `1000` |
 | Top Line - Low-value color | Green |
 | Top Line - High-value color | Red |
@@ -530,7 +537,7 @@ V2.0 has new fields, so an automation made with V1.1 (or with the shared `awtrix
 | Sensor | Top Line Sensor |
 | Template (Optional) | Top Line Template |
 | Text Color | Top Line Color |
-| Use Threshold value? / Threshold Value / Low / High colour | the same fields in the Top line section |
+| Use Threshold value? / Threshold Value / Low / High colour | Top Line - Threshold Value / Low / High colour. There is no on/off switch any more: entering a Threshold Value turns the threshold colours on |
 | Rainbow Colors | Top Line Rainbow Colors |
 | Gradient 1 / Gradient 2 | gone. Use Rainbow Colors, or the Background Gradient |
 | Push Icon | Push Icon (one large line with Enlarge apps on only) |
@@ -1185,6 +1192,8 @@ Full firmware documentation: **[ang.blueforcer.de/tc002](https://ang.blueforcer.
 # Release Notes
 **V6.2**
 * Create Sensor App (TC002): new required **App Name** field. You now choose the name of the app on the clock yourself, instead of the blueprint taking it from the automation. Existing automations need an App Name filled in after updating the blueprint — see [App naming](#app-naming)
+* Create Sensor App (TC002): new **Top Line Background** and **Bottom Line Background** options give each line its own background colour, overriding the general background colour, gradient and effect for that line — see [Line backgrounds](#line-backgrounds)
+* Create Sensor App (TC002): the **Use Threshold value?** switches are gone. The threshold colours of a line are used as soon as its **Threshold Value** contains a number; leave it empty for the normal line colour. A decimal comma (`19,5`) is accepted
 
 **V6.1**
 * New: a separate set of blueprints for the TC002, `awtrix_ng_tc002_*.yaml`, named *AWTRIX NG TC002 …*. The `awtrix_ng_*.yaml` files are now the TC001 set
