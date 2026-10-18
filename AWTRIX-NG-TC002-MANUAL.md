@@ -732,15 +732,18 @@ No app in the rotation, just a heads-up 15 minutes before each meeting.
 
 ### What it does
 
-Shows the open items from a Home Assistant to-do list on the clock. Completed items are ignored. It uses the same layout as the [Create Sensor App](#6-create-sensor-app): a large icon on the left, with the **Top Line Text** above and the **to-do items** below.
+Shows the open items from a Home Assistant to-do list on the clock. Completed items are ignored. It uses the same layout as the [Create Sensor App](#6-create-sensor-app): a large icon on the left, with the **Top Line Text** above and the **to-do items** below. The top line can start with an optional small **Top Line Icon**, in front of the Top Line Text.
 
 ```
-+----------------+-+--------------------------------+
-|                | |  Top Line Text  (e.g. To Do:)  |
-|   Main icon    | +--------------------------------+
-|    16 × 16     | |  Milk // Bread // Coffee  ...  |
-+----------------+-+--------------------------------+
++----------------+-+--------+-+-----------------------+
+|                | | top    | |  Top Line Text        |
+|   Main icon    | | icon   | |  (e.g. To Do:)        |
+|    16 × 16     | +--------+-+-----------------------+
+|                | |  Milk // Bread // Coffee  ...    |
++----------------+-+----------------------------------+
 ```
+
+Both icons are optional. Without a Top Line Icon, the Top Line Text starts directly after the main icon; without a main icon, both lines start at the left edge.
 
 Choose **One large line** to show the icon with the Top Line Text and the items on a single line, like the earlier version did.
 
@@ -766,13 +769,13 @@ With items on the list, the clock switches to the app every time it is sent. Wit
 | Field | What it does |
 |---|---|
 | **Top Line Text** | The text on the top line, e.g. the name of the list. Default `To Do:`. In one large line it is shown in front of the items. Leave it empty for no top line text. This was the **Prefix** field in earlier versions. |
-| **Top Line Icon (Optional)** | A small 8 × 8 icon before the Top Line Text. |
+| **Top Line Icon (Optional)** | A small 8 × 8 icon at the front of the top line, before the Top Line Text. An icon on the clock, or the web address of a PNG or JPEG picture. The text then starts 1 pixel to the right of it. Leave it empty for no icon. In one large line it sits in front of the whole line; with Enlarge apps on it is only used when no main Icon is set. |
 | **Top Line Font** | The font of the top line. In one large line it is used for the whole line. |
 | **Top Line Color** | The text colour of the top line. |
 | **Top Line Background Color** | Black *(default)* = no line background. Any other colour gives the top line its own background — see [Line backgrounds](#line-backgrounds). |
 | **Top Line Rainbow Colors** | Shows the top line in rainbow colours. |
 
-The top line has no sensor or template: it always shows the text you typed.
+The top line has no sensor or template: it always shows the optional Top Line Icon followed by the text you typed.
 
 ### Fields — Bottom line (to-do items)
 
@@ -808,16 +811,17 @@ The app is named after the to-do list: `todo.shopping_list` becomes the app `tod
 | ToDo List | `todo.shopping_list` |
 | Icon | `29644` |
 | Top Line Text | `Shopping:` |
+| Top Line Icon | a small shopping-cart icon |
 | Top Line Color | Yellow |
 | Custom Text | `Nothing to buy` |
 | Show Empty ToDo List | Off |
 | Background Gradient | On, dark blue to black |
 | Scroll Speed Percentage | `90` |
 
-On screen, two lines next to the checklist icon:
+On screen, two lines next to the checklist icon, with the cart icon in front of `Shopping:`:
 
 ```
-Shopping:
+[cart] Shopping:
 Milk // Bread // Coffee // Apples
 ```
 
