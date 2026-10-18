@@ -350,6 +350,13 @@ All three are optional. A line with nothing in it is left out.
 
 The Sensor field accepts `sensor`, `binary_sensor`, `media_player`, `input_text`, `input_number` and `input_select` entities.
 
+### Fields — App
+
+| Field | What it does |
+|---|---|
+| **App Name** | **Required.** The name of this app on the clock. See [App naming](#app-naming). |
+| **AWTRIX Displays**, **Extra MQTT prefixes**, **Toggle Helper** | See [section 4](#4-fields-you-will-see-in-almost-every-blueprint). |
+
 ### Fields — Icon
 
 | Field | What it does |
@@ -463,6 +470,7 @@ Each line has its own template, so you can combine two values in one app:
 
 | Field | Value |
 |---|---|
+| App Name | `living_room_climate` |
 | Icon | `2422` (or a 16 × 16 thermometer icon) |
 | Top Line Sensor | `sensor.living_room_temperature` |
 | Top Line Color | White |
@@ -477,6 +485,7 @@ The temperature on top, the humidity with a small drop icon below it.
 
 | Field | Value |
 |---|---|
+| App Name | `bedroom_co2` |
 | Icon | `12160` |
 | Top Line Template | `{{ states('sensor.bedroom_co2') \| int }}ppm` |
 | Top Line - Use Threshold value? | On |
@@ -493,6 +502,7 @@ With the bottom line empty, the app is one large line: a big icon and a big numb
 
 | Field | Value |
 |---|---|
+| App Name | `now_playing` |
 | Top Line Sensor | `media_player.spotify` |
 | Top Line Template | `{{ state_attr('media_player.spotify','media_title') }}` |
 | Bottom Line Template | `{{ state_attr('media_player.spotify','media_artist') }}` |
@@ -503,11 +513,12 @@ The Top Line Sensor makes the app update on every track change; the templates ch
 
 ### App naming
 
-The app on the clock is named after **the automation**, not after a sensor, because both sensors are optional. `automation.living_room_climate` becomes the app `sensor_app_living_room_climate`, trimmed to 32 characters.
+You choose the name of the app on the clock yourself, in the required **App Name** field. It is the name the app has on the **Apps** tab of the clock's web interface, where you can drag it to the slot you want. The clock remembers that slot.
 
-- Every automation gets its own app, so two automations can show the same sensor.
-- This is the name on the **Apps** tab of the clock's web interface, where you can drag it to the slot you want.
-- If you change the automation's **entity ID**, the app gets a new name. Switch the toggle off first, so the old app is removed from the clock.
+- **Give every automation its own App Name.** Two automations with the same name, on the same clock, overwrite each other's app.
+- **Allowed characters:** letters, digits, `-` and `_`, up to 32 characters. Anything else, such as a space, is replaced by `_`, and a longer name is cut to 32 characters. `Living Room Climate` becomes the app `Living_Room_Climate`.
+- **Changing the App Name** of an existing automation creates a new app on the clock. Switch the toggle helper off first, so the app with the old name is removed; then change the name and switch the toggle back on.
+- The name does not depend on a sensor or on the automation, so you can rename the automation, or swap the sensors, without the app changing.
 
 ### Upgrading from the earlier version (V1.1)
 
@@ -515,6 +526,7 @@ V2.0 has new fields, so an automation made with V1.1 (or with the shared `awtrix
 
 | V1.1 field | V2.0 field |
 |---|---|
+| *(the app was named after the sensor)* | **App Name** — required. Enter the old name (e.g. `sensor_bedroom_co2`) to keep the app's slot on the clock |
 | Sensor | Top Line Sensor |
 | Template (Optional) | Top Line Template |
 | Text Color | Top Line Color |
@@ -1073,7 +1085,7 @@ The matrix font has no glyph for that character. Emoji and other unusual symbols
 
 ### The app name looks mangled
 
-That is deliberate. AWTRIX NG only accepts `A–Z`, `a–z`, `0–9`, `-` and `_` in app names, up to 32 characters, so the blueprints replace anything else with an underscore. `sensor.living_room_temperature` becomes `sensor_living_room_temperature`.
+That is deliberate. AWTRIX NG only accepts `A–Z`, `a–z`, `0–9`, `-` and `_` in app names, up to 32 characters, so the blueprints replace anything else with an underscore. `sensor.living_room_temperature` becomes `sensor_living_room_temperature`. In the Create Sensor App you enter the name yourself in **App Name**; a name like `Living Room` becomes `Living_Room`.
 
 ---
 
@@ -1181,7 +1193,7 @@ Full firmware documentation: **[ang.blueforcer.de/tc002](https://ang.blueforcer.
   * Display Mode: two lines or one large line; an empty bottom line is ignored automatically
   * One large line follows the clock's Enlarge apps setting
   * Refresh every minute, for templates that read other entities
-  * The app is named after the automation
+  * Required App Name field: you choose the name of the app on the clock
 
 **V6.0**
 * Made blueprints compatible with the new Ulanzi TC002 Desktop Clock
