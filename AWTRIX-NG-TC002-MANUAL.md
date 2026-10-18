@@ -1183,6 +1183,9 @@ Full firmware documentation: **[ang.blueforcer.de/tc002](https://ang.blueforcer.
 ---
 
 # Release Notes
+**V6.2**
+* Create Sensor App (TC002): new required **App Name** field. You now choose the name of the app on the clock yourself, instead of the blueprint taking it from the automation. Existing automations need an App Name filled in after updating the blueprint — see [App naming](#app-naming)
+
 **V6.1**
 * New: a separate set of blueprints for the TC002, `awtrix_ng_tc002_*.yaml`, named *AWTRIX NG TC002 …*. The `awtrix_ng_*.yaml` files are now the TC001 set
 * Create Sensor App V2.0 for the TC002: rebuilt with AWTRIX NG layouts
@@ -1193,7 +1196,7 @@ Full firmware documentation: **[ang.blueforcer.de/tc002](https://ang.blueforcer.
   * Display Mode: two lines or one large line; an empty bottom line is ignored automatically
   * One large line follows the clock's Enlarge apps setting
   * Refresh every minute, for templates that read other entities
-  * Required App Name field: you choose the name of the app on the clock
+  * The app is named after the automation
 
 **V6.0**
 * Made blueprints compatible with the new Ulanzi TC002 Desktop Clock
