@@ -178,7 +178,7 @@ Set these to **two different colours** to paint the text as a gradient from the 
 
 Example: Gradient 1 = yellow, Gradient 2 = red gives a "heat" look that runs across the whole string.
 
-Only Create Notification has the gradient fields. The other blueprints offer Rainbow Colors only. The Create Sensor App, List ToDo Items and Countdown Timer have a **background** gradient instead — see [chapter 6](#about-the-background-gradient).
+Only Create Notification has the gradient fields. The other blueprints offer Rainbow Colors only. The Create Sensor App, List Calendar, List ToDo Items and Countdown Timer have a **background** gradient instead — see [chapter 6](#about-the-background-gradient).
 
 ### Rainbow Colors
 
@@ -659,42 +659,102 @@ Each of the 11 bars is one hour ahead, left to right. Values are precipitation i
 
 ## 9. List Calendar
 
-**File:** `awtrix_ng_tc002_list_calendar.yaml`
+**File:** `awtrix_ng_tc002_list_calendar.yaml` · **Blueprint name:** *AWTRIX NG TC002 List Calendar* · **Version:** V2.0
 
 ### What it does
 
 Two things at once:
 
-1. **A rotating app** that scrolls through your upcoming appointments.
-2. **A notification** 15 minutes before an event starts, with an optional alert tone.
+1. **A rotating app** that shows your upcoming appointments. It uses the same layout as the [Create Sensor App](#6-create-sensor-app): a large icon on the left, with the **Calendar Name** on the top line and the **events** on the bottom line. Both lines can start with an optional small icon.
+2. **An alert** a number of minutes before an event starts — you choose how many — with an optional alert tone. The alert is always shown on its own, on **one line**.
 
 Either half can be switched off.
 
+```
++----------------+-+--------+-+-----------------------+
+|                | | top    | |  Family               |
+|   Main icon    | | icon   | |                       |
+|    16 × 16     | +--------+ +-----------------------+
+|                | | bottom | |  Today 14:00 Dentist  |
+|                | | icon   | |  // 19:30 Football    |
++----------------+-+--------+-+-----------------------+
+```
+
 ### When it runs
 
-- Toggle on → app created.
-- Toggle off → app deleted.
-- **Every minute** → the agenda is re-read and the app refreshed.
-- **15 minutes before any event** → notification sent (if Show Alerts is on).
+- Toggle on → the app is created and the clock switches to it.
+- Toggle off → the app is deleted.
+- **Every minute** → the agenda is re-read and the app refreshed. With **Switch to app on value change** on, the clock also switches to the app every minute.
+- **Every minute** → the blueprint looks for events that start in **Alert Minutes Before Start** minutes, and shows an alert for each of them (if Show Alerts is on).
 
-### Fields unique to this blueprint
+### Fields — Calendar
 
 | Field | What it does |
 |---|---|
 | **Calendar** | The calendar entity to read. |
 | **Hours ahead** | How far into the future to look. Default `24`. |
-| **Show Timeline?** | On: the app lists all upcoming events. Off: no app is shown at all and you only get the notifications. |
+| **Show Timeline?** | On: the app lists all upcoming events. Off: no app is shown at all and you only get the alerts. |
 | **Show Whole Day Events?** | Include all-day events (the ones with no start time). |
-| **Show Alerts?** | Send a notification 15 minutes before an event starts. It reads `Event <name> starts at <time>`. That text is fixed and in English. |
-| **Play Alert Tone** | Add a sound to that notification. |
-| **Stack Notification?** | On: queue behind other notifications. Off: replace whatever is on screen. |
-| **Custom Text** | Shown when there is nothing in the agenda. Default: `Yay! You have no appointments!`. |
+| **Custom Text** | Shown on the bottom line when there is nothing in the agenda. Default: `Yay! You have no appointments!`. |
 | **Show Empty Calendar** | Off: the custom text is not shown when there are no events. The app is not removed straight away: it keeps its last text until its **Lifetime** runs out. Set a Lifetime of `120` or more when you switch this off, so the app disappears about two minutes after the last event. |
-| **Prefix** | Text placed in front of the whole list — useful when you run this blueprint several times for different calendars. |
+
+### Fields — Icon
+
+| Field | What it does |
+|---|---|
+| **Icon** | The main icon on the left. Empty by default — leave it empty for no icon. |
+| **Push Icon**, **Enlarged Icon**, **Icon Width**, **Icon Height** | As in the Create Sensor App — see [Fields — Icon](#fields--icon). Use an 8 × 8 **Enlarged Icon** with a 16 × 16 main Icon, or one large line and the alerts stay small — see [Why an Enlarged Icon?](#why-an-enlarged-icon). |
+
+### Fields — Alerts
+
+| Field | What it does |
+|---|---|
+| **Show Alerts?** | Show an alert before an event starts. It reads `Event <name> starts at <time>`. That text is fixed and in English. Alerts also work when the toggle helper is off or Show Timeline is off. |
+| **Alert Minutes Before Start** | How many minutes before the start of an event the alert is shown. Default `15`. `0` shows it at the start of the event. |
+| **Play Alert Tone** | Add a sound to the alert. |
+| **Sound File / Track**, **Alert Melody (RTTTL)** | The sound to play — see [Sound File / Track and Alert Melody](#sound-file--track-and-alert-melody-rtttl). The sound file has priority over the melody. |
+| **Stack Notification?** | On: queue behind other notifications. Off: replace whatever is on screen. |
+
+### Fields — Top line
+
+| Field | What it does |
+|---|---|
+| **Calendar Name (Top Line Text)** | The name on the top line, e.g. `Family` — useful when you run this blueprint several times for different calendars. In one large line it is shown in front of the events. Leave it empty for no top line text. This was the **Prefix** field in earlier versions. |
+| **Top Line Icon (Optional)** | A small 8 × 8 icon at the front of the top line. |
+| **Top Line Font**, **Top Line Color**, **Top Line Background Color**, **Top Line Rainbow Colors** | As in the Create Sensor App. The Top Line Font is also used for one large line and for the alerts. |
+
+The top line has no sensor or template: it always shows the Calendar Name you typed.
+
+### Fields — Bottom line (events)
+
+| Field | What it does |
+|---|---|
 | **Today Text** | Label placed before today's events, e.g. `Today:`. Leave empty for none. |
 | **Tomorrow Text** | Label placed before events on later days, e.g. `Tomorrow:`. Leave empty for none. |
+| **Bottom Line Icon (Optional)** | A small 8 × 8 icon at the front of the events. Not used in one large line. |
+| **Bottom Line Font** | The font of the events. |
+| **Bottom Line Color** | The text colour of the events and of the alerts. This was **Text Color** in earlier versions. |
+| **Bottom Line Background Color** | Black *(default)* = no line background. Any other colour gives the bottom line its own background — see [Line backgrounds](#line-backgrounds). |
+| **Bottom Line Rainbow Colors** | Shows the events and the alerts in rainbow colours. This was **Rainbow Colors** in earlier versions. |
 
-Events are joined with ` // `, and timed events are prefixed with their start time.
+Events are joined with ` // `, and timed events are prefixed with their start time — exactly as in earlier versions. There are no threshold colours.
+
+### Layout and Advanced options
+
+**Display Mode**, **Text Alignment**, **Text Case**, **Background Color**, **Background Gradient**, **Effect**, **Repeat**, **Duration**, **Lifetime**, **Switch to app on value change** and **Scroll** work exactly as in the [Create Sensor App](#fields--layout-options).
+
+In **one large line**, the line shows the Calendar Name followed by the events, e.g. `Family Today 14:00 Dentist // 19:30 Football`, as in earlier versions. The Calendar Name keeps the Top Line Color and the events keep the Bottom Line Color.
+
+### Alerts on one line
+
+An alert is a notification that interrupts whatever is on screen. It is always shown on its own, on one line next to the main icon, and follows the clock's **Enlarge apps** setting, read from the clock each time — see [Two lines or one large line](#two-lines-or-one-large-line):
+
+- **Enlarge apps on:** the alert and the icon are drawn at **double size**. Use an 8 × 8 Enlarged Icon if your main Icon is 16 × 16.
+- **Enlarge apps off:** the alert uses the full 16-pixel height next to the icon, at normal size.
+
+The alert uses the Bottom Line Color (or Rainbow Colors), the Top Line Font, and the general background, gradient or effect. **Duration** and **Repeat** decide how long it stays.
+
+How the alert time works: Home Assistant does not allow a calendar trigger's offset to be a blueprint field, so the blueprint checks every minute which events start in **Alert Minutes Before Start** minutes. Every event gets one alert. If Home Assistant is restarting at exactly that minute, that alert is skipped.
 
 ### Example — family calendar
 
@@ -702,33 +762,45 @@ Events are joined with ` // `, and timed events are prefixed with their start ti
 |---|---|
 | Calendar | `calendar.family` |
 | Hours ahead | `36` |
-| Prefix | `Family: ` |
+| Calendar Name (Top Line Text) | `Family` |
 | Today Text | `Today` |
 | Tomorrow Text | `Tomorrow` |
 | Show Whole Day Events? | On |
 | Show Alerts? | On |
+| Alert Minutes Before Start | `15` |
 | Play Alert Tone | On |
 | Icon | `11899` |
+| Top Line Color | Yellow |
 | Custom Text | `Nothing planned` |
 
-On screen you get something like:
+On screen, two lines next to the calendar icon:
 
 ```
-Family: Today 14:00 Dentist // 19:30 Football // Tomorrow 09:00 Deliver parcel
+Family
+Today 14:00 Dentist // 19:30 Football // Tomorrow 09:00 Deliver parcel
 ```
 
-### Example — notifications only
+At 13:45 an alert interrupts the display with three beeps: `Event Dentist starts at 14:00`, on one line.
+
+### Example — alerts only
 
 | Field | Value |
 |---|---|
 | Calendar | `calendar.work` |
 | Show Timeline? | **Off** |
 | Show Alerts? | On |
+| Alert Minutes Before Start | `5` |
 | Play Alert Tone | On |
 
-No app in the rotation, just a heads-up 15 minutes before each meeting.
+No app in the rotation, just a heads-up 5 minutes before each meeting.
 
-> **Note:** the 15-minute warning time is fixed. Home Assistant does not currently allow a calendar trigger offset to be a blueprint input, so changing it means editing the automation's YAML after you create it.
+### Upgrading from the earlier version (V1.2)
+
+Existing automations keep working after you update the blueprint: the Prefix becomes the Calendar Name, and the calendar settings, alert settings, Icon, Push Icon, Text Color (now Bottom Line Color), Rainbow Colors (now Bottom Line Rainbow Colors), Background Color, Text Case and Effect carry over. Things to check:
+
+- The app now shows **two lines** by default. Set **Display Mode** to *One large line* for the old look.
+- The alert time is **15 minutes** by default, as before. Change **Alert Minutes Before Start** to choose another time — no YAML editing needed any more.
+- The alert is now shown on one line, large or small according to Enlarge apps.
 
 ---
 
@@ -1242,7 +1314,7 @@ The matrix font has no glyph for that character. Emoji and other unusual symbols
 - The sound file does not exist in `/MP3` or `/MELODIES`.
 - The RTTTL string has a typo — test it in the clock's web interface on the **Audio** tab first.
 
-### A Create Sensor App, List ToDo Items or Countdown Timer app does not show up, or shows the old content
+### A Create Sensor App, List Calendar, List ToDo Items or Countdown Timer app does not show up, or shows the old content
 
 - The clock rejects a whole layout when one part is wrong, and keeps showing what it had. Check `<prefix>/cmd/apps/pushed/+/result` for the reason. `"outside the display"` means a box is too big — check **Icon Width** and **Icon Height**. An `icon could not be decoded` error means an icon name or web address is wrong.
 - Shows only one line? In the Create Sensor App the Bottom Line Sensor, Template and Text are all empty, or Display Mode is *One large line*. The Countdown Timer always shows the Event Started Message and the Event Reached Text on one line.
@@ -1340,7 +1412,7 @@ The `awtrix_ng_*.yaml` files still exist and are now meant specifically for the 
 3. Create a new automation from the matching **AWTRIX NG TC002** blueprint, with the same toggle helper and settings.
 4. Delete the old automation.
 
-For most blueprints the fields are the same as before. The **Create Sensor App**, **List ToDo Items** and **Countdown Timer** are rebuilt for the TC002 with the two-line layout and have new fields — see the upgrade notes in [chapter 6](#upgrading-from-the-earlier-version-v11), [chapter 10](#10-list-todo-items) and [chapter 11](#11-countdown-timer).
+For most blueprints the fields are the same as before. The **Create Sensor App**, **List Calendar**, **List ToDo Items** and **Countdown Timer** are rebuilt for the TC002 with the two-line layout and have new fields — see the upgrade notes in [chapter 6](#upgrading-from-the-earlier-version-v11), [chapter 9](#9-list-calendar), [chapter 10](#10-list-todo-items) and [chapter 11](#11-countdown-timer).
 
 The TC002 has never run AWTRIX 3. If you are moving a TC001 from AWTRIX 3 to AWTRIX NG, see Appendix B of the [TC001 manual](AWTRIX-NG-TC001-MANUAL.md#appendix-b--coming-from-awtrix-3).
 
@@ -1349,6 +1421,17 @@ Full firmware documentation: **[ang.blueforcer.de/tc002](https://ang.blueforcer.
 ---
 
 # Release Notes
+**V6.6**
+* List Calendar V2.0 (TC002): rebuilt with the same layout as the Create Sensor App — see [List Calendar](#9-list-calendar)
+  * A 16 × 16 main icon with the **Calendar Name** (the former **Prefix**) on the top line and the events on the bottom line
+  * Optional 8 × 8 Top Line Icon and Bottom Line Icon, adjustable icon size, Push Icon and Enlarged Icon
+  * Per-line font, colour, background colour and rainbow colours; background colour, vertical gradient and effect
+  * Display Mode: two lines, or one large line with the Calendar Name and the events together, following the clock's Enlarge apps setting
+  * New **Alert Minutes Before Start** field: choose how many minutes before an event the alert is shown (default 15, as before)
+  * The alert is always shown on its own single line, large or small according to the clock's Enlarge apps setting
+  * The main icon no longer has a default icon
+  * The calendar handling is unchanged: same events, Today / Tomorrow texts, whole-day events, Custom Text, Show Empty Calendar, alert text and sounds, and app name
+
 **V6.5**
 * Countdown Timer V2.0 (TC002): rebuilt with the same layout as the Create Sensor App — see [Countdown Timer](#11-countdown-timer)
   * A 16 × 16 main icon with a label on the top line — the new **Top Line Text**, or the Event Name — and the countdown on the bottom line
