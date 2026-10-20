@@ -711,6 +711,7 @@ Either half can be switched off.
 |---|---|
 | **Show Alerts?** | Show an alert before an event starts. It reads `Event <name> starts at <time>`. That text is fixed and in English. Alerts also work when the toggle helper is off or Show Timeline is off. |
 | **Alert Minutes Before Start** | How many minutes before the start of an event the alert is shown. Default `15`. `0` shows it at the start of the event. |
+| **Alert Repeat** | How many times the alert text is shown — scrolls through the display — before the alert ends. Default `1`. |
 | **Play Alert Tone** | Add a sound to the alert. |
 | **Sound File / Track**, **Alert Melody (RTTTL)** | The sound to play — see [Sound File / Track and Alert Melody](#sound-file--track-and-alert-melody-rtttl). The sound file has priority over the melody. |
 | **Stack Notification?** | On: queue behind other notifications. Off: replace whatever is on screen. |
@@ -752,7 +753,7 @@ An alert is a notification that interrupts whatever is on screen. It is always s
 - **Enlarge apps on:** the alert and the icon are drawn at **double size**. Use an 8 × 8 Enlarged Icon if your main Icon is 16 × 16.
 - **Enlarge apps off:** the alert uses the full 16-pixel height next to the icon, at normal size.
 
-The alert uses the Bottom Line Color (or Rainbow Colors), the Top Line Font, and the general background, gradient or effect. **Duration** and **Repeat** decide how long it stays.
+The alert uses the Bottom Line Color (or Rainbow Colors), the Top Line Font, and the general background, gradient or effect. **Alert Repeat** decides how many times the alert text runs through the display before the alert ends. A text short enough to stand still does not scroll, so it stays for the **Duration** instead.
 
 How the alert time works: Home Assistant does not allow a calendar trigger's offset to be a blueprint field, so the blueprint checks every minute which events start in **Alert Minutes Before Start** minutes. Every event gets one alert. If Home Assistant is restarting at exactly that minute, that alert is skipped.
 
@@ -768,6 +769,7 @@ How the alert time works: Home Assistant does not allow a calendar trigger's off
 | Show Whole Day Events? | On |
 | Show Alerts? | On |
 | Alert Minutes Before Start | `15` |
+| Alert Repeat | `2` |
 | Play Alert Tone | On |
 | Icon | `11899` |
 | Top Line Color | Yellow |
@@ -780,7 +782,7 @@ Family
 Today 14:00 Dentist // 19:30 Football // Tomorrow 09:00 Deliver parcel
 ```
 
-At 13:45 an alert interrupts the display with three beeps: `Event Dentist starts at 14:00`, on one line.
+At 13:45 an alert interrupts the display with three beeps: `Event Dentist starts at 14:00`, on one line, shown twice.
 
 ### Example — alerts only
 
@@ -1429,6 +1431,7 @@ Full firmware documentation: **[ang.blueforcer.de/tc002](https://ang.blueforcer.
   * Display Mode: two lines, or one large line with the Calendar Name and the events together, following the clock's Enlarge apps setting
   * New **Alert Minutes Before Start** field: choose how many minutes before an event the alert is shown (default 15, as before)
   * The alert is always shown on its own single line, large or small according to the clock's Enlarge apps setting
+  * New **Alert Repeat** field: how many times the alert text is shown (default 1)
   * The main icon no longer has a default icon
   * The calendar handling is unchanged: same events, Today / Tomorrow texts, whole-day events, Custom Text, Show Empty Calendar, alert text and sounds, and app name
 
