@@ -178,7 +178,7 @@ Set these to **two different colours** to paint the text as a gradient from the 
 
 Example: Gradient 1 = yellow, Gradient 2 = red gives a "heat" look that runs across the whole string.
 
-Only Create Notification and Countdown Timer have the gradient fields. The other blueprints offer Rainbow Colors only. The Create Sensor App has a **background** gradient instead — see [chapter 6](#about-the-background-gradient).
+Only Create Notification has the gradient fields. The other blueprints offer Rainbow Colors only. The Create Sensor App, List ToDo Items and Countdown Timer have a **background** gradient instead — see [chapter 6](#about-the-background-gradient).
 
 ### Rainbow Colors
 
@@ -363,6 +363,7 @@ The Sensor field accepts `sensor`, `binary_sensor`, `media_player`, `input_text`
 |---|---|
 | **Icon** | The main icon on the left. An icon ID or file name of an icon on the clock, or the web address of a PNG or JPEG picture. Leave it empty for no icon — both lines then use the full width. |
 | **Push Icon** | What the icon does while the text scrolls. See [Push Icon](#push-icon). Only works in **one large line** on a clock with **Enlarge apps** on — see the note below. |
+| **Enlarged Icon (Optional)** | An 8 × 8 icon used **instead of the main Icon** when the app is shown at double size (one large line on a clock with Enlarge apps on). The clock then shows it as 16 × 16. Fill this in when your main Icon is a 16 × 16 icon — see [Why an Enlarged Icon?](#why-an-enlarged-icon). Leave it empty to use the main Icon. |
 | **Icon Width (Optional)** | Width of the space reserved for the icon, `1`–`50` pixels. Empty (or `0`) = `16`. |
 | **Icon Height (Optional)** | Height of the space reserved for the icon, `1`–`16` pixels. Empty (or `0`) = `16`. A lower icon is centred vertically. |
 
@@ -433,7 +434,12 @@ In one large line with Enlarge apps on:
 - The **Top Line Icon** is used as the icon only when the main Icon is empty.
 - The bottom line, the Bottom Line Icon and the bottom line fields are not used.
 - The gradient has 8 steps instead of 16, because the app is drawn on a 26 × 8 grid.
-- A main icon taller than 8 pixels (such as a 16 × 16 icon) makes the clock draw the app at normal size instead.
+- The **Enlarged Icon** is used instead of the main Icon, when you set one.
+- A main icon taller than 8 pixels (such as a 16 × 16 icon) makes the clock draw the app at normal size instead — see below.
+
+#### Why an Enlarged Icon?
+
+AWTRIX NG only draws an app at double size when its icon is at most 8 pixels high. With a 16 × 16 icon — which looks best in two lines — the clock draws the whole app at normal size, so the text stays small even with Enlarge apps on. The **Enlarged Icon** solves this: in two lines the app uses your 16 × 16 main Icon, and in the enlarged one large line it uses the 8 × 8 Enlarged Icon, which the clock shows as 16 × 16. Use the 8 × 8 version of the same picture and the two look alike.
 
 ### About the icons
 
@@ -762,7 +768,7 @@ With items on the list, the clock switches to the app every time it is sent. Wit
 | **ToDo List** | The `todo` entity to read. |
 | **AWTRIX Displays**, **Extra MQTT prefixes**, **Toggle Helper** | See [section 4](#4-fields-you-will-see-in-almost-every-blueprint). |
 | **Icon** | The main icon on the left. An icon on the clock, or the web address of a PNG or JPEG picture. Empty by default — leave it empty for no icon. |
-| **Push Icon**, **Icon Width**, **Icon Height** | As in the Create Sensor App — see [Fields — Icon](#fields--icon). |
+| **Push Icon**, **Enlarged Icon**, **Icon Width**, **Icon Height** | As in the Create Sensor App — see [Fields — Icon](#fields--icon). Use an 8 × 8 **Enlarged Icon** with a 16 × 16 main Icon, or one large line stays small — see [Why an Enlarged Icon?](#why-an-enlarged-icon). |
 
 ### Fields — Top line
 
@@ -840,29 +846,102 @@ Existing automations keep working after you update the blueprint: the Prefix bec
 
 ## 11. Countdown Timer
 
-**File:** `awtrix_ng_tc002_countdown_timer.yaml`
+**File:** `awtrix_ng_tc002_countdown_timer.yaml` · **Blueprint name:** *AWTRIX NG TC002 Countdown Timer* · **Version:** V2.0
 
 ### What it does
 
-Counts down to a date and time — a birthday, a holiday, New Year — and updates once a minute.
+Counts down to a date and time — a birthday, a holiday, New Year — and updates once a minute. It uses the same layout as the [Create Sensor App](#6-create-sensor-app): a large icon on the left, with a label on the top line and the countdown on the bottom line. Both lines can start with an optional small icon.
+
+```
++----------------+-+--------+-+-----------------------+
+|                | | top    | |  Vacation             |
+|   Main icon    | | icon   | |                       |
+|    16 × 16     | +--------+ +-----------------------+
+|                | | bottom | |  47d 12h 30m          |
+|                | | icon   | |                       |
++----------------+-+--------+-+-----------------------+
+```
+
+When the event starts, the countdown makes way for the **Event Started Message** or the **Event Reached Text**. These are always shown on their own, on **one line**, and a start sound can play.
 
 ### When it runs
 
-Toggle on → app created. Toggle off → app deleted. **Every minute** → countdown recalculated.
+- Toggle on → the app is created and the clock switches to it.
+- Toggle off → the app is deleted.
+- **Every minute** → the countdown is recalculated and sent again. With **Switch to app on update** on, the clock also switches to the app every minute.
+- **The minute the event starts** → the start sound plays once (see [Start sound](#start-sound)).
 
-### Fields unique to this blueprint
+### Fields — Event
 
 | Field | What it does |
 |---|---|
-| **Event Name** | Short name for the event. Doubles as the app name on the clock, so stick to letters, digits, `-` and `_`. The app name is the event name in lowercase, with spaces and anything else turned into underscores: `Summer Vacation` becomes the app `summer_vacation`. |
+| **Event Name** | Short name for the event. Shown on the top line, and doubles as the app name on the clock: the event name in lowercase, with spaces and anything else turned into underscores. `Summer Vacation` becomes the app `summer_vacation`. |
 | **Event Date** | Target date, `YYYY-MM-DD`. |
 | **Event Time** | Target time, `HH:MM:SS`, 24-hour. |
-| **Show Event Name on Clock** | On: the name is shown in front of the countdown (`Vacation 3d 4h 20m`). Off: only the numbers. |
+| **Show Event Name on Clock** | On: the Event Name is shown on the top line when the Top Line Text is empty. Off: no event name. |
 | **Show Seconds** | Include seconds. On by default. The app only refreshes every minute, so these are approximate. |
 | **Event Started Message** | Shown from the moment the event starts until midnight that day. Leave empty to skip straight to the next field. |
 | **Event Reached Text** | Shown once the event day is over. Also used on the day itself if the field above is empty. The default is `Now!`. **Clear this field and leave the one above empty, and the app removes itself automatically after the event.** |
+| **Sound File / Track** | Optional. Played once when the event starts: the name of a stored MP3 or melody on the clock (without `.mp3` / `.txt`). Has priority over the Alert Melody. No default. |
+| **Alert Melody (RTTTL)** | Played once when the event starts, when no Sound File / Track is set. Default `alert:d=4,o=5,b=180:8c6,8p,8c6,8p,8c6` (three short beeps). Leave both sound fields empty for no sound. |
 
 The countdown scales itself: days are dropped once there are none left, then hours, so you never see `0d 0h 5m`.
+
+### Fields — Icon
+
+| Field | What it does |
+|---|---|
+| **Icon** | The main icon on the left. Empty by default — leave it empty for no icon. |
+| **Push Icon**, **Enlarged Icon**, **Icon Width**, **Icon Height** | As in the Create Sensor App — see [Fields — Icon](#fields--icon). Use an 8 × 8 **Enlarged Icon** with a 16 × 16 main Icon, or the large messages stay small — see [Why an Enlarged Icon?](#why-an-enlarged-icon). |
+
+### Fields — Top line
+
+| Field | What it does |
+|---|---|
+| **Top Line Text** | Optional. The text on the top line. Leave it empty to show the **Event Name** there (when Show Event Name on Clock is on). |
+| **Top Line Icon (Optional)** | A small 8 × 8 icon at the front of the top line. |
+| **Top Line Font**, **Top Line Color**, **Top Line Background Color**, **Top Line Rainbow Colors** | As in the Create Sensor App. The Top Line Font is also used for the one-line views. |
+
+The top line has no sensor or template. Once the event has started, the top line is not shown — only the message is.
+
+### Fields — Bottom line (countdown)
+
+| Field | What it does |
+|---|---|
+| **Bottom Line Icon (Optional)** | A small 8 × 8 icon at the front of the countdown, e.g. an hourglass. Not used in one large line. |
+| **Bottom Line Font** | The font of the countdown. |
+| **Bottom Line Color** | The text colour of the countdown and of the messages. This was **Text Color** in earlier versions. |
+| **Bottom Line Background Color** | Black *(default)* = no line background. Any other colour gives the bottom line its own background — see [Line backgrounds](#line-backgrounds). |
+| **Bottom Line Rainbow Colors** | Shows the countdown and the messages in rainbow colours. This was **Rainbow Colors** in earlier versions. |
+
+There are no threshold colours.
+
+### Layout and Advanced options
+
+**Display Mode**, **Text Alignment**, **Text Case**, **Background Color**, **Background Gradient**, **Effect**, **Repeat**, **Duration**, **Lifetime** and **Scroll** work exactly as in the [Create Sensor App](#fields--layout-options). **Switch to app on update** switches the clock to the countdown on every minute update.
+
+### What you see, and when
+
+| Moment | What you see |
+|---|---|
+| **Counting down**, Display Mode *Two lines* | The label (Top Line Text or Event Name) on top, the countdown below, each with its optional icon. |
+| **Counting down**, Display Mode *One large line* | One line with the label followed by the countdown, e.g. `Vacation 47d 12h 30m`. The label keeps the Top Line Color, the countdown the Bottom Line Color. |
+| **Event started**, until midnight | The **Event Started Message** on its own, on one line. |
+| **Event day over** (or no Event Started Message) | The **Event Reached Text** on its own, on one line. |
+| **Event over, both messages empty** | The app is removed from the clock. |
+
+Every one-line view follows the clock's **Enlarge apps** setting, read from the clock each time the app is sent — see [Two lines or one large line](#two-lines-or-one-large-line):
+
+- **Enlarge apps on:** the line and the icon are drawn at **double size**. Use an 8 × 8 Enlarged Icon if your main Icon is 16 × 16.
+- **Enlarge apps off:** the line uses the full 16-pixel height next to the icon, at normal size.
+
+### Start sound
+
+When the event starts, the clock plays the **Sound File / Track**, or the **Alert Melody** when no sound file is set. The sound goes out once, with the first minute update at or after the Event Time, and only while the toggle helper is on.
+
+- It also plays when the app removes itself because both messages are empty.
+- It does not play when Home Assistant was restarting at that moment, or when the toggle is switched on later.
+- See [Sound File / Track and Alert Melody](#sound-file--track-and-alert-melody-rtttl) and [No sound](#no-sound) if you hear nothing.
 
 ### Example — holiday countdown
 
@@ -876,10 +955,11 @@ The countdown scales itself: days are dropped once there are none left, then hou
 | Event Started Message | `Bon voyage!` |
 | Event Reached Text | *(empty)* |
 | Icon | `52` |
-| Gradient 1 | Yellow |
-| Gradient 2 | Orange |
+| Bottom Line Icon | a small hourglass icon |
+| Top Line Color | Yellow |
+| Background Gradient | On, dark blue to black |
 
-Shows `Vacation 47d 12h 30m` counting down, switches to `Bon voyage!` on the day, then removes itself from the clock at midnight.
+Shows `Vacation` above `47d 12h 30m` counting down, switches to a large `Bon voyage!` on the day with three beeps, then removes itself from the clock at midnight.
 
 ### Example — New Year
 
@@ -888,11 +968,25 @@ Shows `Vacation 47d 12h 30m` counting down, switches to `Bon voyage!` on the day
 | Event Name | `NewYear` |
 | Event Date | `2027-01-01` |
 | Event Time | `00:00:00` |
+| Top Line Text | `New Year in` |
 | Show Seconds | On |
 | Event Started Message | `Happy New Year!` |
 | Event Reached Text | `Happy New Year!` |
-| Rainbow Colors | On |
+| Icon | a 16 × 16 fireworks icon |
+| Enlarged Icon | the 8 × 8 version of that fireworks icon |
+| Sound File / Track | `newyear` (an MP3 on the clock) |
+| Bottom Line Rainbow Colors | On |
 | Effect | Fireworks |
+
+At midnight the clock plays `newyear.mp3` and shows `Happy New Year!` large, next to the fireworks icon.
+
+### Upgrading from the earlier version (V1.1)
+
+Existing automations keep working after you update the blueprint: the event fields, Icon, Push Icon, Text Color (now Bottom Line Color), Rainbow Colors (now Bottom Line Rainbow Colors), Background Color, Text Case and Effect carry over. Things to check:
+
+- The countdown now shows **two lines**: the Event Name above the countdown. Set **Display Mode** to *One large line* for the old look.
+- **Gradient 1 / Gradient 2** are gone. Use Rainbow Colors, or the Background Gradient.
+- The start sound is new and plays the Alert Melody by default. Clear the Alert Melody if you want a silent start.
 
 > **Note:** emoji do not render on the matrix — the font has no glyphs for them and they come out as `?`. Stick to plain text in these fields.
 
@@ -1148,11 +1242,11 @@ The matrix font has no glyph for that character. Emoji and other unusual symbols
 - The sound file does not exist in `/MP3` or `/MELODIES`.
 - The RTTTL string has a typo — test it in the clock's web interface on the **Audio** tab first.
 
-### The Create Sensor App does not show up, or shows the old content
+### A Create Sensor App, List ToDo Items or Countdown Timer app does not show up, or shows the old content
 
 - The clock rejects a whole layout when one part is wrong, and keeps showing what it had. Check `<prefix>/cmd/apps/pushed/+/result` for the reason. `"outside the display"` means a box is too big — check **Icon Width** and **Icon Height**. An `icon could not be decoded` error means an icon name or web address is wrong.
-- Shows only the top line? The Bottom Line Sensor, Template and Text are all empty, or Display Mode is *One large line*.
-- Icon not enlarged in one large line? The clock's **Enlarge apps** setting is off, or the icon is taller than 8 pixels.
+- Shows only one line? In the Create Sensor App the Bottom Line Sensor, Template and Text are all empty, or Display Mode is *One large line*. The Countdown Timer always shows the Event Started Message and the Event Reached Text on one line.
+- Icon and text not enlarged in one large line? The clock's **Enlarge apps** setting is off, or the icon is taller than 8 pixels. Set an 8 × 8 **Enlarged Icon** — see [Why an Enlarged Icon?](#why-an-enlarged-icon).
 - A template that reads other entities does not update? Turn on **Refresh every minute**.
 
 ### The app name looks mangled
@@ -1246,7 +1340,7 @@ The `awtrix_ng_*.yaml` files still exist and are now meant specifically for the 
 3. Create a new automation from the matching **AWTRIX NG TC002** blueprint, with the same toggle helper and settings.
 4. Delete the old automation.
 
-For most blueprints the fields are the same as before. The **Create Sensor App** is rebuilt for the TC002 and has new fields — see [Upgrading from the earlier version](#upgrading-from-the-earlier-version-v11).
+For most blueprints the fields are the same as before. The **Create Sensor App**, **List ToDo Items** and **Countdown Timer** are rebuilt for the TC002 with the two-line layout and have new fields — see the upgrade notes in [chapter 6](#upgrading-from-the-earlier-version-v11), [chapter 10](#10-list-todo-items) and [chapter 11](#11-countdown-timer).
 
 The TC002 has never run AWTRIX 3. If you are moving a TC001 from AWTRIX 3 to AWTRIX NG, see Appendix B of the [TC001 manual](AWTRIX-NG-TC001-MANUAL.md#appendix-b--coming-from-awtrix-3).
 
@@ -1255,6 +1349,18 @@ Full firmware documentation: **[ang.blueforcer.de/tc002](https://ang.blueforcer.
 ---
 
 # Release Notes
+**V6.5**
+* Countdown Timer V2.0 (TC002): rebuilt with the same layout as the Create Sensor App — see [Countdown Timer](#11-countdown-timer)
+  * A 16 × 16 main icon with a label on the top line — the new **Top Line Text**, or the Event Name — and the countdown on the bottom line
+  * Optional 8 × 8 Top Line Icon and Bottom Line Icon, adjustable icon size and Push Icon
+  * Per-line font, colour, background colour and rainbow colours; background colour, vertical gradient and effect
+  * Display Mode: two lines, or one large line with the label and the countdown together, following the clock's Enlarge apps setting
+  * The **Event Started Message** and the **Event Reached Text** are always shown on their own single line, large or small according to the clock's Enlarge apps setting
+  * New **Sound File / Track** and **Alert Melody (RTTTL)** fields: a sound plays once when the event starts. The sound file has priority over the melody
+  * The main icon no longer has a default icon. Gradient 1 / Gradient 2 are replaced by the Background Gradient
+  * The countdown itself is unchanged: same calculation, messages, automatic removal and app name
+* Create Sensor App, List ToDo Items and Countdown Timer (TC002): new optional **Enlarged Icon**. AWTRIX NG does not enlarge an app whose icon is taller than 8 pixels, so with a 16 × 16 main Icon one large line stayed small. An 8 × 8 Enlarged Icon is used instead in the enlarged view — see [Why an Enlarged Icon?](#why-an-enlarged-icon)
+
 **V6.4**
 * List ToDo Items V2.0 (TC002): rebuilt with the same layout as the Create Sensor App — see [List ToDo Items](#10-list-todo-items)
   * A 16 × 16 main icon with the **Top Line Text** (the former **Prefix**) on the top line and the to-do items on the bottom line
