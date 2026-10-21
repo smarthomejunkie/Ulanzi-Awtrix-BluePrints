@@ -142,7 +142,7 @@ The 8×8 image shown to the left of the text. Enter an **icon ID** (a number, e.
 - The same tab installs icons from the [AWTRIX Hub](https://awtrix.de/icons). Those are used by their name.
 - Leave the field empty for no icon — the text then uses the full width of the display.
 - Animated GIFs work. A GIF that is as wide as the app (26 pixels, because apps are drawn at double size) becomes a background image instead of an icon.
-- The Create Sensor App has a larger icon space and more icon options — see [chapter 6](#fields--icon).
+- The Create Notification, Create Sensor App, List Calendar, List ToDo Items and Countdown Timer have a larger icon space and more icon options — see [chapter 6](#fields--icon).
 
 ### Push Icon
 
@@ -154,7 +154,7 @@ What the icon does while the text scrolls past it.
 | **Icon moves with text and will not appear again** | Text shoves the icon off screen once; it stays gone |
 | **Icon moves with text but appears again when the text starts** | Icon is pushed off, then returns on every scroll cycle *(default)* |
 
-In the Create Sensor App, Push Icon only works in one large line with the clock's Enlarge apps setting on. See [chapter 6](#two-lines-or-one-large-line).
+In the Create Notification, Create Sensor App, List Calendar, List ToDo Items and Countdown Timer, Push Icon only works for the main icon, in one large line with the clock's Enlarge apps setting on. The small line icons never move. See [chapter 6](#two-lines-or-one-large-line).
 
 ### Text Case
 
@@ -178,7 +178,7 @@ Set these to **two different colours** to paint the text as a gradient from the 
 
 Example: Gradient 1 = yellow, Gradient 2 = red gives a "heat" look that runs across the whole string.
 
-Only Create Notification has the gradient fields. The other blueprints offer Rainbow Colors only. The Create Sensor App, List Calendar, List ToDo Items and Countdown Timer have a **background** gradient instead — see [chapter 6](#about-the-background-gradient).
+Only Create Notification has the gradient fields, for its Bottom Line Text. The other blueprints offer Rainbow Colors only. The Create Notification, Create Sensor App, List Calendar, List ToDo Items and Countdown Timer also have a **background** gradient — see [chapter 6](#about-the-background-gradient).
 
 ### Rainbow Colors
 
@@ -248,7 +248,7 @@ The blueprints send sound in the format introduced with AWTRIX NG **1.2.2**, so 
 
 ## 5. Create Notification
 
-**File:** `awtrix_ng_tc002_create_notification.yaml`
+**File:** `awtrix_ng_tc002_create_notification.yaml` · **Blueprint name:** *AWTRIX NG TC002 Create Notification* · **Version:** V2.0
 
 ### What it does
 
@@ -256,52 +256,123 @@ Interrupts whatever is on screen with a message, for as long as you want. Unlike
 
 Turn the toggle helper **on** to show the notification, **off** to dismiss it.
 
+The notification uses the same layout as the [Create Sensor App](#6-create-sensor-app): a large icon on the left, with an optional title on the top line and the message on the bottom line. Both lines can start with an optional small icon.
+
+```
++----------------+-+--------+-+-----------------------+
+|                | | top    | |  Doorbell             |
+|   Main icon    | | icon   | |                       |
+|    16 × 16     | +--------+ +-----------------------+
+|                | | bottom | |  Someone at the door! |
+|                | | icon   | |                       |
++----------------+-+--------+-+-----------------------+
+```
+
+Leave the **Top Line Text** empty and the message is shown on **one large line**, just like in earlier versions.
+
 ### When it runs
 
-- Toggle helper goes **on** → notification is sent.
-- Toggle helper goes **off** → notification is dismissed.
+- Toggle helper goes **on** → the notification is sent, with its sound if Play Alert Tone is on.
+- Toggle helper goes **off** → the notification is dismissed.
 
-### Fields unique to this blueprint
+### Fields — Icon
 
 | Field | What it does |
 |---|---|
-| **Notification Text** | The message itself. |
-| **Notification Name** | Optional label. With a name set, switching the toggle off dismisses *exactly this* notification wherever it sits in the queue, instead of whatever happens to be on screen. Use letters, digits, `-` and `_`. Strongly recommended if you have more than one notification automation. |
-| **Play Alert Tone** | Plays a sound when the notification appears. |
-| **Hold Notification** | On *(default)*: the notification stays until it is dismissed, ignoring Duration and Repeat. Off: it disappears after the Duration. |
-| **Stack Notification?** | On *(default)*: queues behind notifications already waiting. Off: replaces whatever is on screen right now, immediately. |
+| **Icon** | The main icon on the left. Empty by default — leave it empty for no icon. |
+| **Push Icon**, **Enlarged Icon**, **Icon Width**, **Icon Height** | As in the Create Sensor App — see [Fields — Icon](#fields--icon). Use an 8 × 8 **Enlarged Icon** with a 16 × 16 main Icon, or one large line stays small — see [Why an Enlarged Icon?](#why-an-enlarged-icon). |
 
-All other fields are the shared ones from [section 4](#4-fields-you-will-see-in-almost-every-blueprint).
+### Fields — Top line
+
+| Field | What it does |
+|---|---|
+| **Top Line Text** | Optional. A title above the message, e.g. `Doorbell`. Leave it empty to show the message on one large line. In one large line with a Top Line Text, the title is shown in front of the message. |
+| **Top Line Icon (Optional)** | A small 8 × 8 icon at the front of the top line. |
+| **Top Line Font**, **Top Line Color**, **Top Line Background Color**, **Top Line Rainbow Colors** | As in the Create Sensor App. |
+
+The top line has no sensor or template.
+
+### Fields — Bottom line (notification text)
+
+| Field | What it does |
+|---|---|
+| **Bottom Line Text** | The message itself. This was **Notification Text** in earlier versions. A template works too. |
+| **Bottom Line Icon (Optional)** | A small 8 × 8 icon at the front of the message. Not used in one large line. |
+| **Bottom Line Font** | The font of the message. Also used for one large line when the Top Line Text is empty. |
+| **Bottom Line Color** | The text colour of the message. This was **Text Color** in earlier versions. |
+| **Bottom Line Background Color** | Black *(default)* = no line background. Any other colour gives the bottom line its own background — see [Line backgrounds](#line-backgrounds). |
+| **Gradient 1 / Gradient 2** | Paint the message as a gradient from the first colour to the second — see [Gradient 1 / Gradient 2](#gradient-1--gradient-2). Leave both the same for the plain Bottom Line Color. |
+| **Rainbow Colors** | Shows the message in rainbow colours. Overrides the gradient. |
+
+There are no threshold colours.
+
+### Layout options
+
+**Display Mode**, **Text Alignment**, **Text Case**, **Background Color**, **Background Gradient** and **Effect** work exactly as in the [Create Sensor App](#fields--layout-options).
+
+- **Two lines** *(default)*: the title on top, the message below. With an empty Top Line Text you always get one large line.
+- **One large line**: the title followed by the message on one line, e.g. `Doorbell Someone at the door!`. It follows the clock's **Enlarge apps** setting, read from the clock each time the notification is sent — see [Two lines or one large line](#two-lines-or-one-large-line).
+  - **Enlarge apps on:** the line and the icon are drawn at **double size**. Use an 8 × 8 Enlarged Icon if your main Icon is 16 × 16.
+  - **Enlarge apps off:** the line uses the full 16-pixel height next to the icon, at normal size.
+
+Push Icon only works in one large line with Enlarge apps on. In the other views every icon has its own fixed place.
+
+### Advanced options
+
+| Field | What it does |
+|---|---|
+| **Notification Name** | Optional label. With a name set, switching the toggle off dismisses *exactly this* notification wherever it sits in the queue, instead of whatever happens to be on screen. Use letters, digits, `-` and `_`. Strongly recommended if you have more than one notification automation. |
+| **Play Alert Tone** | Plays a sound when the notification appears. Off by default. |
+| **Sound File / Track** | Optional. The name of a stored MP3 or melody on the clock (without `.mp3` / `.txt`). Has priority over the Alert Melody. No default. Only used when Play Alert Tone is on. |
+| **Alert Melody (RTTTL)** | Played when Play Alert Tone is on and no Sound File / Track is set. Default `alert:d=4,o=5,b=180:8c6,8p,8c6,8p,8c6` (three short beeps). See [Sound File / Track and Alert Melody](#sound-file--track-and-alert-melody-rtttl). |
+| **Hold Notification** | On *(default)*: the notification stays until it is dismissed, ignoring Duration and Repeat. Off: it disappears after the Duration. |
+| **Repeat**, **Duration** | See [section 4](#repeat). |
+| **Stack Notification?** | On *(default)*: queues behind notifications already waiting. Off: replaces whatever is on screen right now, immediately. |
+| **Scroll the notification?**, **Scroll Speed Percentage** | See [section 4](#scroll-the-text--scroll-speed-percentage). |
 
 ### Example — doorbell
 
 | Field | Value |
 |---|---|
 | Toggle Helper | `input_boolean.awtrix_doorbell` |
-| Notification Text | `Someone at the door!` |
+| Icon | a 16 × 16 doorbell icon |
+| Enlarged Icon | the 8 × 8 version of that icon |
+| Top Line Text | `Doorbell` |
+| Top Line Color | Yellow |
+| Bottom Line Text | `Someone at the door!` |
+| Bottom Line Color | White |
 | Notification Name | `doorbell` |
-| Icon | `1234` |
 | Play Alert Tone | On |
+| Sound File / Track | `dingdong` (an MP3 on the clock) |
 | Hold Notification | On |
 | Stack Notification? | Off |
-| Text Color | Red |
 
-Then, from your doorbell automation, turn `input_boolean.awtrix_doorbell` on. The clock drops everything and shows the message until you turn the helper off again.
+Then, from your doorbell automation, turn `input_boolean.awtrix_doorbell` on. The clock drops everything, plays `dingdong.mp3` and shows `Doorbell` above `Someone at the door!` until you turn the helper off again.
 
 ### Example — washing machine finished
 
 | Field | Value |
 |---|---|
-| Notification Text | `Washing machine is done` |
+| Bottom Line Text | `Washing machine is done` |
+| Top Line Text | *(empty)* |
 | Notification Name | `washer` |
 | Hold Notification | Off |
 | Duration | `15` |
 | Stack Notification? | On |
 | Rainbow Colors | On |
+| Background Gradient | On, dark blue to black |
 
-This one waits politely in the queue and disappears on its own after 15 seconds.
+The message is shown on one large line. It waits politely in the queue and disappears on its own after 15 seconds.
 
 > **Tip:** because both examples use a different **Notification Name**, turning the washer helper off will never dismiss the doorbell message by accident.
+
+### Upgrading from the earlier version (V1.2)
+
+Existing automations keep working after you update the blueprint: Notification Text (now Bottom Line Text), Icon, Push Icon, Text Color (now Bottom Line Color), Gradient 1 / Gradient 2, Rainbow Colors, Background Color, Text Case, Effect and all advanced options carry over. With the Top Line Text empty, the notification looks like before: the icon and one line. Things to check:
+
+- The main icon no longer has a default icon. Fill in **Icon** if you relied on it.
+- Using a 16 × 16 icon? Add an 8 × 8 **Enlarged Icon**, or the text stays small on a clock with Enlarge apps on.
+- Want a title? Fill in the new **Top Line Text**.
 
 ---
 
@@ -1316,10 +1387,10 @@ The matrix font has no glyph for that character. Emoji and other unusual symbols
 - The sound file does not exist in `/MP3` or `/MELODIES`.
 - The RTTTL string has a typo — test it in the clock's web interface on the **Audio** tab first.
 
-### A Create Sensor App, List Calendar, List ToDo Items or Countdown Timer app does not show up, or shows the old content
+### A Create Notification, Create Sensor App, List Calendar, List ToDo Items or Countdown Timer app does not show up, or shows the old content
 
 - The clock rejects a whole layout when one part is wrong, and keeps showing what it had. Check `<prefix>/cmd/apps/pushed/+/result` for the reason. `"outside the display"` means a box is too big — check **Icon Width** and **Icon Height**. An `icon could not be decoded` error means an icon name or web address is wrong.
-- Shows only one line? In the Create Sensor App the Bottom Line Sensor, Template and Text are all empty, or Display Mode is *One large line*. The Countdown Timer always shows the Event Started Message and the Event Reached Text on one line.
+- Shows only one line? In the Create Notification the Top Line Text is empty. In the Create Sensor App the Bottom Line Sensor, Template and Text are all empty, or Display Mode is *One large line*. The Countdown Timer always shows the Event Started Message and the Event Reached Text on one line.
 - Icon and text not enlarged in one large line? The clock's **Enlarge apps** setting is off, or the icon is taller than 8 pixels. Set an 8 × 8 **Enlarged Icon** — see [Why an Enlarged Icon?](#why-an-enlarged-icon).
 - A template that reads other entities does not update? Turn on **Refresh every minute**.
 
@@ -1423,6 +1494,16 @@ Full firmware documentation: **[ang.blueforcer.de/tc002](https://ang.blueforcer.
 ---
 
 # Release Notes
+**V6.7**
+* Create Notification V2.0 (TC002): rebuilt with the same layout as the Create Sensor App — see [Create Notification](#5-create-notification)
+  * A 16 × 16 main icon with an optional title — the new **Top Line Text** — on the top line and the message on the bottom line
+  * **Notification Text** is now **Bottom Line Text**, in the Bottom line section; **Text Color** is now **Bottom Line Color**
+  * Optional 8 × 8 Top Line Icon and Bottom Line Icon, adjustable icon size, Push Icon and Enlarged Icon
+  * Per-line font, colour, background colour and rainbow colours; background colour, vertical gradient and effect. Gradient 1 / Gradient 2 still colour the message
+  * Display Mode: two lines, or one large line with the title and the message together, following the clock's Enlarge apps setting. With an empty Top Line Text the notification is one large line, as before
+  * The main icon no longer has a default icon
+  * The notification handling is unchanged: Notification Name and dismissing, Play Alert Tone with Sound File / Track and Alert Melody, Hold, Stack, Repeat, Duration and Scroll
+
 **V6.6**
 * List Calendar V2.0 (TC002): rebuilt with the same layout as the Create Sensor App — see [List Calendar](#9-list-calendar)
   * A 16 × 16 main icon with the **Calendar Name** (the former **Prefix**) on the top line and the events on the bottom line
