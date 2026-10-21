@@ -392,11 +392,11 @@ Existing automations keep working after you update the blueprint: Notification T
 
 ## 6. Create Sensor App
 
-**File:** `awtrix_ng_tc002_create_sensor_app.yaml` · **Blueprint name:** *AWTRIX NG TC002 Create Sensor App* · **Version:** V2.0
+**File:** `awtrix_ng_tc002_create_sensor_app.yaml` · **Blueprint name:** *AWTRIX NG TC002 Create Sensor App* · **Version:** V2.1
 
 ### What it does
 
-Puts Home Assistant information into the clock's app rotation and keeps it up to date. It uses the whole 52 × 16 display of the TC002: a large icon on the left, with **two lines of text** next to it. Each line can show a sensor, a template or a fixed text, and each line can have its own small icon.
+Puts Home Assistant information into the clock's app rotation and keeps it up to date. It uses the whole 52 × 16 display of the TC002: a large icon on the left, with **two lines of text** next to it. Each line can show a sensor, or a text — a fixed text or a template — and each line can have its own small icon.
 
 ```
 +----------------+-+--------+-+--------------------------+
@@ -421,17 +421,16 @@ This is the workhorse blueprint — most people end up with several copies of it
 
 ### What a line shows
 
-Each line has three sources. The first one that is filled in wins:
+Each line has two sources. The first one that is filled in wins:
 
 | Priority | Field | Shows |
 |---|---|---|
-| 1 | **Text** | Exactly the text you typed. |
-| 2 | **Template** | The result of your Home Assistant template. |
-| 3 | **Sensor** | The state of the entity, rounded and with its unit, e.g. `21.5 °C`. |
+| 1 | **Text** | Exactly the text you typed, or the result of the Home Assistant template you entered — see [Template examples](#template-examples). |
+| 2 | **Sensor** | The state of the entity, rounded and with its unit, e.g. `21.5 °C`. |
 
-All three are optional. A line with nothing in it is left out.
+Both are optional. A line with nothing in it is left out.
 
-**If the Bottom Line Sensor, Template and Text are all empty, the bottom line is ignored** and the app is shown as one large line — see [Two lines or one large line](#two-lines-or-one-large-line).
+**If the Bottom Line Sensor and Text are both empty, the bottom line is ignored** and the app is shown as one large line — see [Two lines or one large line](#two-lines-or-one-large-line).
 
 The Sensor field accepts `sensor`, `binary_sensor`, `media_player`, `input_text`, `input_number` and `input_select` entities.
 
@@ -463,8 +462,7 @@ Both sections have the same fields:
 | Field | What it does |
 |---|---|
 | **Sensor** | The entity to show. The app updates whenever it changes. |
-| **Template** | A Home Assistant template. Wins over the Sensor. |
-| **Text** | A fixed text. Wins over the Template and the Sensor. |
+| **Text** | A fixed text, or a Home Assistant template such as `{{ states('sensor.outside_temperature') \| round(1) }} °C`. Wins over the Sensor. |
 | **Line Icon (Optional)** | A small icon at the left of the line, before the text, in an 8 × 8 space. The text then starts 1 pixel to the right of it. |
 | **Font** | The font of the line. Every font fits in the 8-pixel line: `small` *(default)*, `large`, and the Matrix Light and Matrix Chunky fonts. Try a few — they differ in width, so a text that just fits in one may scroll in another. |
 | **Color** | The text colour. |
@@ -476,7 +474,7 @@ Both sections have the same fields:
 
 A line icon is skipped when the main icon leaves less than 10 pixels for the line.
 
-> **Note:** with a Template or Text, the threshold compares the number in the result, stripping out everything that is not a digit, a dot or a minus sign. So `Power: 450W` is compared as `450`.
+> **Note:** with a Text (fixed or a template), the threshold compares the number in the result, stripping out everything that is not a digit, a dot or a minus sign. So `Power: 450W` is compared as `450`.
 
 ### Fields — Layout options
 
@@ -498,7 +496,7 @@ A line icon is skipped when the main icon leaves less than 10 pixels for the lin
 | **Repeat** | How many times a scrolling line runs through its box before the app's turn ends. `0` = off, the Duration is used. |
 | **Duration**, **Lifetime**, **On lifetime expiry** | See [section 4](#duration-in-seconds). |
 | **Switch to app on value change** | Jump to this app when a sensor changes. See [section 4](#switch-to-app-on-value-change). |
-| **Refresh every minute** | Send the app again every minute. Turn this on when a template reads entities other than the two selected sensors — changes to those entities do not update the app by themselves. |
+| **Refresh every minute** | Send the app again every minute. Turn this on when a Text template reads entities other than the two selected sensors — changes to those entities do not update the app by themselves. |
 | **Scroll the text?** / **Scroll Speed Percentage** | See [section 4](#scroll-the-text--scroll-speed-percentage). Applies to both lines. |
 
 ### Two lines or one large line
@@ -509,7 +507,7 @@ A line icon is skipped when the main icon leaves less than 10 pixels for the lin
 | **One large line**, clock's *Enlarge apps* **on** | Main icon and top line, drawn at **double size**: an 8 × 8 icon becomes 16 × 16 and the text is twice as tall. Push Icon works here. |
 | **One large line**, clock's *Enlarge apps* **off** | Main icon and top line at normal size, with the top line using the full height of the display. The Top Line Icon sits next to it. |
 
-You get one large line when **Display Mode** is *One large line*, **or** when the Bottom Line Sensor, Template and Text are all empty.
+You get one large line when **Display Mode** is *One large line*, **or** when the Bottom Line Sensor and Text are both empty.
 
 **Enlarge apps** is the clock's own setting under **Display → Text** in its web interface (`enlargeApps`). The blueprint reads it from the clock every time it sends the app, so you never have to set it twice. If the clock does not answer within 2 seconds, the blueprint assumes it is on, which is the firmware default.
 
@@ -546,7 +544,7 @@ AWTRIX NG has no gradient background of its own, so the blueprint draws one: one
 
 ### Template examples
 
-Each line has its own template, so you can combine two values in one app:
+Enter a template in the **Top Line Text** or **Bottom Line Text** field — there are no separate template fields. Each line has its own text, so you can combine two values in one app:
 
 ```jinja
 {{ states('sensor.living_room_temperature') | round(1) }}°C
@@ -585,7 +583,8 @@ The temperature on top, the humidity with a small drop icon below it.
 |---|---|
 | App Name | `bedroom_co2` |
 | Icon | `12160` |
-| Top Line Template | `{{ states('sensor.bedroom_co2') \| int }}ppm` |
+| Top Line Sensor | `sensor.bedroom_co2` (so the app updates when the value changes) |
+| Top Line Text | `{{ states('sensor.bedroom_co2') \| int }}ppm` |
 | Top Line - Threshold Value | `1000` |
 | Top Line - Low-value color | Green |
 | Top Line - High-value color | Red |
@@ -601,12 +600,12 @@ With the bottom line empty, the app is one large line: a big icon and a big numb
 |---|---|
 | App Name | `now_playing` |
 | Top Line Sensor | `media_player.spotify` |
-| Top Line Template | `{{ state_attr('media_player.spotify','media_title') }}` |
-| Bottom Line Template | `{{ state_attr('media_player.spotify','media_artist') }}` |
+| Top Line Text | `{{ state_attr('media_player.spotify','media_title') }}` |
+| Bottom Line Text | `{{ state_attr('media_player.spotify','media_artist') }}` |
 | Bottom Line Font | `matrix-light6` |
 | Icon | the web address of an album-art PNG, or a music icon |
 
-The Top Line Sensor makes the app update on every track change; the templates choose what is shown.
+The Top Line Sensor makes the app update on every track change; the templates in the Text fields choose what is shown.
 
 ### App naming
 
@@ -617,6 +616,14 @@ You choose the name of the app on the clock yourself, in the required **App Name
 - **Changing the App Name** of an existing automation creates a new app on the clock. Switch the toggle helper off first, so the app with the old name is removed; then change the name and switch the toggle back on.
 - The name does not depend on a sensor or on the automation, so you can rename the automation, or swap the sensors, without the app changing.
 
+### Upgrading from V2.0 to V2.1
+
+> **Breaking change:** V2.1 removes the **Top Line Template** and **Bottom Line Template** fields. The **Top Line Text** and **Bottom Line Text** fields now accept template code.
+>
+> Did you use a Template field? Open the automation after updating the blueprint, and **re-enter the template code in the Text field of the same line**. Home Assistant does not move it for you: until you do, that line shows its Sensor, or nothing at all.
+>
+> Automations that only use the Sensor and Text fields keep working as before.
+
 ### Upgrading from the earlier version (V1.1)
 
 V2.0 has new fields, so an automation made with V1.1 (or with the shared `awtrix_ng_create_sensor_app.yaml`) needs its fields filled in again:
@@ -625,7 +632,7 @@ V2.0 has new fields, so an automation made with V1.1 (or with the shared `awtrix
 |---|---|
 | *(the app was named after the sensor)* | **App Name** — required. Enter the old name (e.g. `sensor_bedroom_co2`) to keep the app's slot on the clock |
 | Sensor | Top Line Sensor |
-| Template (Optional) | Top Line Template |
+| Template (Optional) | Top Line Text — paste the template there |
 | Text Color | Top Line Color |
 | Use Threshold value? / Threshold Value / Low / High colour | Top Line - Threshold Value / Low / High colour. There is no on/off switch any more: entering a Threshold Value turns the threshold colours on |
 | Rainbow Colors | Top Line Rainbow Colors |
@@ -1404,9 +1411,10 @@ The matrix font has no glyph for that character. Emoji and other unusual symbols
 ### A Create Notification, Create Sensor App, List Calendar, List ToDo Items or Countdown Timer app does not show up, or shows the old content
 
 - The clock rejects a whole layout when one part is wrong, and keeps showing what it had. Check `<prefix>/cmd/apps/pushed/+/result` for the reason. `"outside the display"` means a box is too big — check **Icon Width** and **Icon Height**. An `icon could not be decoded` error means an icon name or web address is wrong.
-- Shows only one line? In the Create Notification the Top Line Text is empty. In the Create Sensor App the Bottom Line Sensor, Template and Text are all empty, or Display Mode is *One large line*. The Countdown Timer always shows the Event Started Message and the Event Reached Text on one line.
+- Shows only one line? In the Create Notification the Top Line Text is empty. In the Create Sensor App the Bottom Line Sensor and Text are both empty, or Display Mode is *One large line*. The Countdown Timer always shows the Event Started Message and the Event Reached Text on one line.
 - Icon and text not enlarged in one large line? The clock's **Enlarge apps** setting is off, or the icon is taller than 8 pixels. Set an 8 × 8 **Enlarged Icon** — see [Why an Enlarged Icon?](#why-an-enlarged-icon).
 - A template that reads other entities does not update? Turn on **Refresh every minute**.
+- A line that used a template is suddenly empty or shows the sensor? Since Create Sensor App V2.1 the template goes in the **Text** field — see [Upgrading from V2.0 to V2.1](#upgrading-from-v20-to-v21).
 
 ### The app name looks mangled
 
@@ -1508,6 +1516,10 @@ Full firmware documentation: **[ang.blueforcer.de/tc002](https://ang.blueforcer.
 ---
 
 # Release Notes
+**V6.8**
+* Create Sensor App V2.1 (TC002): the **Top Line Template** and **Bottom Line Template** fields are gone. The **Top Line Text** and **Bottom Line Text** fields now accept template code as well as a fixed text, and still have priority over the line's Sensor — see [What a line shows](#what-a-line-shows)
+  * **Breaking change:** if you used a Template field, re-enter the template code in the Text field of the same line after updating the blueprint. Until then that line shows its Sensor, or nothing — see [Upgrading from V2.0 to V2.1](#upgrading-from-v20-to-v21)
+
 **V6.7**
 * Create Notification V2.0 (TC002): rebuilt with the same layout as the Create Sensor App — see [Create Notification](#5-create-notification)
   * A 16 × 16 main icon with an optional title — the new **Top Line Text** — on the top line and the message on the bottom line
