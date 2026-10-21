@@ -286,17 +286,17 @@ Leave the **Top Line Text** empty and the message is shown on **one large line**
 
 | Field | What it does |
 |---|---|
-| **Top Line Text** | Optional. A title above the message, e.g. `Doorbell`. Leave it empty to show the message on one large line. In one large line with a Top Line Text, the title is shown in front of the message. |
+| **Top Line Text** | Optional. A title above the message, e.g. `Doorbell`. A plain text or a template — see [Templates](#templates). Leave it empty to show the message on one large line. In one large line with a Top Line Text, the title is shown in front of the message. |
 | **Top Line Icon (Optional)** | A small 8 × 8 icon at the front of the top line. |
 | **Top Line Font**, **Top Line Color**, **Top Line Background Color**, **Top Line Rainbow Colors** | As in the Create Sensor App. |
 
-The top line has no sensor or template.
+The top line has no separate sensor or template field: enter the template in the Top Line Text itself.
 
 ### Fields — Bottom line (notification text)
 
 | Field | What it does |
 |---|---|
-| **Bottom Line Text** | The message itself. This was **Notification Text** in earlier versions. A template works too. |
+| **Bottom Line Text** | The message itself. A plain text or a template — see [Templates](#templates). This was **Notification Text** in earlier versions. |
 | **Bottom Line Icon (Optional)** | A small 8 × 8 icon at the front of the message. Not used in one large line. |
 | **Bottom Line Font** | The font of the message. Also used for one large line when the Top Line Text is empty. |
 | **Bottom Line Color** | The text colour of the message. This was **Text Color** in earlier versions. |
@@ -329,6 +329,20 @@ Push Icon only works in one large line with Enlarge apps on. In the other views 
 | **Repeat**, **Duration** | See [section 4](#repeat). |
 | **Stack Notification?** | On *(default)*: queues behind notifications already waiting. Off: replaces whatever is on screen right now, immediately. |
 | **Scroll the notification?**, **Scroll Speed Percentage** | See [section 4](#scroll-the-text--scroll-speed-percentage). |
+
+### Templates
+
+The **Top Line Text** and the **Bottom Line Text** both accept a Home Assistant template instead of a plain text. The template is worked out at the moment the notification is sent, so it shows the value at that moment — a notification does not update itself afterwards.
+
+| Field | Template | Shows |
+|---|---|---|
+| Top Line Text | `{{ state_attr('sensor.front_door_camera', 'friendly_name') }}` | `Front Door Camera` |
+| Bottom Line Text | `Washer done at {{ now().strftime('%H:%M') }}` | `Washer done at 14:05` |
+| Bottom Line Text | `{{ states('sensor.outdoor_temperature') }} °C outside` | `11.5 °C outside` |
+
+- A template that returns a number is fine: it is turned into text automatically.
+- A Bottom Line Text template may also return a list of text parts, each with its own colour, e.g. `{{ [{'text': 'Alarm ', 'color': [255, 0, 0]}, {'text': 'Garage', 'color': [255, 255, 255]}] }}`.
+- See [Template examples](#template-examples) in the Create Sensor App for more ideas.
 
 ### Example — doorbell
 
