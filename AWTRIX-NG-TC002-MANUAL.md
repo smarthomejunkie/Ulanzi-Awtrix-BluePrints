@@ -50,6 +50,7 @@ Install Awtrix NG on the Ulanzi TC002: Turn It Into a Home Assistant Voice Displ
 16. [Troubleshooting](#16-troubleshooting)
 - [Appendix A — Effects, overlays and palettes](#appendix-a--effects-overlays-and-palettes)
 - [Appendix B — Moving from the TC001 set](#appendix-b--moving-from-the-tc001-set)
+- [Release Notes](#release-notes)
 
 ---
 
