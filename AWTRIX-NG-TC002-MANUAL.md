@@ -620,7 +620,7 @@ You choose the name of the app on the clock yourself, in the required **App Name
 
 > **Breaking change:** V2.1 removes the **Top Line Template** and **Bottom Line Template** fields. The **Top Line Text** and **Bottom Line Text** fields now accept template code.
 >
-> Did you use a Template field? Open the automation after updating the blueprint, and **re-enter the template code in the Text field of the same line**. Home Assistant does not move it for you: until you do, that line shows its Sensor, or nothing at all.
+> Did you use a Template field? Copy the template code to the text field before you upgrade! Or open the automation after updating the blueprint, and **re-enter the template code in the Text field of the same line**. Home Assistant does not move it for you: until you do, that line shows its Sensor, or nothing at all.
 >
 > Automations that only use the Sensor and Text fields keep working as before.
 
@@ -1518,7 +1518,7 @@ Full firmware documentation: **[ang.blueforcer.de/tc002](https://ang.blueforcer.
 # Release Notes
 **V6.8**
 * Create Sensor App V2.1 (TC002): the **Top Line Template** and **Bottom Line Template** fields are gone. The **Top Line Text** and **Bottom Line Text** fields now accept template code as well as a fixed text, and still have priority over the line's Sensor — see [What a line shows](#what-a-line-shows)
-  * **Breaking change:** if you used a Template field, re-enter the template code in the Text field of the same line after updating the blueprint. Until then that line shows its Sensor, or nothing — see [Upgrading from V2.0 to V2.1](#upgrading-from-v20-to-v21)
+  * **Breaking change:** if you used a Template field, copy the template code to the text field before you upgrade! Or re-enter the template code in the Text field of the same line after updating the blueprint. Until then that line shows its Sensor, or nothing — see [Upgrading from V2.0 to V2.1](#upgrading-from-v20-to-v21)
 
 **V6.7**
 * Create Notification V2.0 (TC002): rebuilt with the same layout as the Create Sensor App — see [Create Notification](#5-create-notification)
