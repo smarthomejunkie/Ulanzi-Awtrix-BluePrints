@@ -38,7 +38,7 @@ Install Awtrix NG on the Ulanzi TC002: Turn It Into a Home Assistant Voice Displ
 | 5 | [Create Notification](#5-create-notification) | A message that interrupts the display, with an optional title and sound |
 | 6 | [Create Sensor App](#6-create-sensor-app) | Two lines with sensors, texts or templates next to a large icon |
 | 7 | [Weather App](#7-weather-app) | The weather condition above the temperature, wind and humidity, in ten languages |
-| 8 | [Rain Forecast](#8-rain-forecast) | The rain for the next 11 hours as a chart |
+| 8 | [Rain Forecast](#8-rain-forecast) | The rain for the next 11 hours as a chart, under an optional text |
 | 9 | [List Calendar](#9-list-calendar) | Your agenda, with an alert before an event starts |
 | 10 | [List ToDo Items](#10-list-todo-items) | The open items from a to-do list |
 | 11 | [Countdown Timer](#11-countdown-timer) | A countdown to a date and time, with a start sound |
@@ -86,7 +86,7 @@ If discovery is off, or you have a second clock that is not in Home Assistant, u
 | **Indicators** | Three small groups of pixels on the right-hand edge |
 | **Light sensor** | No, so automatic brightness does nothing |
 
-The Create Notification, Create Sensor App, Weather App, List Calendar, List ToDo Items, Countdown Timer and Show Music Assistant App blueprints do not use the double-size grid for two lines: they draw an AWTRIX NG **layout** on all 52 × 16 pixels, so they can show a large icon with two lines of text. See [chapter 6](#6-create-sensor-app).
+The Create Notification, Create Sensor App, Weather App, Rain Forecast, List Calendar, List ToDo Items, Countdown Timer and Show Music Assistant App blueprints do not use the double-size grid for two lines: they draw an AWTRIX NG **layout** on all 52 × 16 pixels, so they can show a large icon with two lines of text. See [chapter 6](#6-create-sensor-app).
 
 ---
 
@@ -145,7 +145,7 @@ The 8×8 image shown to the left of the text. Enter an **icon ID** (a number, e.
 - The same tab installs icons from the [AWTRIX Hub](https://awtrix.de/icons). Those are used by their name.
 - Leave the field empty for no icon — the text then uses the full width of the display.
 - Animated GIFs work. A GIF that is as wide as the app (26 pixels, because apps are drawn at double size) becomes a background image instead of an icon.
-- The Create Notification, Create Sensor App, Weather App, List Calendar, List ToDo Items and Countdown Timer have a larger icon space and more icon options — see [chapter 6](#fields--icon).
+- The Create Notification, Create Sensor App, Weather App, Rain Forecast, List Calendar, List ToDo Items and Countdown Timer have a larger icon space and more icon options — see [chapter 6](#fields--icon).
 
 ### Push Icon
 
@@ -181,7 +181,7 @@ Set these to **two different colours** to paint the text as a gradient from the 
 
 Example: Gradient 1 = yellow, Gradient 2 = red gives a "heat" look that runs across the whole string.
 
-Only Create Notification has the gradient fields, for its Bottom Line Text. The other blueprints offer Rainbow Colors only. The Create Notification, Create Sensor App, Weather App, List Calendar, List ToDo Items and Countdown Timer also have a **background** gradient — see [chapter 6](#about-the-icons-and-the-gradient).
+Only Create Notification has the gradient fields, for its Bottom Line Text. The other blueprints offer Rainbow Colors only. The Create Notification, Create Sensor App, Weather App, Rain Forecast, List Calendar, List ToDo Items and Countdown Timer also have a **background** gradient — see [chapter 6](#about-the-icons-and-the-gradient).
 
 ### Rainbow Colors
 
@@ -675,48 +675,86 @@ The weather icon, `halfbewolkt` above `12.4°C`, with rain falling over it.
 
 ## 8. Rain Forecast
 
-**File:** `awtrix_ng_tc002_rain_forecast.yaml`
+**File:** `awtrix_ng_tc002_rain_forecast.yaml` · **Blueprint name:** *AWTRIX NG TC002 Rain Forecast* · **Version:** V2.0
 
 ### What it does
 
-Draws the next 11 hours of expected rainfall as a bar or line chart across the display. When no rain is expected at all, it shows a text message instead.
+Draws the next 11 hours of expected rainfall as a bar or line chart. It uses the same layout as the [Create Sensor App](#6-create-sensor-app): the weather icon on the left, an optional **Top Line Text** on the top line, and the **rain graph** on the bottom line. When no rain is expected at all, the Custom Text is shown instead of the graph. Both lines can start with an optional small icon.
+
+```
++----------------+-+--------+-+-----------------------+
+|                | | top    | |  Rain                 |
+|  Weather icon  | | icon   | |                       |
+|    16 × 16     | +--------+ +-----------------------+
+|                | | bottom | |  ▁▃▅█▂  ▁             |
+|                | | icon   | |  (next 11 hours)      |
++----------------+-+--------+-+-----------------------+
+```
+
+Leave the **Top Line Text** empty — the default — and you get the look of earlier versions: the icon with the graph at full height.
 
 ### When it runs
 
-Toggle on → app created. Toggle off → app deleted. Weather entity changes (and stays changed for 2 seconds) → chart redrawn.
+Toggle on → the app is created and the clock switches to it. Toggle off → the app is deleted. The weather entity changes (and stays changed for 2 seconds) → the chart is redrawn.
 
-### Fields unique to this blueprint
+### Fields — General and icon
 
 | Field | What it does |
 |---|---|
 | **Sensor** | Your weather entity. It must provide an **hourly forecast** — most do. |
+| **Icon Width (Optional)**, **Icon Height (Optional)** | The size of the space for the weather icon. Empty = 16 × 16. |
+
+There is no Icon field: the icon is the weather condition, exactly as in the [Weather App](#the-icon-is-automatic). When the clock does not have that icon, the app is sent again without icons, so the forecast is still shown.
+
+### Fields — Top line (text)
+
+| Field | What it does |
+|---|---|
+| **Top Line Text** | Optional. A text above the graph, e.g. `Rain`. Leave it empty for one large line. |
+| **Top Line Icon (Optional)** | A small 8 × 8 icon at the front of the top line. In one large line (Enlarge apps off) it sits in front of the graph. |
+| **Top Line Font**, **Top Line Color**, **Top Line Background Color**, **Top Line Rainbow Colors** | As in the Create Sensor App. |
+
+### Fields — Bottom line (rain graph)
+
+| Field | What it does |
+|---|---|
+| **Bottom Line Icon (Optional)** | A small 8 × 8 icon in front of the graph, e.g. an umbrella. Not used in one large line. |
 | **Graph Type** | **Bar Chart** (columns growing from the bottom) or **Line Chart** (a connected line). |
-| **Graph Color** | Colour of the bars or the line. |
-| **Autoscale** | On *(default)*: the chart scales to the highest value in the data, so a light drizzle still fills the screen. Off: the scale is fixed at 0–8, so small amounts of rain barely register. |
-| **Custom Text** | Shown when the forecast is completely dry. Default: `No rain expected`. |
+| **Graph Color** | Colour of the bars or the line, and of the Custom Text. |
+| **Autoscale** | On *(default)*: the chart scales to the highest value, so a light drizzle still fills the line. Off: the scale is fixed at 0–8, so small amounts of rain barely register. |
+| **Custom Text** | Shown instead of the graph when the forecast is completely dry. Default: `No rain expected`. |
+| **Bottom Line Font** | The font of the Custom Text. |
+| **Bottom Line Background Color** | Black *(default)* = no line background — see [Line backgrounds](#line-backgrounds). |
+| **Bottom Line Rainbow Colors** | Paints the graph and the Custom Text in rainbow colours instead of the Graph Color. This was **Rainbow Colors** in earlier versions. |
 
-This blueprint has no Icon, Text Color, Gradient, Scroll, Repeat or Effect fields — a chart fills the screen, so they would have nothing to do. The icon is taken from the weather condition, exactly as in the [Weather App](#the-icon-is-automatic).
+### Layout and Advanced options
 
-It does have **Text Case** and **Rainbow Colors**. Text Case applies to the Custom Text, which is drawn in the Graph Color. Rainbow Colors paints the chart and the Custom Text in rainbow colours instead of the Graph Color.
+**Display Mode**, **Text Alignment**, **Text Case**, **Background Color**, **Background Gradient**, **Effect**, **Repeat**, **Duration**, **Lifetime**, **Switch to app on value change** and **Scroll** work as in the [Create Sensor App](#fields--layout-options). Text Alignment, Repeat and Scroll apply to the texts; the graph always fills its line.
+
+In **one large line** — Display Mode *One large line*, or an empty Top Line Text — the icon and the graph (or the Custom Text) use the full height, as in earlier versions. The Top Line Text is not shown there. With the clock's **Enlarge apps** setting on, the clock gets the same app as earlier versions and draws it at double size; with Enlarge apps off, the graph is drawn at full height next to the icon — see [Two lines or one large line](#two-lines-or-one-large-line).
 
 ### One rain forecast per clock
 
 The app is always called `rain_forecast`. A second automation from this blueprint that targets the same clock overwrites the first one, so use it once per clock.
 
-### Example — bar chart, blue
+### Example — rain graph under a title
 
 | Field | Value |
 |---|---|
 | Sensor | `weather.forecast_home` |
+| Top Line Text | `Rain` |
+| Bottom Line Icon | a small umbrella icon |
 | Graph Type | Bar Chart |
 | Graph Color | Blue |
-| Autoscale | On |
 | Custom Text | `Dry for now` |
+| Background Gradient | On, dark blue to black |
 | Duration | `10` |
 
 ### Reading the chart
 
-Each of the 11 bars is one hour ahead, left to right. The chart shows *when* it will rain and *roughly how hard*, not how many millimetres. Leave Autoscale on: with it off, a normal shower is a single pixel high.
+Each of the 11 values is one hour ahead, left to right. The chart shows *when* it will rain and *roughly how hard*, not how many millimetres. Leave Autoscale on: with it off, a normal shower is a single pixel high.
+
+> **Upgrading from an earlier version?** See [Appendix C](#rain-forecast--from-v11).
 
 ---
 
@@ -1409,7 +1447,7 @@ The matrix font has no glyph for that character. Emoji and other unusual symbols
 
 ### A layout app does not show up, or shows the old content
 
-This covers the Create Notification, Create Sensor App, Weather App, List Calendar, List ToDo Items, Countdown Timer and Show Music Assistant App.
+This covers the Create Notification, Create Sensor App, Weather App, Rain Forecast, List Calendar, List ToDo Items, Countdown Timer and Show Music Assistant App.
 
 
 - The clock rejects a whole layout when one part is wrong, and keeps showing what it had. Check `<prefix>/cmd/apps/pushed/+/result` for the reason. `"outside the display"` means a box is too big — check **Icon Width** and **Icon Height**. An `icon could not be decoded` error means an icon name or web address is wrong.
@@ -1516,7 +1554,7 @@ The `awtrix_ng_*.yaml` files still exist and are now meant specifically for the 
 3. Create a new automation from the matching **AWTRIX NG TC002** blueprint, with the same toggle helper and settings.
 4. Delete the old automation.
 
-For most blueprints the fields are the same as before. The **Create Notification**, **Create Sensor App**, **Weather App**, **List Calendar**, **List ToDo Items** and **Countdown Timer** are rebuilt for the TC002 with the two-line layout and have new fields — see [Appendix C](#appendix-c--upgrading-from-earlier-versions).
+For most blueprints the fields are the same as before. The **Create Notification**, **Create Sensor App**, **Weather App**, **Rain Forecast**, **List Calendar**, **List ToDo Items** and **Countdown Timer** are rebuilt for the TC002 with the two-line layout and have new fields — see [Appendix C](#appendix-c--upgrading-from-earlier-versions).
 
 The TC002 has never run AWTRIX 3. If you are moving a TC001 from AWTRIX 3 to AWTRIX NG, see Appendix B of the [TC001 manual](AWTRIX-NG-TC001-MANUAL.md#appendix-b--coming-from-awtrix-3).
 
@@ -1568,6 +1606,10 @@ Existing automations keep working after you update the blueprint: the weather en
 - With Rainbow Colors on, only the values are in rainbow colours now. Turn on **Top Line Rainbow Colors** for the condition too.
 - A missing condition icon still shows the weather, without the picture.
 
+### Rain Forecast — from V1.1
+
+Existing automations keep working after you update the blueprint, and look as before: with the new **Top Line Text** empty, the forecast is shown on one large line. The weather entity, Graph Type, Graph Color, Autoscale, Custom Text, Background Color, Text Case, Rainbow Colors (now Bottom Line Rainbow Colors) and the advanced options carry over. Fill in a Top Line Text to get a title above the graph.
+
 ### List Calendar — from V1.2
 
 Existing automations keep working after you update the blueprint: the Prefix becomes the Calendar Name, and the calendar settings, alert settings, Icon, Push Icon, Text Color (now Bottom Line Color), Rainbow Colors (now Bottom Line Rainbow Colors), Background Color, Text Case and Effect carry over. Things to check:
@@ -1596,6 +1638,15 @@ Existing automations keep working after you update the blueprint: the event fiel
 ---
 
 # Release Notes
+**V6.12**
+* Rain Forecast V2.0 (TC002): rebuilt with the same layout as the Create Sensor App — see [Rain Forecast](#8-rain-forecast)
+  * The weather icon on the left, an optional **Top Line Text** on the top line and the rain graph (or the Custom Text) on the bottom line
+  * Optional 8 × 8 Top Line Icon and Bottom Line Icon, and an adjustable icon size
+  * Per-line font, colour, background colour and rainbow colours; background colour, vertical gradient and effect; Text Alignment, Repeat and Scroll for the texts
+  * Display Mode: two lines, or one large line as in earlier versions, following the clock's Enlarge apps setting. With an empty Top Line Text (the default) the forecast looks as before
+  * When the clock does not have the condition icon, the app is sent again without icons
+  * The forecast handling is unchanged: same hourly data, 11 hours, Graph Type, Graph Color, Autoscale, Custom Text and app name
+
 **V6.11**
 * Weather App V2.0 (TC002): rebuilt with the same layout as the Create Sensor App — see [Weather App](#7-weather-app)
   * The weather icon on the left, the condition on the top line and the temperature, wind speed and humidity on the bottom line
