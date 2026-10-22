@@ -12,21 +12,21 @@ The manuals live on their own pages. Pick the one that matches your clock and th
 
 | Clock | Firmware | Blueprint files | Manual |
 |---|---|---|---|
-| Ulanzi TC001 | AWTRIX 3 | `awtrix_*.yaml` | **[AWTRIX 3 manual](AWTRIX-3-MANUAL.md)** |
-| Ulanzi TC001 | AWTRIX NG | `awtrix_ng_*.yaml` | **[AWTRIX NG TC001 manual](AWTRIX-NG-TC001-MANUAL.md)** |
 | Ulanzi TC002 | AWTRIX NG | `awtrix_ng_tc002_*.yaml` | **[AWTRIX NG TC002 manual](AWTRIX-NG-TC002-MANUAL.md)** |
+| Ulanzi TC001 | AWTRIX NG | `awtrix_ng_*.yaml` | **[AWTRIX NG TC001 manual](AWTRIX-NG-TC001-MANUAL.md)** |
+| Ulanzi TC001 | AWTRIX 3 | `awtrix_*.yaml` | **[AWTRIX 3 manual](AWTRIX-3-MANUAL.md)** |
 
-### ➡️ **[AWTRIX 3 Blueprints — Manual](AWTRIX-3-MANUAL.md)**
+### ➡️ **[AWTRIX NG Blueprints for the TC002 — Manual](AWTRIX-NG-TC002-MANUAL.md)**
 
-The original set of blueprints for the AWTRIX 3 firmware on the TC001. Mature, widely used, and still fully supported.
+The AWTRIX NG set made specifically for the TC002 and its 52 × 16 display: the `awtrix_ng_tc002_*.yaml` files, named *AWTRIX NG TC002 …* in Home Assistant. Its Create Sensor App shows a large icon with two lines of text.
 
 ### ➡️ **[AWTRIX NG Blueprints for the TC001 — Manual](AWTRIX-NG-TC001-MANUAL.md)**
 
 The rebuilt set for the new AWTRIX NG firmware on the TC001. Same ideas, new firmware API, plus a few things AWTRIX 3 could not do. These are the `awtrix_ng_*.yaml` files — the same blueprints as before, now meant specifically for the TC001.
 
-### ➡️ **[AWTRIX NG Blueprints for the TC002 — Manual](AWTRIX-NG-TC002-MANUAL.md)**
+### ➡️ **[AWTRIX 3 Blueprints — Manual](AWTRIX-3-MANUAL.md)**
 
-The AWTRIX NG set made specifically for the TC002 and its 52 × 16 display: the `awtrix_ng_tc002_*.yaml` files, named *AWTRIX NG TC002 …* in Home Assistant. Its Create Sensor App shows a large icon with two lines of text.
+The original set of blueprints for the AWTRIX 3 firmware on the TC001. Mature, widely used, and still fully supported.
 
 **Not sure which one you need?** See [Which firmware am I running?](#which-firmware-am-i-running) below.
 
@@ -42,13 +42,13 @@ The **Ulanzi TC002** is its bigger sibling: a **52 × 16** matrix with a speaker
 
 The hardware you get to play with:
 
-| | Ulanzi TC001 | Ulanzi TC002 |
+| | Ulanzi TC002 | Ulanzi TC001 |
 |---|---|---|
-| **Display** | 32 × 8 RGB LED matrix | 52 × 16 RGB LED matrix |
-| **Indicators** | Three separate pixels along the right-hand edge | Three small groups of pixels along the right-hand edge |
-| **Sensors** | Temperature, humidity, and an ambient light sensor for automatic brightness | No temperature, humidity or light sensor |
-| **Buttons** | Three — left, select, right | Three — left, select, right — plus a rotary knob |
-| **Sound** | Built-in buzzer (and a DFPlayer module on modified units) | Built-in speaker that plays MP3 files and melodies, and a microphone |
+| **Display** | 52 × 16 RGB LED matrix | 32 × 8 RGB LED matrix |
+| **Indicators** | Three small groups of pixels along the right-hand edge | Three separate pixels along the right-hand edge |
+| **Sensors** | No temperature, humidity or light sensor | Temperature, humidity, and an ambient light sensor for automatic brightness |
+| **Buttons** | Three — left, select, right — plus a rotary knob | Three — left, select, right |
+| **Sound** | Built-in speaker that plays MP3 files and melodies, and a microphone | Built-in buzzer (and a DFPlayer module on modified units) |
 | **Power** | USB-C, with an internal battery so it keeps running unplugged | USB-C, with an internal battery so it keeps running unplugged |
 
 ---
