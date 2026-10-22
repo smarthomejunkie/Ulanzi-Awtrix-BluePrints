@@ -1082,7 +1082,7 @@ At midnight the clock plays `newyear.mp3` and shows `Happy New Year!` large, nex
 
 ## 12. Show Music Assistant App
 
-**File:** `awtrix_ng_tc002_show_musicassistant_app.yaml` · **Blueprint name:** *AWTRIX NG TC002 Show Music Assistant App* · **Version:** V1.0
+**File:** `awtrix_ng_tc002_show_musicassistant_app.yaml` · **Blueprint name:** *AWTRIX NG TC002 Show Music Assistant App* · **Version:** V1.1
 
 ### What it does
 
@@ -1110,6 +1110,7 @@ Shows the song that a **Music Assistant** player is playing: the album cover on 
 - A new song, artist, cover or play state → the app is updated.
 - Every **Progress Update Interval** (5 seconds by default) → the progress bar moves on. A long title keeps scrolling smoothly: the clock only restarts a text that changed.
 - The music has stopped for **10 seconds** → the app is removed. A short stop while skipping to the next song keeps it on screen.
+- With **Stop app rotation while playing** on: the music starts → the clock switches to the app and stops rotating; the music has stopped or paused for 10 seconds → the rotation starts again. See [Stopping the rotation while playing](#stopping-the-rotation-while-playing).
 
 The app has a fixed lifetime of 2 minutes, so it disappears by itself if Home Assistant stops sending it.
 
@@ -1141,6 +1142,7 @@ The top line shows the artist, or — when there is none — the album artist, t
 | Field | What it does |
 |---|---|
 | **Use the clock's buttons** | On *(default)*: the buttons control the music while this app is on screen — see [The clock's buttons](#the-clocks-buttons). Off: the buttons work as usual. |
+| **Stop app rotation while playing** | Off *(default)*: the app takes its turn in the normal rotation. On: the clock stays on this app while music plays — see [Stopping the rotation while playing](#stopping-the-rotation-while-playing). |
 | **Show when paused** | On *(default)*: the app stays while the music is paused, with the progress bar standing still. Off: the app is removed 10 seconds after you pause, and comes back when the music plays again. |
 | **Progress Update Interval** | How often the app is sent while it is shown: every 5 *(default)*, 10, 15, 20 or 30 seconds. Shorter moves the bar more smoothly but sends more messages. |
 | **Switch to app on new song** | Jump to this app whenever a new song starts. |
@@ -1153,6 +1155,22 @@ Normally the left and right buttons switch apps. While this app is on screen, th
 - The app still moves on with the normal rotation, after its Duration.
 - The clock does not report when a notification is on screen. With a notification on top of the music app, the middle button dismisses it **and** pauses or plays the music.
 - The blueprint takes over the Block buttons setting: if you keep it on yourself, it is switched off as soon as another app is shown. The setting is only sent when it has to change, because the clock saves it every time.
+
+### Stopping the rotation while playing
+
+With **Stop app rotation while playing** on, the blueprint switches the clock's automatic rotation — the **Transition** setting, `autoTransition` — off while music plays, so the clock shows only the Music Assistant app:
+
+| Moment | What happens |
+|---|---|
+| Music starts, or the toggle goes on while music plays | The clock switches to the app and the rotation is switched **off** |
+| You skip to another song | Nothing changes: the short stop while skipping does not count |
+| The music has stopped or paused for **10 seconds** | The rotation is switched **on** again and the other apps come back |
+| The toggle goes off | The app is removed and the rotation is switched **on** again |
+
+- The rotation is always switched back **on**, also when you normally keep it off on the clock.
+- With **Show when paused** on, a paused song stays in the rotation after the 10 seconds; it just no longer holds the clock.
+- Like Block buttons, the setting is only sent when it has to change, because the clock saves its settings every time.
+- Notifications still interrupt the app as usual.
 
 ### Album covers
 
@@ -1377,6 +1395,7 @@ This covers the Create Notification, Create Sensor App, List Calendar, List ToDo
 - **No album cover?** Fill in the **Home Assistant URL**, with `http://`, and without a `/` at the end. A cover over `https` needs a real certificate; a self-signed one fails. The clock's **Log** tab shows a line starting with `picture from` when a cover cannot be loaded.
 - **The buttons still switch apps?** Turn **Use the clock's buttons** on, and check that the clock is selected under AWTRIX Displays (or in Extra MQTT prefixes).
 - **The buttons stay blocked after you removed the automation?** Switch **Block buttons** off on the clock, under **Display → App rotation**.
+- **The apps no longer rotate?** With **Stop app rotation while playing** on, the rotation starts again 10 seconds after the music stops. Removed the automation while music was playing? Switch **Transition** back on in the clock's web interface, or with the *Transition* switch of the clock in Home Assistant.
 
 ### The app name looks mangled
 
@@ -1541,6 +1560,9 @@ Existing automations keep working after you update the blueprint: the event fiel
 ---
 
 # Release Notes
+**V6.10**
+* Show Music Assistant App V1.1 (TC002): new option **Stop app rotation while playing**. While music plays, the clock's automatic rotation is switched off and the clock stays on the Music Assistant app; 10 seconds after the music stops or pauses, or when the toggle goes off, the rotation is switched on again so the other apps are shown — see [Stopping the rotation while playing](#stopping-the-rotation-while-playing)
+
 **V6.9**
 * New: Show Music Assistant App V1.0 (TC002) — see [Show Music Assistant App](#12-show-music-assistant-app)
   * The album cover (16 × 16) on the left, the artist on the top line, and the song title with a 1-pixel progress bar on the bottom line
