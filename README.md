@@ -97,7 +97,7 @@ Both sets cover roughly the same ground:
 
 **AWTRIX NG adds:** stale-data marking (an app gets a red frame when its sensor stops reporting), animated weather overlays, and named notifications you can dismiss individually.
 
-**The TC002 set adds:** a Create Sensor App that uses the whole 52 × 16 display — a large icon with two lines of text, each line with its own sensor, template or text and an optional small icon, a background gradient, and a one-large-line mode that follows the clock's Enlarge apps setting.
+**The TC002 set adds:** two-line layouts that use the whole 52 × 16 display — a large icon with two lines of text, each line with an optional small icon, a background gradient, and a one-large-line mode that follows the clock's Enlarge apps setting — and a **Show Music Assistant App** that shows the song that is playing, with its album cover and a progress bar, and lets you skip songs and pause with the clock's buttons.
 
 Each automation you create from a blueprint needs its own **toggle helper** to switch it on and off. Every manual walks you through that.
 

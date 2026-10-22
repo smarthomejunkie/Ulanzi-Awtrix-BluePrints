@@ -33,23 +33,27 @@ Install Awtrix NG on the Ulanzi TC002: Turn It Into a Home Assistant Voice Displ
 
 **The blueprints**
 
-5. [Create Notification](#5-create-notification)
-6. [Create Sensor App](#6-create-sensor-app)
-7. [Weather App](#7-weather-app)
-8. [Rain Forecast](#8-rain-forecast)
-9. [List Calendar](#9-list-calendar)
-10. [List ToDo Items](#10-list-todo-items)
-11. [Countdown Timer](#11-countdown-timer)
-12. [Toggle Built-in Apps](#12-toggle-built-in-apps)
-13. [Toggle Indicators](#13-toggle-indicators)
-14. [Moodlight](#14-moodlight)
-15. [Set App Time](#15-set-app-time)
+| | Blueprint | Shows or does |
+|---|---|---|
+| 5 | [Create Notification](#5-create-notification) | A message that interrupts the display, with an optional title and sound |
+| 6 | [Create Sensor App](#6-create-sensor-app) | Two lines with sensors, texts or templates next to a large icon |
+| 7 | [Weather App](#7-weather-app) | The current weather, in ten languages |
+| 8 | [Rain Forecast](#8-rain-forecast) | The rain for the next 11 hours as a chart |
+| 9 | [List Calendar](#9-list-calendar) | Your agenda, with an alert before an event starts |
+| 10 | [List ToDo Items](#10-list-todo-items) | The open items from a to-do list |
+| 11 | [Countdown Timer](#11-countdown-timer) | A countdown to a date and time, with a start sound |
+| 12 | [Show Music Assistant App](#12-show-music-assistant-app) | The song that is playing, with cover and progress bar; the buttons control the music |
+| 13 | [Toggle Built-in Apps](#13-toggle-built-in-apps) | Switches the Time app on and off |
+| 14 | [Toggle Indicators](#14-toggle-indicators) | The three edge pixels as status lights |
+| 15 | [Moodlight](#15-moodlight) | The whole panel in one colour, as a lamp |
+| 16 | [Set App Time](#16-set-app-time) | How long each app stays on screen |
 
 **Reference**
 
-16. [Troubleshooting](#16-troubleshooting)
+17. [Troubleshooting](#17-troubleshooting)
 - [Appendix A — Effects, overlays and palettes](#appendix-a--effects-overlays-and-palettes)
 - [Appendix B — Moving from the TC001 set](#appendix-b--moving-from-the-tc001-set)
+- [Appendix C — Upgrading from earlier versions](#appendix-c--upgrading-from-earlier-versions)
 - [Release Notes](#release-notes)
 
 ---
@@ -82,7 +86,7 @@ If discovery is off, or you have a second clock that is not in Home Assistant, u
 | **Indicators** | Three small groups of pixels on the right-hand edge |
 | **Light sensor** | No, so automatic brightness does nothing |
 
-The **Create Sensor App** blueprint does not use the double-size grid for two lines: it draws an AWTRIX NG **layout** on all 52 × 16 pixels, so it can show an icon with two lines of text. See [chapter 6](#6-create-sensor-app).
+The Create Notification, Create Sensor App, List Calendar, List ToDo Items, Countdown Timer and Show Music Assistant App blueprints do not use the double-size grid for two lines: they draw an AWTRIX NG **layout** on all 52 × 16 pixels, so they can show a large icon with two lines of text. See [chapter 6](#6-create-sensor-app).
 
 ---
 
@@ -106,8 +110,6 @@ Nearly every blueprint is driven by a **toggle helper** — a simple on/off swit
 **To create one:** **Settings → Devices & Services → Helpers → Create Helper → Toggle**. Give it a clear name like `AWTRIX Living Room Temp App`.
 
 You then get an entity such as `input_boolean.awtrix_living_room_temp_app`, which you can put on a dashboard, flip from another automation, or control by voice.
-
-> **Tip:** name your helpers after the app they control. Once you have ten of them, `input_boolean.awtrix_toggle_3` will mean nothing to you.
 
 The **Set App Time** blueprint uses a **Number** helper instead of a toggle, and **Toggle Built-in Apps** needs five toggle helpers — one per built-in app.
 
@@ -179,7 +181,7 @@ Set these to **two different colours** to paint the text as a gradient from the 
 
 Example: Gradient 1 = yellow, Gradient 2 = red gives a "heat" look that runs across the whole string.
 
-Only Create Notification has the gradient fields, for its Bottom Line Text. The other blueprints offer Rainbow Colors only. The Create Notification, Create Sensor App, List Calendar, List ToDo Items and Countdown Timer also have a **background** gradient — see [chapter 6](#about-the-background-gradient).
+Only Create Notification has the gradient fields, for its Bottom Line Text. The other blueprints offer Rainbow Colors only. The Create Notification, Create Sensor App, List Calendar, List ToDo Items and Countdown Timer also have a **background** gradient — see [chapter 6](#about-the-icons-and-the-gradient).
 
 ### Rainbow Colors
 
@@ -195,11 +197,9 @@ How many times scrolling text runs across the screen before the app's turn ends.
 
 Repeat does nothing if the text is short enough to fit on screen, because there is nothing to scroll.
 
-> **Changed from AWTRIX 3:** this field used to be `-1` for "off". In AWTRIX NG it is `0`. If you type `-1` here it will not work.
-
 ### Duration (in seconds)
 
-How long the app stays on screen during each rotation. `0` uses the clock's global app time (7 seconds unless you changed it — see [Set App Time](#15-set-app-time)).
+How long the app stays on screen during each rotation. `0` uses the clock's global app time (7 seconds unless you changed it — see [Set App Time](#16-set-app-time)).
 
 ### Lifetime (in seconds) / On lifetime expiry
 
@@ -312,11 +312,7 @@ There are no threshold colours.
 **Display Mode**, **Text Alignment**, **Text Case**, **Background Color**, **Background Gradient** and **Effect** work exactly as in the [Create Sensor App](#fields--layout-options).
 
 - **Two lines** *(default)*: the title on top, the message below. With an empty Top Line Text you always get one large line.
-- **One large line**: the title followed by the message on one line, e.g. `Doorbell Someone at the door!`. It follows the clock's **Enlarge apps** setting, read from the clock each time the notification is sent — see [Two lines or one large line](#two-lines-or-one-large-line).
-  - **Enlarge apps on:** the line and the icon are drawn at **double size**. Use an 8 × 8 Enlarged Icon if your main Icon is 16 × 16.
-  - **Enlarge apps off:** the line uses the full 16-pixel height next to the icon, at normal size.
-
-Push Icon only works in one large line with Enlarge apps on. In the other views every icon has its own fixed place.
+- **One large line**: the title followed by the message, e.g. `Doorbell Someone at the door!`, large or small according to the clock's **Enlarge apps** setting — see [Two lines or one large line](#two-lines-or-one-large-line).
 
 ### Advanced options
 
@@ -381,13 +377,7 @@ The message is shown on one large line. It waits politely in the queue and disap
 
 > **Tip:** because both examples use a different **Notification Name**, turning the washer helper off will never dismiss the doorbell message by accident.
 
-### Upgrading from the earlier version (V1.2)
-
-Existing automations keep working after you update the blueprint: Notification Text (now Bottom Line Text), Icon, Push Icon, Text Color (now Bottom Line Color), Gradient 1 / Gradient 2, Rainbow Colors, Background Color, Text Case, Effect and all advanced options carry over. With the Top Line Text empty, the notification looks like before: the icon and one line. Things to check:
-
-- The main icon no longer has a default icon. Fill in **Icon** if you relied on it.
-- Using a 16 × 16 icon? Add an 8 × 8 **Enlarged Icon**, or the text stays small on a clock with Enlarge apps on.
-- Want a title? Fill in the new **Top Line Text**.
+> **Upgrading from an earlier version?** See [Appendix C](#create-notification--from-v12).
 
 ---
 
@@ -410,8 +400,6 @@ Puts Home Assistant information into the clock's app rotation and keeps it up to
 ```
 
 Need only one value? Leave the bottom line empty, or choose **One large line**, and the app shows the icon and the top line at full height. With the clock's **Enlarge apps** setting on, the icon and the text are then drawn at double size.
-
-This is the workhorse blueprint — most people end up with several copies of it.
 
 ### When it runs
 
@@ -512,36 +500,25 @@ You get one large line when **Display Mode** is *One large line*, **or** when th
 
 **Enlarge apps** is the clock's own setting under **Display → Text** in its web interface (`enlargeApps`). The blueprint reads it from the clock every time it sends the app, so you never have to set it twice. If the clock does not answer within 2 seconds, the blueprint assumes it is on, which is the firmware default.
 
-In one large line with Enlarge apps on:
-
-- **Icon Width** and **Icon Height** are not used — the clock places the icon itself.
-- The **Top Line Icon** is used as the icon only when the main Icon is empty.
-- The bottom line, the Bottom Line Icon and the bottom line fields are not used.
-- The gradient has 8 steps instead of 16, because the app is drawn on a 26 × 8 grid.
-- The **Enlarged Icon** is used instead of the main Icon, when you set one.
-- A main icon taller than 8 pixels (such as a 16 × 16 icon) makes the clock draw the app at normal size instead — see below.
+In one large line with Enlarge apps on, the clock places the icon itself, so **Icon Width** and **Icon Height** are not used. The **Enlarged Icon** is used instead of the main Icon when you set one, and the **Top Line Icon** only when no main Icon is set. The bottom line fields are not used, and the gradient has 8 steps instead of 16. A main icon taller than 8 pixels makes the clock draw the app at normal size — see below.
 
 #### Why an Enlarged Icon?
 
 AWTRIX NG only draws an app at double size when its icon is at most 8 pixels high. With a 16 × 16 icon — which looks best in two lines — the clock draws the whole app at normal size, so the text stays small even with Enlarge apps on. The **Enlarged Icon** solves this: in two lines the app uses your 16 × 16 main Icon, and in the enlarged one large line it uses the 8 × 8 Enlarged Icon, which the clock shows as 16 × 16. Use the 8 × 8 version of the same picture and the two look alike.
 
-### About the icons
+### About the icons and the gradient
 
-- **An icon stored on the clock keeps its own size.** An 8 × 8 icon in the 16 × 16 space sits small in the middle of it. For a full-size icon in two-lines mode, upload a 16 × 16 icon, or use one large line with Enlarge apps on.
-- **A PNG or JPEG from a web address is resized** by the clock to fill its space, pixel by pixel, so pixel art stays sharp. The clock needs internet access for this, and these pictures do not animate.
-- **Animated GIFs** play at their own size and are never resized.
-- A layout can hold at most four icons. This blueprint uses at most three: the main icon and the two line icons.
+- **An icon stored on the clock keeps its own size.** An 8 × 8 icon in the 16 × 16 space sits small in the middle of it. For a full-size icon in two lines, upload a 16 × 16 icon.
+- **A PNG or JPEG from a web address is resized** to fill its space, pixel by pixel, so pixel art stays sharp. These pictures do not animate. **Animated GIFs** play at their own size.
+- A layout holds at most four icons; this blueprint uses at most three.
+- **The gradient** is drawn by the blueprint, one line per row of the display, behind the icons and the text. Black pixels in an icon stay black.
 
 ### Line backgrounds
 
-Each line can have its own background colour: pick a colour other than black in **Top Line Background Color** or **Bottom Line Background Color**. Black, the default, means no line background, so the general background shows there. It fills the line from directly after the main icon (including the 1-pixel gap before the text) to the right edge of the display, so it lines up exactly with the gradient, behind the line icon and the text, and **overrides the general Background Color, the Background Gradient and the Effect** for that line. The main icon keeps the general background.
+Pick a colour other than black in **Top Line Background Color** or **Bottom Line Background Color** to give that line its own background. Black, the default, means no line background. It fills the line from directly after the main icon to the right edge, lining up with the gradient, and **overrides the Background Color, the Background Gradient and the Effect** for that line. The main icon keeps the general background.
 
 - In **one large line**, the top line background fills the full height next to the icon. With Enlarge apps on, the whole app is drawn as one line, so the top line background becomes the background of the whole app.
 - The bottom line background is not used in one large line.
-
-### About the background gradient
-
-AWTRIX NG has no gradient background of its own, so the blueprint draws one: one line per row of the display, each in a colour blended between the top and bottom colour, behind the icons and the text. The text and icon boxes do not paint their own background, so the gradient shows behind them too. Black pixels in an icon stay black.
 
 ### Template examples
 
@@ -595,18 +572,7 @@ The temperature on top, the humidity with a small drop icon below it.
 
 With the bottom line empty, the app is one large line: a big icon and a big number, green below 1000 ppm and red from 1000 up.
 
-### Example — now playing
-
-| Field | Value |
-|---|---|
-| App Name | `now_playing` |
-| Top Line Sensor | `media_player.spotify` |
-| Top Line Text | `{{ state_attr('media_player.spotify','media_title') }}` |
-| Bottom Line Text | `{{ state_attr('media_player.spotify','media_artist') }}` |
-| Bottom Line Font | `matrix-light6` |
-| Icon | the web address of an album-art PNG, or a music icon |
-
-The Top Line Sensor makes the app update on every track change; the templates in the Text fields choose what is shown.
+> **Showing what's playing?** Use the [Show Music Assistant App](#12-show-music-assistant-app) for Music Assistant players.
 
 ### App naming
 
@@ -617,29 +583,7 @@ You choose the name of the app on the clock yourself, in the required **App Name
 - **Changing the App Name** of an existing automation creates a new app on the clock. Switch the toggle helper off first, so the app with the old name is removed; then change the name and switch the toggle back on.
 - The name does not depend on a sensor or on the automation, so you can rename the automation, or swap the sensors, without the app changing.
 
-### Upgrading from V2.0 to V2.1
-
-> **Breaking change:** V2.1 removes the **Top Line Template** and **Bottom Line Template** fields. The **Top Line Text** and **Bottom Line Text** fields now accept template code.
->
-> Did you use a Template field? Copy the template code to the text field before you upgrade! Or open the automation after updating the blueprint, and **re-enter the template code in the Text field of the same line**. Home Assistant does not move it for you: until you do, that line shows its Sensor, or nothing at all.
->
-> Automations that only use the Sensor and Text fields keep working as before.
-
-### Upgrading from the earlier version (V1.1)
-
-V2.0 has new fields, so an automation made with V1.1 (or with the shared `awtrix_ng_create_sensor_app.yaml`) needs its fields filled in again:
-
-| V1.1 field | V2.0 field |
-|---|---|
-| *(the app was named after the sensor)* | **App Name** — required. Enter the old name (e.g. `sensor_bedroom_co2`) to keep the app's slot on the clock |
-| Sensor | Top Line Sensor |
-| Template (Optional) | Top Line Text — paste the template there |
-| Text Color | Top Line Color |
-| Use Threshold value? / Threshold Value / Low / High colour | Top Line - Threshold Value / Low / High colour. There is no on/off switch any more: entering a Threshold Value turns the threshold colours on |
-| Rainbow Colors | Top Line Rainbow Colors |
-| Gradient 1 / Gradient 2 | gone. Use Rainbow Colors, or the Background Gradient |
-| Push Icon | Push Icon (one large line with Enlarge apps on only) |
-| Background Color, Effect, Text Case | moved to **Layout options** |
+> **Upgrading from an earlier version?** See [Appendix C](#create-sensor-app--from-v20-to-v21).
 
 ---
 
@@ -744,9 +688,7 @@ The app is always called `rain_forecast`. A second automation from this blueprin
 
 ### Reading the chart
 
-Each of the 11 bars is one hour ahead, left to right. Values are precipitation in millimetres, multiplied by 100 and rounded, so the chart shows *relative* rainfall rather than an exact figure — it tells you *when* it will rain and *roughly how hard*, not how many millimetres.
-
-> **Tip:** leave Autoscale on. With it off, a normal shower is a single pixel high and you will think the blueprint is broken.
+Each of the 11 bars is one hour ahead, left to right. The chart shows *when* it will rain and *roughly how hard*, not how many millimetres. Leave Autoscale on: with it off, a normal shower is a single pixel high.
 
 ---
 
@@ -889,13 +831,7 @@ At 13:45 an alert interrupts the display with three beeps: `Event Dentist starts
 
 No app in the rotation, just a heads-up 5 minutes before each meeting.
 
-### Upgrading from the earlier version (V1.2)
-
-Existing automations keep working after you update the blueprint: the Prefix becomes the Calendar Name, and the calendar settings, alert settings, Icon, Push Icon, Text Color (now Bottom Line Color), Rainbow Colors (now Bottom Line Rainbow Colors), Background Color, Text Case and Effect carry over. Things to check:
-
-- The app now shows **two lines** by default. Set **Display Mode** to *One large line* for the old look.
-- The alert time is **15 minutes** by default, as before. Change **Alert Minutes Before Start** to choose another time — no YAML editing needed any more.
-- The alert is now shown on one line, large or small according to Enlarge apps.
+> **Upgrading from an earlier version?** See [Appendix C](#list-calendar--from-v12).
 
 ---
 
@@ -1000,14 +936,7 @@ Milk // Bread // Coffee // Apples
 
 With **Show Empty ToDo List** off, the app disappears from the rotation entirely once you have ticked everything off — no wasted screen time.
 
-### Upgrading from the earlier version (V1.1)
-
-Existing automations keep working after you update the blueprint: the Prefix becomes the Top Line Text, and the icon, Push Icon, Text Color (now Bottom Line Color), Rainbow Colors (now Bottom Line Rainbow Colors), Custom Text, Background Color and Effect carry over. Two things to check:
-
-- The app now shows **two lines** by default. Set **Display Mode** to *One large line* for the old look.
-- The **Icon** no longer defaults to `29644`. If your automation never changed the icon, enter `29644` again.
-
-> **Tip:** this pairs beautifully with a voice assistant. "Add coffee to the shopping list" and it is on the clock a second later.
+> **Upgrading from an earlier version?** See [Appendix C](#list-todo-items--from-v11).
 
 ---
 
@@ -1147,85 +1076,132 @@ Shows `Vacation` above `47d 12h 30m` counting down, switches to a large `Bon voy
 
 At midnight the clock plays `newyear.mp3` and shows `Happy New Year!` large, next to the fireworks icon.
 
-### Upgrading from the earlier version (V1.1)
-
-Existing automations keep working after you update the blueprint: the event fields, Icon, Push Icon, Text Color (now Bottom Line Color), Rainbow Colors (now Bottom Line Rainbow Colors), Background Color, Text Case and Effect carry over. Things to check:
-
-- The countdown now shows **two lines**: the Event Name above the countdown. Set **Display Mode** to *One large line* for the old look.
-- **Gradient 1 / Gradient 2** are gone. Use Rainbow Colors, or the Background Gradient.
-- The start sound is new and plays the Alert Melody by default. Clear the Alert Melody if you want a silent start.
-
 > **Note:** emoji do not render on the matrix — the font has no glyphs for them and they come out as `?`. Stick to plain text in these fields.
+
+> **Upgrading from an earlier version?** See [Appendix C](#countdown-timer--from-v11).
+
+## 12. Show Music Assistant App
+
+**File:** `awtrix_ng_tc002_show_musicassistant_app.yaml` · **Blueprint name:** *AWTRIX NG TC002 Show Music Assistant App* · **Version:** V1.0
+
+### What it does
+
+Shows the song that a **Music Assistant** player is playing: the album cover on the left, the artist on the top line, and the song title with a thin progress bar on the bottom line. While the app is on screen, the clock's buttons control the music.
+
+```
++----------------+-+-----------------------------------+
+|                | |  Van Halen                        |
+|  Album cover   | +-----------------------------------+
+|    16 × 16     | |  Panama (2015 Remaster)           |
+|                | |  ==========-------------- (1 px)  |
++----------------+-+-----------------------------------+
+```
+
+| Button | While the app is on screen |
+|---|---|
+| **Right** | Next song |
+| **Left** | Previous song |
+| **Middle** | Play / pause |
+
+### When it runs
+
+- Toggle on → the app is sent and the clock switches to it, when music is playing (or paused, with Show when paused on).
+- Toggle off → the app is removed and the clock's buttons work as usual again.
+- A new song, artist, cover or play state → the app is updated.
+- Every **Progress Update Interval** (5 seconds by default) → the progress bar moves on. A long title keeps scrolling smoothly: the clock only restarts a text that changed.
+- The music has stopped for **10 seconds** → the app is removed. A short stop while skipping to the next song keeps it on screen.
+
+The app has a fixed lifetime of 2 minutes, so it disappears by itself if Home Assistant stops sending it.
+
+### Fields — General
+
+| Field | What it does |
+|---|---|
+| **AWTRIX Displays**, **Extra MQTT prefixes**, **Toggle Helper** | See [section 4](#4-fields-you-will-see-in-almost-every-blueprint). |
+| **Music Assistant Player** | The Music Assistant `media_player` to follow. |
+| **App Name** | The name of the app on the clock. Default `music_assistant`. Use a different name for every automation — see [App naming](#app-naming). |
+| **Home Assistant URL** | The address the clock uses to reach Home Assistant, e.g. `http://192.168.1.10:8123`, without a `/` at the end. Needed for covers that Home Assistant serves itself — see [Album covers](#album-covers). |
+| **Icon without cover (Optional)** | An icon on the clock, shown in the cover space when a song has no cover. Leave it empty and the text uses the full width. |
+
+### Fields — Top line (artist) and Bottom line (song title)
+
+| Field | What it does |
+|---|---|
+| **Font**, **Color**, **Rainbow Colors** | Per line, as in the [Create Sensor App](#fields--top-line-and-bottom-line). |
+| **Show Progress Bar** | A 1-pixel line under the title that fills up while the song plays. On by default. Not shown for streams without a length, such as radio. |
+| **Progress Bar Color** | The part that has been played. Default light blue. |
+| **Progress Bar Track Color** | The part still to come. Default dark grey; black hides it. |
+
+The top line shows the artist, or — when there is none — the album artist, the album or the player's name. With the progress bar on, the title line is 7 pixels high: the 8-pixel fonts (*Matrix … 8*) lose their bottom row there, so use Small, Large or a 6-pixel font.
+
+### Layout and Advanced options
+
+**Text Alignment**, **Text Case**, **Background Color**, **Background Gradient**, **Effect**, **Duration** and **Scroll** work as in the [Create Sensor App](#fields--layout-options). There is no Display Mode: the app always shows two lines.
+
+| Field | What it does |
+|---|---|
+| **Use the clock's buttons** | On *(default)*: the buttons control the music while this app is on screen — see [The clock's buttons](#the-clocks-buttons). Off: the buttons work as usual. |
+| **Show when paused** | On *(default)*: the app stays while the music is paused, with the progress bar standing still. Off: the app is removed 10 seconds after you pause, and comes back when the music plays again. |
+| **Progress Update Interval** | How often the app is sent while it is shown: every 5 *(default)*, 10, 15, 20 or 30 seconds. Shorter moves the bar more smoothly but sends more messages. |
+| **Switch to app on new song** | Jump to this app whenever a new song starts. |
+
+### The clock's buttons
+
+Normally the left and right buttons switch apps. While this app is on screen, the blueprint switches the clock's **Block buttons** setting on (**Display → App rotation**), so the buttons only control the music. As soon as another app comes on screen, it switches the setting off again. While the app is shown, this means:
+
+- A double press on the middle button does not switch the display off, and holding it does not open the menu. A double press pauses and plays again.
+- The app still moves on with the normal rotation, after its Duration.
+- The clock does not report when a notification is on screen. With a notification on top of the music app, the middle button dismisses it **and** pauses or plays the music.
+- The blueprint takes over the Block buttons setting: if you keep it on yourself, it is switched off as soon as another app is shown. The setting is only sent when it has to change, because the clock saves it every time.
+
+### Album covers
+
+Music Assistant gives each song a cover in one of two ways:
+
+- **From a streaming service** — a full `https://` address. The clock downloads it directly.
+- **Through Home Assistant** — an address that starts with `/api/media_player_proxy/…`. The blueprint puts the **Home Assistant URL** in front of it. Without that field, the cover space shows the Icon without cover.
+
+The clock downloads each cover once, crops it to a square and shrinks it to 16 × 16. Home Assistant changes the access code in its cover addresses every few minutes, so the clock may download the same cover again and show an empty cover space for a moment. For `https`, the clock checks the certificate: a self-signed certificate fails.
+
+### Example — kitchen speaker
+
+| Field | Value |
+|---|---|
+| AWTRIX Displays | your TC002 |
+| Toggle Helper | `input_boolean.awtrix_music` |
+| Music Assistant Player | `media_player.kitchen` |
+| Home Assistant URL | `http://192.168.1.10:8123` |
+| Icon without cover | a music-note icon |
+| Text Alignment | Center |
+| Switch to app on new song | On |
+
+Turn the helper on and the clock jumps to the song that is playing. Press right to skip it; every new song brings the clock back to the app.
+
 
 ---
 
-## 12. Toggle Built-in Apps
+## 13. Toggle Built-in Apps
 
-**File:** `awtrix_ng_tc002_toggle_builtin_apps.yaml`
+**File:** `awtrix_ng_tc002_toggle_builtin_apps.yaml` · Needs AWTRIX NG **1.2.2** or newer.
 
 ### What it does
 
 Switches built-in apps on and off from toggle helpers. Your rotation order, pushed apps and scripts are left exactly as they are.
 
-> **On the TC002 only the Time toggle does something** — see [On the Ulanzi TC002](#on-the-ulanzi-tc002) below. The blueprint keeps five fields so it matches the TC001 version.
-
-Needs AWTRIX NG **1.2.2** or newer.
-
-### How it works
-
-Every app on the clock has its own on/off switch. The blueprint publishes `true` or `false` to `<prefix>/cmd/apps/<app>/enabled`, for example:
-
-```
-awtrixNG/cmd/apps/Date/enabled      false
-```
-
-- **Only the named app changes.** Your pushed apps, your scripts and any app you switched off on the clock yourself are never touched.
-- A switched-off app stays installed. It keeps appearing in the clock's app list with `enabled: false`, and switching it back on returns it to the slot it had.
-- The clock saves every switch, so it survives a reboot.
-
-> **Do not use `<prefix>/cmd/apps/order` to switch single apps.** Its `disabled` list is the *complete* off-list: every app it does not name is switched on, including apps you switched off on purpose.
+**On the TC002 only the Time toggle does something.** The TC002 has just two built-in apps, **Time** and **Status**; the date is part of its clock faces, and it has no Temperature, Humidity or Battery app. The blueprint keeps five fields so it matches the TC001 version, and all five need a helper. Switch the Status app on the **Apps** tab of the clock's web interface.
 
 ### When it runs
 
-- One of the five toggle helpers changes → the switch of that one app is sent.
-- Home Assistant starts → all five switches are sent (can be switched off).
+- One of the toggle helpers changes → the switch of that one app is sent, e.g. `awtrixNG/cmd/apps/Time/enabled` `false`.
+- Home Assistant starts → all switches are sent again (**Apply on Home Assistant start**, on by default). The clock saves every switch itself, so this is only a safety net.
 
-### Fields
+A switched-off app stays installed and keeps its slot. A helper that is unavailable or unknown is skipped. There is no rotation-order field: arrange your apps on the **Apps** tab of the clock's web interface.
 
-| Field | What it does |
-|---|---|
-| **Time / Date / Temperature / Humidity / Battery app** | One toggle helper per built-in app. On = the app rotates, off = it is switched off. All five fields need a helper. |
-| **Apply on Home Assistant start** | Send all five switches when HA starts, so the clock matches your toggles again after a restart. The clock saves every switch itself, so this is only a safety net. On by default. |
-
-That's it — there is no rotation-order field. Arrange your apps on the **Apps** tab of the clock's web interface; this blueprint never sends or overwrites the order.
-
-### Example
-
-Five helpers. You switch the Temperature helper off, and the blueprint publishes one message:
-
-```
-<prefix>/cmd/apps/Temperature/enabled      false
-```
-
-The Temperature app leaves the rotation. Time, Date, Humidity and Battery, your pushed apps (a sensor app, the rain forecast, a countdown) and your scripts carry on exactly as before. Switch the helper back on and `true` goes to the same topic.
-
-### On the Ulanzi TC002
-
-The TC002 has only two built-in apps: **Time** and **Status**. The date is part of its clock faces, and it has no Temperature, Humidity or Battery app.
-
-- Only the **Time** toggle does something on a TC002. The clock ignores the other four.
-- The **Status** app has no toggle in this blueprint. Switch it on the **Apps** tab of the clock's web interface.
-- The blueprint still needs a helper in all five fields.
-
-### Notes
-
-- **Temperature**, **Humidity** and **Battery** only exist on hardware that has the sensor or a battery pin. On a board without them the toggle simply does nothing.
-- A helper that is **unavailable or unknown** is skipped. Its app keeps whatever it has on the clock.
-- The switches are stored on the clock and survive a reboot.
+> **Do not use `<prefix>/cmd/apps/order` to switch single apps.** Its `disabled` list is the *complete* off-list: every app it does not name is switched on, including apps you switched off on purpose.
 
 ---
 
-## 13. Toggle Indicators
+## 14. Toggle Indicators
 
 **File:** `awtrix_ng_tc002_toggle_indicators.yaml`
 
@@ -1266,11 +1242,9 @@ The defaults for the three toggle helper fields point at `input_boolean.awtrix_d
 
 Then point each toggle helper at a template switch, or flip them from your existing automations.
 
-> **Tip:** reserve blinking for things you actually want to be nagged about. A steady light reads as information, a blinking one reads as a problem.
-
 ---
 
-## 14. Moodlight
+## 15. Moodlight
 
 **File:** `awtrix_ng_tc002_moodlight.yaml`
 
@@ -1305,19 +1279,9 @@ Start at `100`. It is brighter than you expect in a dark room.
 | Color | *(ignored)* |
 | Kelvin value | `2700` |
 
-### Example — red night light
-
-| Field | Value |
-|---|---|
-| Brightness | `40` |
-| Color | Deep red |
-| Kelvin value | `0` |
-
-> **Tip:** drive the toggle helper from a sunset trigger and turn it off at bedtime, and the clock becomes an ambient lamp that costs you nothing extra.
-
 ---
 
-## 15. Set App Time
+## 16. Set App Time
 
 **File:** `awtrix_ng_tc002_set_transition_time.yaml`
 
@@ -1337,8 +1301,6 @@ The Number helper changes.
 |---|---|
 | **App Time Number Helper** | An `input_number` holding the app time **in seconds**. |
 
-That is the whole blueprint. Everything else is the shared display selection.
-
 ### Creating the helper
 
 **Settings → Devices & Services → Helpers → Create Helper → Number**
@@ -1352,17 +1314,11 @@ That is the whole blueprint. Everything else is the shared display selection.
 | Step size | `1` |
 | Unit of measurement | `s` |
 
-### Example
-
-Set the helper to `5` and each app gets five seconds. Set it to `15` and the clock slows right down.
-
-The clock's own default is 7 seconds.
-
-> **Note:** the seconds you enter are converted to milliseconds for you — AWTRIX NG stores this as `appDurationMs`. You never need to think about that.
+The clock's own default is 7 seconds. The blueprint converts the seconds to the milliseconds AWTRIX NG stores (`appDurationMs`).
 
 ---
 
-## 16. Troubleshooting
+## 17. Troubleshooting
 
 ### Nothing appears on the clock
 
@@ -1388,11 +1344,7 @@ Your **Lifetime** is shorter than the interval at which the source data updates.
 
 ### Apps switched themselves on or off
 
-Something published to `<prefix>/cmd/apps/order`. That topic sets the whole arrangement at once: its `disabled` list is the complete off-list, so every app it names is switched off and every app it does not name is switched on.
-
-The [Toggle Built-in Apps](#12-toggle-built-in-apps) blueprint cannot cause this: it only uses the switch of one app at a time and never publishes to this topic. If you still run an older copy of that blueprint, replace it with the current one. Otherwise look at any other automation or script that publishes to this topic.
-
-To put things right, open the **Apps** tab of the clock's web interface and set the switches and the order the way you want them.
+Something published to `<prefix>/cmd/apps/order`, which sets the whole arrangement at once. The current [Toggle Built-in Apps](#13-toggle-built-in-apps) never uses it; look for an older copy of that blueprint, or another automation or script. Put things right on the **Apps** tab of the clock's web interface.
 
 ### The clock reboots or misbehaves
 
@@ -1409,13 +1361,22 @@ The matrix font has no glyph for that character. Emoji and other unusual symbols
 - The sound file does not exist in `/MP3` or `/MELODIES`.
 - The RTTTL string has a typo — test it in the clock's web interface on the **Audio** tab first.
 
-### A Create Notification, Create Sensor App, List Calendar, List ToDo Items or Countdown Timer app does not show up, or shows the old content
+### A layout app does not show up, or shows the old content
+
+This covers the Create Notification, Create Sensor App, List Calendar, List ToDo Items, Countdown Timer and Show Music Assistant App.
+
 
 - The clock rejects a whole layout when one part is wrong, and keeps showing what it had. Check `<prefix>/cmd/apps/pushed/+/result` for the reason. `"outside the display"` means a box is too big — check **Icon Width** and **Icon Height**. An `icon could not be decoded` error means an icon name or web address is wrong.
 - Shows only one line? In the Create Notification the Top Line Text is empty. In the Create Sensor App the Bottom Line Sensor and Text are both empty, or Display Mode is *One large line*. The Countdown Timer always shows the Event Started Message and the Event Reached Text on one line.
 - Icon and text not enlarged in one large line? The clock's **Enlarge apps** setting is off, or the icon is taller than 8 pixels. Set an 8 × 8 **Enlarged Icon** — see [Why an Enlarged Icon?](#why-an-enlarged-icon).
 - A template that reads other entities does not update? Turn on **Refresh every minute**.
-- A line that used a template is suddenly empty or shows the sensor? Since Create Sensor App V2.1 the template goes in the **Text** field — see [Upgrading from V2.0 to V2.1](#upgrading-from-v20-to-v21).
+- A line that used a template is suddenly empty or shows the sensor? Since Create Sensor App V2.1 the template goes in the **Text** field — see [Create Sensor App — from V2.0 to V2.1](#create-sensor-app--from-v20-to-v21).
+
+### The Show Music Assistant App
+
+- **No album cover?** Fill in the **Home Assistant URL**, with `http://`, and without a `/` at the end. A cover over `https` needs a real certificate; a self-signed one fails. The clock's **Log** tab shows a line starting with `picture from` when a cover cannot be loaded.
+- **The buttons still switch apps?** Turn **Use the clock's buttons** on, and check that the clock is selected under AWTRIX Displays (or in Extra MQTT prefixes).
+- **The buttons stay blocked after you removed the automation?** Switch **Block buttons** off on the clock, under **Display → App rotation**.
 
 ### The app name looks mangled
 
@@ -1508,7 +1469,7 @@ The `awtrix_ng_*.yaml` files still exist and are now meant specifically for the 
 3. Create a new automation from the matching **AWTRIX NG TC002** blueprint, with the same toggle helper and settings.
 4. Delete the old automation.
 
-For most blueprints the fields are the same as before. The **Create Sensor App**, **List Calendar**, **List ToDo Items** and **Countdown Timer** are rebuilt for the TC002 with the two-line layout and have new fields — see the upgrade notes in [chapter 6](#upgrading-from-the-earlier-version-v11), [chapter 9](#9-list-calendar), [chapter 10](#10-list-todo-items) and [chapter 11](#11-countdown-timer).
+For most blueprints the fields are the same as before. The **Create Notification**, **Create Sensor App**, **List Calendar**, **List ToDo Items** and **Countdown Timer** are rebuilt for the TC002 with the two-line layout and have new fields — see [Appendix C](#appendix-c--upgrading-from-earlier-versions).
 
 The TC002 has never run AWTRIX 3. If you are moving a TC001 from AWTRIX 3 to AWTRIX NG, see Appendix B of the [TC001 manual](AWTRIX-NG-TC001-MANUAL.md#appendix-b--coming-from-awtrix-3).
 
@@ -1516,10 +1477,80 @@ Full firmware documentation: **[ang.blueforcer.de/tc002](https://ang.blueforcer.
 
 ---
 
+## Appendix C — Upgrading from earlier versions
+
+After updating a blueprint, open each automation made with it once and check the points below.
+
+### Create Notification — from V1.2
+
+Existing automations keep working after you update the blueprint: Notification Text (now Bottom Line Text), Icon, Push Icon, Text Color (now Bottom Line Color), Gradient 1 / Gradient 2, Rainbow Colors, Background Color, Text Case, Effect and all advanced options carry over. With the Top Line Text empty, the notification looks like before: the icon and one line. Things to check:
+
+- The main icon no longer has a default icon. Fill in **Icon** if you relied on it.
+- Using a 16 × 16 icon? Add an 8 × 8 **Enlarged Icon**, or the text stays small on a clock with Enlarge apps on.
+- Want a title? Fill in the new **Top Line Text**.
+
+### Create Sensor App — from V2.0 to V2.1
+
+> **Breaking change:** V2.1 removes the **Top Line Template** and **Bottom Line Template** fields. The **Top Line Text** and **Bottom Line Text** fields now accept template code.
+>
+> Did you use a Template field? Copy the template code to the text field before you upgrade! Or open the automation after updating the blueprint, and **re-enter the template code in the Text field of the same line**. Home Assistant does not move it for you: until you do, that line shows its Sensor, or nothing at all.
+>
+> Automations that only use the Sensor and Text fields keep working as before.
+
+### Create Sensor App — from V1.1
+
+V2.0 has new fields, so an automation made with V1.1 (or with the shared `awtrix_ng_create_sensor_app.yaml`) needs its fields filled in again:
+
+| V1.1 field | V2.0 field |
+|---|---|
+| *(the app was named after the sensor)* | **App Name** — required. Enter the old name (e.g. `sensor_bedroom_co2`) to keep the app's slot on the clock |
+| Sensor | Top Line Sensor |
+| Template (Optional) | Top Line Text — paste the template there |
+| Text Color | Top Line Color |
+| Use Threshold value? / Threshold Value / Low / High colour | Top Line - Threshold Value / Low / High colour. There is no on/off switch any more: entering a Threshold Value turns the threshold colours on |
+| Rainbow Colors | Top Line Rainbow Colors |
+| Gradient 1 / Gradient 2 | gone. Use Rainbow Colors, or the Background Gradient |
+| Push Icon | Push Icon (one large line with Enlarge apps on only) |
+| Background Color, Effect, Text Case | moved to **Layout options** |
+
+### List Calendar — from V1.2
+
+Existing automations keep working after you update the blueprint: the Prefix becomes the Calendar Name, and the calendar settings, alert settings, Icon, Push Icon, Text Color (now Bottom Line Color), Rainbow Colors (now Bottom Line Rainbow Colors), Background Color, Text Case and Effect carry over. Things to check:
+
+- The app now shows **two lines** by default. Set **Display Mode** to *One large line* for the old look.
+- The alert time is **15 minutes** by default, as before. Change **Alert Minutes Before Start** to choose another time — no YAML editing needed any more.
+- The alert is now shown on one line, large or small according to Enlarge apps.
+
+### List ToDo Items — from V1.1
+
+Existing automations keep working after you update the blueprint: the Prefix becomes the Top Line Text, and the icon, Push Icon, Text Color (now Bottom Line Color), Rainbow Colors (now Bottom Line Rainbow Colors), Custom Text, Background Color and Effect carry over. Two things to check:
+
+- The app now shows **two lines** by default. Set **Display Mode** to *One large line* for the old look.
+- The **Icon** no longer defaults to `29644`. If your automation never changed the icon, enter `29644` again.
+
+> **Tip:** this pairs beautifully with a voice assistant. "Add coffee to the shopping list" and it is on the clock a second later.
+
+### Countdown Timer — from V1.1
+
+Existing automations keep working after you update the blueprint: the event fields, Icon, Push Icon, Text Color (now Bottom Line Color), Rainbow Colors (now Bottom Line Rainbow Colors), Background Color, Text Case and Effect carry over. Things to check:
+
+- The countdown now shows **two lines**: the Event Name above the countdown. Set **Display Mode** to *One large line* for the old look.
+- **Gradient 1 / Gradient 2** are gone. Use Rainbow Colors, or the Background Gradient.
+- The start sound is new and plays the Alert Melody by default. Clear the Alert Melody if you want a silent start.
+
+---
+
 # Release Notes
+**V6.9**
+* New: Show Music Assistant App V1.0 (TC002) — see [Show Music Assistant App](#12-show-music-assistant-app)
+  * The album cover (16 × 16) on the left, the artist on the top line, and the song title with a 1-pixel progress bar on the bottom line
+  * While the app is on screen, the clock's right button skips to the next song, the left button to the previous song and the middle button plays or pauses
+  * Show when paused, Progress Update Interval, Switch to app on new song, and the usual fonts, colours, background colour, gradient and effect
+* Manual: shorter and easier to read. The contents list says what every blueprint does, the upgrade notes are collected in [Appendix C](#appendix-c--upgrading-from-earlier-versions), and the Toggle Built-in Apps, Set App Time and Create Sensor App chapters are tightened
+
 **V6.8**
 * Create Sensor App V2.1 (TC002): the **Top Line Template** and **Bottom Line Template** fields are gone. The **Top Line Text** and **Bottom Line Text** fields now accept template code as well as a fixed text, and still have priority over the line's Sensor — see [What a line shows](#what-a-line-shows)
-  * **Breaking change:** if you used a Template field, copy the template code to the text field before you upgrade! Or re-enter the template code in the Text field of the same line after updating the blueprint. Until then that line shows its Sensor, or nothing — see [Upgrading from V2.0 to V2.1](#upgrading-from-v20-to-v21)
+  * **Breaking change:** if you used a Template field, copy the template code to the text field before you upgrade! Or re-enter the template code in the Text field of the same line after updating the blueprint. Until then that line shows its Sensor, or nothing — see [Create Sensor App — from V2.0 to V2.1](#create-sensor-app--from-v20-to-v21)
 
 **V6.7**
 * Create Notification V2.0 (TC002): rebuilt with the same layout as the Create Sensor App — see [Create Notification](#5-create-notification)
