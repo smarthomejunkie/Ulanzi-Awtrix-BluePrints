@@ -4,6 +4,10 @@
 
 Blueprints by **Smart Home Junkie** for the **AWTRIX NG** firmware on the **Ulanzi TC001** and compatible 32 × 8 LED matrix clocks.
 
+<p align="center"><img src="images/ulanzi-tc001.jpg" alt="The Ulanzi TC001 Desktop Clock" width="560"></p>
+
+<p align="center"><em>The Ulanzi TC001 — a 32 × 8 pixel display.</em></p>
+
 **⬇️ Download the blueprints:** sponsor on **[Ko-fi](https://ko-fi.com/s/0d1e4419bd)** — lifetime updates, re-download whenever a new version is released.
 
 > **Have a Ulanzi TC002?** Use the **[AWTRIX NG TC002 manual](AWTRIX-NG-TC002-MANUAL.md)** instead. Since V6.1 there are two separate sets of AWTRIX NG blueprints:

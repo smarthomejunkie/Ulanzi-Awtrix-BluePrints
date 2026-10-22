@@ -1,6 +1,10 @@
 # Ulanzi-Awtrix-3-BluePrints
 Manual for the Awtrix 3 Firmware BluePrints (and the Ulanzi Desktop Clock)
 
+<p align="center"><img src="images/ulanzi-tc001.jpg" alt="The Ulanzi TC001 Desktop Clock" width="560"></p>
+
+<p align="center"><em>The Ulanzi TC001 — a 32 × 8 pixel display.</em></p>
+
 **⬇️ Download the blueprints:** sponsor on **[Ko-fi](https://ko-fi.com/s/0d1e4419bd)** — lifetime updates, re-download whenever a new version is released.
 
 [![This is the BEST MATRIX DISPLAY CLOCK for Home Assistant!](https://img.youtube.com/vi/N0NKPJzGHuA/maxresdefault.jpg)](https://www.youtube.com/watch?v=N0NKPJzGHuA)

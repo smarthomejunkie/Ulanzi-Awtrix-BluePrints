@@ -10,6 +10,11 @@ By [Smart Home Junkie](https://www.youtube.com/@SmartHomeJunkie).
 
 The manuals live on their own pages. Pick the one that matches your clock and the firmware on it:
 
+| Ulanzi TC002 | Ulanzi TC001 |
+|:---:|:---:|
+| <img src="images/ulanzi-tc002.jpg" alt="The Ulanzi TC002 Desktop Clock" width="400"> | <img src="images/ulanzi-tc001.jpg" alt="The Ulanzi TC001 Desktop Clock" width="400"> |
+| 52 × 16 pixels, knob on top, AWTRIX NG only | 32 × 8 pixels, AWTRIX 3 or AWTRIX NG |
+
 | Clock | Firmware | Blueprint files | Manual |
 |---|---|---|---|
 | Ulanzi TC002 | AWTRIX NG | `awtrix_ng_tc002_*.yaml` | **[AWTRIX NG TC002 manual](AWTRIX-NG-TC002-MANUAL.md)** |

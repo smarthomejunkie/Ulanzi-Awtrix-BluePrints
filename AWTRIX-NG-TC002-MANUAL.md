@@ -4,6 +4,10 @@
 
 Blueprints by **Smart Home Junkie** for the **AWTRIX NG** firmware on the **Ulanzi TC002**.
 
+<p align="center"><img src="images/ulanzi-tc002.jpg" alt="The Ulanzi TC002 Desktop Clock" width="560"></p>
+
+<p align="center"><em>The Ulanzi TC002 — a 52 × 16 pixel display with a knob on top.</em></p>
+
 **⬇️ Download the blueprints:** sponsor on **[Ko-fi](https://ko-fi.com/s/0d1e4419bd)** — lifetime updates, re-download whenever a new version is released.
 
 [![
