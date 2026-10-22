@@ -37,7 +37,7 @@ Install Awtrix NG on the Ulanzi TC002: Turn It Into a Home Assistant Voice Displ
 |---|---|---|
 | 5 | [Create Notification](#5-create-notification) | A message that interrupts the display, with an optional title and sound |
 | 6 | [Create Sensor App](#6-create-sensor-app) | Two lines with sensors, texts or templates next to a large icon |
-| 7 | [Weather App](#7-weather-app) | The current weather, in ten languages |
+| 7 | [Weather App](#7-weather-app) | The weather condition above the temperature, wind and humidity, in ten languages |
 | 8 | [Rain Forecast](#8-rain-forecast) | The rain for the next 11 hours as a chart |
 | 9 | [List Calendar](#9-list-calendar) | Your agenda, with an alert before an event starts |
 | 10 | [List ToDo Items](#10-list-todo-items) | The open items from a to-do list |
@@ -86,7 +86,7 @@ If discovery is off, or you have a second clock that is not in Home Assistant, u
 | **Indicators** | Three small groups of pixels on the right-hand edge |
 | **Light sensor** | No, so automatic brightness does nothing |
 
-The Create Notification, Create Sensor App, List Calendar, List ToDo Items, Countdown Timer and Show Music Assistant App blueprints do not use the double-size grid for two lines: they draw an AWTRIX NG **layout** on all 52 × 16 pixels, so they can show a large icon with two lines of text. See [chapter 6](#6-create-sensor-app).
+The Create Notification, Create Sensor App, Weather App, List Calendar, List ToDo Items, Countdown Timer and Show Music Assistant App blueprints do not use the double-size grid for two lines: they draw an AWTRIX NG **layout** on all 52 × 16 pixels, so they can show a large icon with two lines of text. See [chapter 6](#6-create-sensor-app).
 
 ---
 
@@ -145,7 +145,7 @@ The 8×8 image shown to the left of the text. Enter an **icon ID** (a number, e.
 - The same tab installs icons from the [AWTRIX Hub](https://awtrix.de/icons). Those are used by their name.
 - Leave the field empty for no icon — the text then uses the full width of the display.
 - Animated GIFs work. A GIF that is as wide as the app (26 pixels, because apps are drawn at double size) becomes a background image instead of an icon.
-- The Create Notification, Create Sensor App, List Calendar, List ToDo Items and Countdown Timer have a larger icon space and more icon options — see [chapter 6](#fields--icon).
+- The Create Notification, Create Sensor App, Weather App, List Calendar, List ToDo Items and Countdown Timer have a larger icon space and more icon options — see [chapter 6](#fields--icon).
 
 ### Push Icon
 
@@ -157,7 +157,7 @@ What the icon does while the text scrolls past it.
 | **Icon moves with text and will not appear again** | Text shoves the icon off screen once; it stays gone |
 | **Icon moves with text but appears again when the text starts** | Icon is pushed off, then returns on every scroll cycle *(default)* |
 
-In the Create Notification, Create Sensor App, List Calendar, List ToDo Items and Countdown Timer, Push Icon only works for the main icon, in one large line with the clock's Enlarge apps setting on. The small line icons never move. See [chapter 6](#two-lines-or-one-large-line).
+In the Create Notification, Create Sensor App, Weather App, List Calendar, List ToDo Items and Countdown Timer, Push Icon only works for the main icon, in one large line with the clock's Enlarge apps setting on. The small line icons never move. See [chapter 6](#two-lines-or-one-large-line).
 
 ### Text Case
 
@@ -181,7 +181,7 @@ Set these to **two different colours** to paint the text as a gradient from the 
 
 Example: Gradient 1 = yellow, Gradient 2 = red gives a "heat" look that runs across the whole string.
 
-Only Create Notification has the gradient fields, for its Bottom Line Text. The other blueprints offer Rainbow Colors only. The Create Notification, Create Sensor App, List Calendar, List ToDo Items and Countdown Timer also have a **background** gradient — see [chapter 6](#about-the-icons-and-the-gradient).
+Only Create Notification has the gradient fields, for its Bottom Line Text. The other blueprints offer Rainbow Colors only. The Create Notification, Create Sensor App, Weather App, List Calendar, List ToDo Items and Countdown Timer also have a **background** gradient — see [chapter 6](#about-the-icons-and-the-gradient).
 
 ### Rainbow Colors
 
@@ -589,59 +589,87 @@ You choose the name of the app on the clock yourself, in the required **App Name
 
 ## 7. Weather App
 
-**File:** `awtrix_ng_tc002_weather_app.yaml`
+**File:** `awtrix_ng_tc002_weather_app.yaml` · **Blueprint name:** *AWTRIX NG TC002 Weather App* · **Version:** V2.0
 
 ### What it does
 
-Shows the current weather from any Home Assistant `weather` entity: condition, temperature, wind speed and humidity, in the language you choose.
+Shows the current weather from any Home Assistant `weather` entity. It uses the same layout as the [Create Sensor App](#6-create-sensor-app): the weather icon on the left, the **condition** on the top line, and the **temperature, wind speed and humidity** on the bottom line, in the language you choose. Both lines can start with an optional small icon.
+
+```
++----------------+-+--------+-+-----------------------+
+|                | | top    | |  halfbewolkt          |
+|  Weather icon  | | icon   | |                       |
+|    16 × 16     | +--------+ +-----------------------+
+|                | | bottom | |  12.4°C - 8km/h - 71%  |
+|                | | icon   | |                       |
++----------------+-+--------+-+-----------------------+
+```
+
+Choose **One large line** for the look of earlier versions: the icon and one line, `halfbewolkt 12.4°C - 8.6km/h - 71%`.
 
 ### When it runs
 
-Toggle on → app created. Toggle off → app deleted. Weather changes → app updated.
+Toggle on → the app is created and the clock switches to it. Toggle off → the app is deleted. The weather changes → the app is updated (a change to `unavailable` or `unknown` is skipped).
 
-### Fields unique to this blueprint
+### Fields — Weather
 
 | Field | What it does |
 |---|---|
-| **Sensor** | Your weather entity (Met.no, KNMI, OpenWeatherMap — anything in the `weather` domain). |
-| **Show Weather Text** | Include the condition as words ("partly cloudy"). |
+| **Sensor** | Your weather entity (Met.no, KNMI, OpenWeatherMap — anything in the `weather` domain). Also the app name on the clock: `weather.knmi` becomes `weather_knmi`. |
+| **Show Weather Text** | Show the condition as words ("partly cloudy") on the top line. |
 | **Language** | Translates the condition into English, Danish, Dutch, French, German, Italian, Polish, Portuguese, Russian or Spanish. The conditions `exceptional`, `lightning-rainy` and `windy-variant` have no translation and are shown as they are. |
-| **Show temperature** | Append the temperature with its unit. |
-| **Show Wind Speed** | Append the wind speed with its unit. |
-| **Show Humidity** | Append the humidity as a percentage. |
-| **Weather Overlay** | Draws animated rain, snow, drizzle, storm, thunder or frost *on top of* the app. See [Appendix A](#appendix-a--effects-overlays-and-palettes). Leave on *Follow device setting* to use whatever the clock is set to globally. |
+| **Show temperature**, **Show Wind Speed**, **Show Humidity** | Which values the bottom line shows, joined with ` - `. |
 
-The four "show" switches build one line of text, joined with dashes. With all four on, in Dutch, you get something like:
-
-```
-halfbewolkt 12.4°C - 8.6km/h - 71%
-```
+Switch off the condition text, or all three values, and the app is always **one large line** with what is left.
 
 ### The icon is automatic
 
-This blueprint does **not** have an Icon field. It uses the weather condition itself as the icon name — so the clock looks for an icon file named after the current condition.
-
-Upload icons with these exact names to `/ICONS` on your clock:
+This blueprint has **no Icon field**. It uses the weather condition itself as the icon name, so the clock looks for an icon named after the current condition. Upload icons with these exact names on the **Icons** tab of the clock's web interface:
 
 `sunny` · `clear-night` · `cloudy` · `partlycloudy` · `rainy` · `pouring` · `snowy` · `snowy-rainy` · `fog` · `hail` · `lightning` · `lightning-rainy` · `windy` · `windy-variant` · `exceptional`
 
-If an icon is missing, the app simply draws without one — no error, just a wider text area.
+The clock refuses a whole layout when one of its icons is missing. The blueprint listens for the clock's answer and then sends the app again **without icons**, so the weather is still shown — just without the picture.
+
+| Field | What it does |
+|---|---|
+| **Push Icon** | As in the Create Sensor App: only works in one large line on a clock with Enlarge apps on — see [Push Icon](#push-icon). |
+| **Icon Width (Optional)**, **Icon Height (Optional)** | The size of the space for the weather icon. Empty = 16 × 16. An 8 × 8 icon sits small in the middle of the 16 × 16 space; upload 16 × 16 icons for a full-size picture in two lines. |
+
+In one large line with Enlarge apps on, an 8 × 8 weather icon is drawn at 16 × 16. A 16 × 16 icon keeps the app at normal size there — see [Why an Enlarged Icon?](#why-an-enlarged-icon); the Weather App has no Enlarged Icon field.
+
+### Fields — Top line (condition) and Bottom line (values)
+
+| Field | What it does |
+|---|---|
+| **Top Line Icon**, **Bottom Line Icon** (Optional) | A small 8 × 8 icon at the front of the line, e.g. a thermometer before the values. The Bottom Line Icon is not used in one large line. |
+| **Top Line Font**, **Bottom Line Font** | The font of each line. The Top Line Font is also used for one large line. |
+| **Top Line Color** | The colour of the condition. |
+| **Bottom Line Color** | The colour of the values, and of the whole line in one large line without the condition. This was **Text Color** in earlier versions. |
+| **Top / Bottom Line Background Color** | Black *(default)* = no line background — see [Line backgrounds](#line-backgrounds). |
+| **Top Line Rainbow Colors**, **Bottom Line Rainbow Colors** | Rainbow colours per line. Bottom Line Rainbow Colors was **Rainbow Colors** in earlier versions. |
+
+### Layout and Advanced options
+
+**Display Mode**, **Text Alignment**, **Text Case**, **Background Color**, **Background Gradient**, **Effect**, **Repeat**, **Duration**, **Lifetime**, **Switch to app on value change** and **Scroll** work exactly as in the [Create Sensor App](#fields--layout-options).
+
+**Weather Overlay** draws animated rain, snow, drizzle, storm, thunder or frost *on top of* the app — see [Appendix A](#weather-overlays). Leave it on *Follow device setting* to use the clock's own overlay.
 
 ### Example — Dutch weather with rain overlay
 
 | Field | Value |
 |---|---|
 | Sensor | `weather.knmi` |
-| Show Weather Text | On |
 | Language | Dutch |
-| Show temperature | On |
 | Show Wind Speed | Off |
 | Show Humidity | Off |
+| Top Line Color | Yellow |
+| Background Gradient | On, dark blue to black |
 | Weather Overlay | Rain |
-| Scroll Speed Percentage | `80` |
 | Duration | `10` |
 
-> **Tip:** turn Wind Speed and Humidity off unless you like long scrolling text. Condition plus temperature reads well at a glance; all four together takes about eight seconds to scroll past.
+The weather icon, `halfbewolkt` above `12.4°C`, with rain falling over it.
+
+> **Upgrading from an earlier version?** See [Appendix C](#weather-app--from-v11).
 
 ---
 
@@ -1381,7 +1409,7 @@ The matrix font has no glyph for that character. Emoji and other unusual symbols
 
 ### A layout app does not show up, or shows the old content
 
-This covers the Create Notification, Create Sensor App, List Calendar, List ToDo Items, Countdown Timer and Show Music Assistant App.
+This covers the Create Notification, Create Sensor App, Weather App, List Calendar, List ToDo Items, Countdown Timer and Show Music Assistant App.
 
 
 - The clock rejects a whole layout when one part is wrong, and keeps showing what it had. Check `<prefix>/cmd/apps/pushed/+/result` for the reason. `"outside the display"` means a box is too big — check **Icon Width** and **Icon Height**. An `icon could not be decoded` error means an icon name or web address is wrong.
@@ -1488,7 +1516,7 @@ The `awtrix_ng_*.yaml` files still exist and are now meant specifically for the 
 3. Create a new automation from the matching **AWTRIX NG TC002** blueprint, with the same toggle helper and settings.
 4. Delete the old automation.
 
-For most blueprints the fields are the same as before. The **Create Notification**, **Create Sensor App**, **List Calendar**, **List ToDo Items** and **Countdown Timer** are rebuilt for the TC002 with the two-line layout and have new fields — see [Appendix C](#appendix-c--upgrading-from-earlier-versions).
+For most blueprints the fields are the same as before. The **Create Notification**, **Create Sensor App**, **Weather App**, **List Calendar**, **List ToDo Items** and **Countdown Timer** are rebuilt for the TC002 with the two-line layout and have new fields — see [Appendix C](#appendix-c--upgrading-from-earlier-versions).
 
 The TC002 has never run AWTRIX 3. If you are moving a TC001 from AWTRIX 3 to AWTRIX NG, see Appendix B of the [TC001 manual](AWTRIX-NG-TC001-MANUAL.md#appendix-b--coming-from-awtrix-3).
 
@@ -1532,6 +1560,14 @@ V2.0 has new fields, so an automation made with V1.1 (or with the shared `awtrix
 | Push Icon | Push Icon (one large line with Enlarge apps on only) |
 | Background Color, Effect, Text Case | moved to **Layout options** |
 
+### Weather App — from V1.1
+
+Existing automations keep working after you update the blueprint: the weather entity, Show switches, Language, Weather Overlay, Push Icon, Text Color (now Bottom Line Color), Rainbow Colors (now Bottom Line Rainbow Colors), Background Color, Text Case, Effect and the advanced options carry over. Things to check:
+
+- The weather now shows **two lines**: the condition above the values. Set **Display Mode** to *One large line* for the old look.
+- With Rainbow Colors on, only the values are in rainbow colours now. Turn on **Top Line Rainbow Colors** for the condition too.
+- A missing condition icon still shows the weather, without the picture.
+
 ### List Calendar — from V1.2
 
 Existing automations keep working after you update the blueprint: the Prefix becomes the Calendar Name, and the calendar settings, alert settings, Icon, Push Icon, Text Color (now Bottom Line Color), Rainbow Colors (now Bottom Line Rainbow Colors), Background Color, Text Case and Effect carry over. Things to check:
@@ -1560,6 +1596,15 @@ Existing automations keep working after you update the blueprint: the event fiel
 ---
 
 # Release Notes
+**V6.11**
+* Weather App V2.0 (TC002): rebuilt with the same layout as the Create Sensor App — see [Weather App](#7-weather-app)
+  * The weather icon on the left, the condition on the top line and the temperature, wind speed and humidity on the bottom line
+  * Optional 8 × 8 Top Line Icon and Bottom Line Icon, adjustable icon size and Push Icon
+  * Per-line font, colour, background colour and rainbow colours; background colour, vertical gradient, effect and weather overlay
+  * Display Mode: two lines, or one large line as in earlier versions, following the clock's Enlarge apps setting
+  * The icon is still the weather condition. When the clock does not have that icon, the app is sent again without icons, so the weather is still shown
+  * The weather handling is unchanged: same entity, conditions, ten languages, Show switches and app name
+
 **V6.10**
 * Show Music Assistant App V1.1 (TC002): new option **Stop app rotation while playing**. While music plays, the clock's automatic rotation is switched off and the clock stays on the Music Assistant app; 10 seconds after the music stops or pauses, or when the toggle goes off, the rotation is switched on again so the other apps are shown — see [Stopping the rotation while playing](#stopping-the-rotation-while-playing)
 
