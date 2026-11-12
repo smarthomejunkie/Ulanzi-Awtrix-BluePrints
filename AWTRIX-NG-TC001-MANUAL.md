@@ -1048,6 +1048,9 @@ Full firmware documentation: **[ang.blueforcer.de](https://ang.blueforcer.de/)**
 ---
 
 # Release Notes
+**V6.13**
+* Create Sensor App has a new optional **App Name** field. Fill it in to choose the name the app gets on the clock; leave it empty and the sensor name is used, as before
+
 **V6.1**
 * The AWTRIX NG blueprints are now two sets: `awtrix_ng_*.yaml` for the TC001 (this manual) and `awtrix_ng_tc002_*.yaml` for the TC002 ([TC002 manual](AWTRIX-NG-TC002-MANUAL.md)). The TC001 blueprints themselves are unchanged
 
