@@ -319,6 +319,7 @@ The app is **not** updated while the entity is `off`, `idle`, `unavailable` or `
 | Field | What it does |
 |---|---|
 | **Sensor** | The entity to display. Its state, rounded and with its unit, becomes the text. |
+| **App Name (Optional)** | A custom name for the app, used as its identifier on the clock. Leave it empty to use the name of the sensor. See [App naming](#app-naming). |
 | **Template (Optional)** | Format the value yourself. Overrides the plain state — see the examples below. |
 | **Use Threshold value?** | Turns on colour-by-value. |
 | **Threshold Value** | The number the sensor is compared against. |
@@ -377,7 +378,11 @@ Below 1000 ppm the number is green; at 1000 and above it turns red. If the senso
 
 ### App naming
 
-Each copy of this blueprint creates an app on the clock named after the sensor entity, with dots turned into underscores and trimmed to 32 characters. `sensor.bedroom_co2` becomes the app `sensor_bedroom_co2`.
+Each copy of this blueprint creates an app on the clock. By default the app is named after the sensor entity, with dots turned into underscores and trimmed to 32 characters. `sensor.bedroom_co2` becomes the app `sensor_bedroom_co2`.
+
+Want a shorter or friendlier name? Fill in **App Name (Optional)** and that name is used instead. `Bedroom CO2` becomes the app `Bedroom_CO2`. The same rules apply: only letters, digits, `-` and `_` are kept (anything else becomes an underscore) and the name is trimmed to 32 characters. Leave the field empty and the sensor name is used, exactly as before.
+
+> **Note:** every copy of the blueprint needs its own app name. If two automations end up with the same name, they overwrite each other's app on the clock.
 
 Two consequences worth knowing:
 
