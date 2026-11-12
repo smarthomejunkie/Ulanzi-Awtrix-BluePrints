@@ -8,6 +8,8 @@ Blueprints by **Smart Home Junkie** for the **AWTRIX NG** firmware on the **Ulan
 
 <p align="center"><em>The Ulanzi TC002 — a 52 × 16 pixel display with a knob on top.</em></p>
 
+Get the TC002 with a discount of 10% with coupon code ed10 at https://www.ulanzi.com/collections/clock/products/tc002-pixbar-smart-pixel-clock-ii?aff=903
+
 **⬇️ Download the blueprints:** sponsor on **[Ko-fi](https://ko-fi.com/s/0d1e4419bd)** — lifetime updates, re-download whenever a new version is released.
 
 [![
