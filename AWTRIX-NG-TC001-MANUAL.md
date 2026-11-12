@@ -51,6 +51,7 @@ These are the AWTRIX 3 blueprints, rebuilt for AWTRIX NG. If you are coming from
 16. [Troubleshooting](#16-troubleshooting)
 - [Appendix A — Effects, overlays and palettes](#appendix-a--effects-overlays-and-palettes)
 - [Appendix B — Coming from AWTRIX 3](#appendix-b--coming-from-awtrix-3)
+- [Release Notes](#release-notes)
 
 ---
 
